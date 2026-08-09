@@ -1,0 +1,131 @@
+{
+  "last_checked": "2026-08-09T12:00:00+09:00",
+  "sources": [
+    {
+      "key": "platform",
+      "label": "Claude Platform",
+      "description": "Claude API・クライアントSDK・Claude Consoleの更新",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview"
+    },
+    {
+      "key": "claude-code",
+      "label": "Claude Code",
+      "description": "Claude Code(CLI/エディタ拡張)の更新",
+      "url": "https://code.claude.com/docs/en/changelog"
+    },
+    {
+      "key": "claude-apps",
+      "label": "Claude Apps",
+      "description": "claude.ai / Cowork などコンシューマ向けアプリの更新",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
+    {
+      "key": "anthropic-news",
+      "label": "Anthropic News",
+      "description": "モデル発表や会社としての発表",
+      "url": "https://www.anthropic.com/news"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-08-08-claude-code-sendmessage",
+      "date": "2026-08-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeでセッションをまたいだ SendMessage が可能に",
+      "summary_ja": "Claude Codeのセッション同士が名前で直接メッセージを送り合える `SendMessage` 機能が追加された(macOS/Linux)。`ListAgents` を使うと、同じマシンのセッションだけでなく他のマシン上の Remote Control セッションも名前付きで見つけられる。あわせて、ゲートウェイの利用上限に達した際の警告に上限額とリセット時刻が表示されるようになった。",
+      "usage_example_ja": "この会社で実践している「バックグラウンドで複数の調査エージェントを並列起動し、完了通知を待つ」運用が、同一マシン内に限らず複数セッション間でも直接連携できる可能性がある。オーナー不在時の並列処理パターン(learnings.md 2026-07-04)を今後さらに拡張できるかもしれない。",
+      "tags": ["Claude Code", "マルチエージェント"]
+    },
+    {
+      "id": "2026-08-07-claude-code-self-hosted",
+      "date": "2026-08-07",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeに「セルフホスト環境」が追加(Team/Enterprise向け)",
+      "summary_ja": "`claude self-hosted-runner` コマンドにより、自分のマシンやコンテナを Claude Code web/モバイル/デスクトップセッションの実行場所にできるようになった。Team・Enterprise プランで利用可能。",
+      "usage_example_ja": "現状は個人開発の規模では対象外(Team/Enterprise限定)。将来、社内ルールに記録している「EC2常時起動案」(learnings.md 2026-07-03、コスト不透明で保留)を再検討する材料になり得る。",
+      "tags": ["Claude Code", "インフラ"]
+    },
+    {
+      "id": "2026-08-07-managed-agents-skills-from-github",
+      "date": "2026-08-07",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Managed Agentsが、GitHubリポジトリのスキルを自動読み込み",
+      "summary_ja": "Managed Agentsのセッションが、マウントしたGitHubリポジトリのルート `.claude/skills` ディレクトリにあるスキルをセッション開始時に自動検出・利用できるようになった。",
+      "usage_example_ja": "この会社の `.claude/skills/`(project-kickoff・market-research等)をリポジトリ直下に置く現行の運用は、将来Managed Agents文脈に持ち込んでもそのまま活きる設計だと確認できる。",
+      "tags": ["Managed Agents", "スキル"]
+    },
+    {
+      "id": "2026-08-05-opus-4-1-retired",
+      "date": "2026-08-05",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Opus 4.1が提供終了",
+      "summary_ja": "Claude Opus 4.1(claude-opus-4-1-20250805)モデルの提供が終了し、同モデルへのリクエストはエラーになる。Claude Opus 5へのアップグレードが推奨されている。",
+      "usage_example_ja": "旧モデルIDをコードや設定に固定している場合は更新が必要。この会社はサブエージェントのモデルを `.claude/agents/*.md` のfrontmatterで個別指定しているため、モデル退役のたびにここを点検する運用(learnings.md 2026-07-13の教訓)が活きる。",
+      "tags": ["モデル退役"]
+    },
+    {
+      "id": "2026-07-24-opus-5",
+      "date": "2026-07-24",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Opus 5 が登場",
+      "summary_ja": "Claude Opus 4.8から性能を大きく引き上げた「Claude Opus 5」(claude-opus-5)が公開された。1Mトークンのコンテキストウィンドウ(デフォルトかつ上限)、最大128kトークンの出力、標準で有効な思考(thinking)機能に対応。価格はClaude Opus 4.8と同じ$5/$25 per MTok。",
+      "usage_example_ja": "個人開発では、複雑な設計判断やアプリ全体のアーキテクチャ検討などコストより精度を優先したい場面でOpusを使うのが向く。日常のコーディング作業はSonnetで十分なことが多く、Opusは投資判断が絡む重要な場面に絞って使うとコストを抑えられる(CLAUDE.md「モデルの使い分け」と同じ考え方)。",
+      "tags": ["新モデル", "Opus"]
+    },
+    {
+      "id": "2026-07-17-workbench-sunset",
+      "date": "2026-07-17",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "レガシー版Workbenchが8/17でサンセット",
+      "summary_ja": "Claude Console内の旧Workbench(platform.claude.com/workbench)へのアクセスが2026年8月17日に終了する。保存済みプロンプト・変数・evalは新Workbenchに引き継がれないため、必要なデータは事前にエクスポートが必要。",
+      "usage_example_ja": "Claude ConsoleでAPIプロンプトを試作している場合は影響があるが、この会社はClaude Code中心の運用のため直接の影響は小さい。念のため知識として記録。",
+      "tags": ["Console", "廃止予定"]
+    },
+    {
+      "id": "2026-06-30-sonnet-5",
+      "date": "2026-06-30",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Sonnet 5 が登場、9月から通常料金に",
+      "summary_ja": "次世代のSonnetモデル「Claude Sonnet 5」(claude-sonnet-5)が公開。1Mトークンのコンテキストウィンドウ、最大128kトークンの出力に対応し、2026年8月31日までは$2/$10 per MTokの導入価格(9月1日以降は$3/$15の通常料金)。適応的思考(adaptive thinking)がデフォルトで有効になった。",
+      "usage_example_ja": "この会社のメインセッションが2026-07-13にOpus 5へ移行する前は主力だったモデル。トークナイザーが変わり同じ文章でも約30%トークン数が増える点は、長い会話が続くセッションのコスト試算で意識しておきたい。",
+      "tags": ["新モデル", "Sonnet", "料金"]
+    },
+    {
+      "id": "2026-06-26-rate-limits",
+      "date": "2026-06-26",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude APIのレート制限を引き上げ、利用ティアを3段階に整理",
+      "summary_ja": "Claude Sonnet・HaikuのレートリミットがClaude Opusと同水準に引き上げられた。利用ティアはStart/Build/Scaleの3段階に整理され、ほとんどの組織はより上位のティアに移行する(下位ティアへの変更はない)。",
+      "usage_example_ja": "個人開発の規模では上限に達することは稀だが、複数アプリを並行運用しAPI経由で機能を作る際に制限を気にする場面が減る。",
+      "tags": ["API", "レート制限"]
+    },
+    {
+      "id": "2026-06-09-fable-5-and-scheduled-deployments",
+      "date": "2026-06-09",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "最上位モデル「Claude Fable 5」登場、Managed Agentsにスケジュール実行機能も",
+      "summary_ja": "最も高性能で広く一般提供されるモデル「Claude Fable 5」(claude-fable-5)と、Project Glasswing参加者向け「Claude Mythos 5」が公開。ともに1Mトークンのコンテキストウィンドウ・常時オンの適応的思考に対応。同日、Claude Managed Agentsに「スケジュール実行(cron)」機能が追加され、自前のスケジューラを持たずにcron式でセッションを定期実行できるようになった。",
+      "usage_example_ja": "本サイトの「日次更新」はこのスケジュール実行の仕組み(Claude Code RemoteのRoutine機能)を使って実現している。まさに今回のアップデートの実例。",
+      "tags": ["新モデル", "Fable", "スケジュール実行"]
+    },
+    {
+      "id": "2026-08-anthropic-news-ai-for-science",
+      "date": "2026-08-01",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Anthropicが希少遺伝性疾患研究向けにAIクレジット助成プログラムを開始",
+      "summary_ja": "希少遺伝性疾患を研究する研究者向けに、6ヶ月間で最大5万ドル相当のClaudeクレジットを提供する「AI for Science」助成プログラムの応募受付が始まった。",
+      "usage_example_ja": "オーナーの副業には直接関係しないが、Anthropicが研究支援にも力を入れている動きとして記録。",
+      "tags": ["Anthropic", "研究助成"]
+    }
+  ]
+}
