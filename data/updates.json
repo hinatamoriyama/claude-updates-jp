@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-09T12:00:00+09:00",
+  "last_checked": "2026-08-22T22:32:04+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,86 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-20-claude-code-concise-output-style",
+      "date": "2026-08-20",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeに簡潔な出力スタイル「Concise」を追加",
+      "summary_ja": "Claude Code (v2.1.237) に組み込みの出力スタイル「Concise」が追加された。前置きや経過説明を省き、作業の丁寧さはそのままに結果から述べるようになる。`/config` の Output style から選択できる。",
+      "usage_example_ja": "日次アップデート反映のような定型的な自動実行タスクでは、余計な前置きが省かれることで実行ログが読みやすくなる。ログを見返して結果だけ素早く確認したい場面で有効。",
+      "tags": ["Claude Code", "出力スタイル"]
+    },
+    {
+      "id": "2026-08-19-platform-files-skills-api-ga",
+      "date": "2026-08-19",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Files APIとAgent Skills APIが正式版に",
+      "summary_ja": "Claude APIのFiles API(`/v1/files`)とAgent Skills API(`/v1/skills`)がベータを終了し正式版になった。それぞれ `files-api-2025-04-14`・`skills-2025-10-02` ベータヘッダーが不要になり、ファイルの有効期限設定やページネーションなど現行仕様がヘッダーなしのリクエストでも使える。既存のベータヘッダー付きリクエストは引き続き動作する。",
+      "usage_example_ja": "APIでファイルアップロードやカスタムSkillsを使う個人開発のアプリでベータヘッダーの記述が不要になり、実装がシンプルになる。",
+      "tags": ["API", "Files API", "Agent Skills"]
+    },
+    {
+      "id": "2026-08-19-platform-computer-browser-use-ga",
+      "date": "2026-08-19",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Computer useツールが正式版に、新しいBrowser useツールも登場",
+      "summary_ja": "Claude APIのcomputer useツールがベータを終了し `computer_toolset_20260801` として正式版になった(ベータヘッダー不要、1ターンで複数操作、zoomがデフォルト有効)。あわせて、アプリ側が用意するブラウザ内で動作する新しい `browser_toolset_20260801`(browser useツール)も公開され、画面のスクリーンショットではなくページのアクセシビリティツリーを直接読み取って操作できる。ともにClaude Fable 5・Mythos 5・Opus 5・Sonnet 5・Opus 4.8で利用可能。",
+      "usage_example_ja": "ブラウザ操作を伴う個人開発の自動化(例: 管理画面でのデータ入力代行ツール)を作る場合、browser useツールを使うとスクリーンショット解析より正確かつ低コストにフォーム入力やタブ操作を実装できる可能性がある。",
+      "tags": ["API", "Computer use", "Browser use"]
+    },
+    {
+      "id": "2026-08-18-platform-workbench-to-playground",
+      "date": "2026-08-18",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude ConsoleのWorkbenchが「Playground」にリニューアル",
+      "summary_ja": "Claude Console内のWorkbenchが「Playground」として刷新された。Messages APIの全パラメータに対応し、コード実行やWeb検索などAPI機能を試せるテンプレートを用意。各実行ごとに完全なSDKリクエストとAPIレスポンスを確認できる。",
+      "usage_example_ja": "APIの新しいパラメータやツールを本番コードに組み込む前に、Playgroundでリクエスト・レスポンスの形を確認してから実装すると手戻りが減る。",
+      "tags": ["Console", "Playground"]
+    },
+    {
+      "id": "2026-08-17-claude-code-usage-limit-auto-continue",
+      "date": "2026-08-17",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code、利用上限リセット時にセッションを自動再開",
+      "summary_ja": "Claude Code (v2.1.234) は、claude.aiの利用上限に達して中断したセッションを、上限がリセットされたタイミングで自動的に再開するようになった。`/config` の「Continue automatically at usage limit」でオフにできる。",
+      "usage_example_ja": "長時間の自動実行タスクが利用上限で止まってしまっても、リセット後に手動で再開する手間がなくなる。オーナー不在時の日次自動実行や長時間タスクの安定運用に直結する改善。",
+      "tags": ["Claude Code", "利用上限"]
+    },
+    {
+      "id": "2026-08-13-claude-code-subagent-forking-default",
+      "date": "2026-08-13",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code、Subagent forkingがデフォルト有効に",
+      "summary_ja": "Claude Code (v2.1.232) で、`subagent_type: \"fork\"` のサブエージェントが会話全体とプロンプトキャッシュを引き継ぐ「Subagent forking」がデフォルトで有効になった。あわせて、対話セッション内でチームメイト以外のエージェントを起動すると既定でバックグラウンド実行になる。プロンプト中で `@` を入力すると名前で別のClaudeセッションにメンションでき、`SendMessage` で直接やり取りできるようになった。",
+      "usage_example_ja": "サブエージェントに親セッションの文脈をそのまま引き継がせたい調査・実装タスクで、プロンプトキャッシュが効いたままフォークできるためコストと待ち時間を抑えられる。複数セッションを併走させる運用でも `@` メンションで直接呼びかけられ、連携がしやすくなる。",
+      "tags": ["Claude Code", "サブエージェント", "マルチエージェント"]
+    },
+    {
+      "id": "2026-08-12-claude-apps-cowork-chrome-side-panel",
+      "date": "2026-08-12",
+      "source": "claude-apps",
+      "source_url": "https://claude.com/blog/cowork-chrome-side-panel",
+      "title_ja": "ChromeのサイドパネルがフルのClaude Coworkセッションに",
+      "summary_ja": "Claude in ChromeのサイドパネルがClaude Coworkの本セッションとして動作するようになった。会話履歴が保存され、スキルやコネクタもブラウザ内でそのまま使え、ブラウザで始めた作業をデスクトップ・Web・モバイルアプリで続きから再開できる。Max・Teamプランでまず提供され、Proプランには順次展開。Enterpriseではデフォルトオフで管理者が許可ドメインを限定して有効化できる。",
+      "usage_example_ja": "ブラウザで軽く調べ物を始めて、続きをデスクトップのClaude Codeやアプリで仕上げるといった使い方がしやすくなる。ブラウザ操作を伴う調査タスクの入口として使える。",
+      "tags": ["Claude Apps", "Cowork", "Chrome"]
+    },
+    {
+      "id": "2026-08-10-platform-sonnet-5-pricing-permanent",
+      "date": "2026-08-10",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Sonnet 5の導入価格が正式価格に(値上げなし)",
+      "summary_ja": "Claude Sonnet 5の導入価格($2/$10 per MTok)がそのまま正式価格になった。2026年9月1日に予定されていた$3/$15への値上げは実施されない。",
+      "usage_example_ja": "コスト試算をSonnet 5の値上げ後価格で見込んでいた場合は再計算不要。個人開発でのランニングコストを引き続き低く見積もれる。",
+      "tags": ["料金", "Sonnet"]
+    },
     {
       "id": "2026-08-08-claude-code-sendmessage",
       "date": "2026-08-08",
