@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-22T22:32:04+09:00",
+  "last_checked": "2026-08-23T09:07:23+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,36 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-21-claude-code-api-upgrade-command",
+      "date": "2026-08-21",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeに`/claude-api upgrade`コマンドが追加、Python SDK 1.x移行を支援",
+      "summary_ja": "Claude Code v2.1.239で `/claude-api upgrade` コマンドが追加され、`anthropic` Pythonパッケージを0.x系から1.x系へ移行する作業を支援できるようになった。同バージョンではこの他、データ常駐ワークスペース向けのコスト見積もりに1.1倍の米国限定推論プレミアムを反映する変更や、Alpine/musl環境でのネイティブ画像貼り付け対応なども行われた。",
+      "usage_example_ja": "後述のPython SDK v1.0化に伴って自作スクリプトのマイグレーションが必要になった場合、Claude Code上でこのコマンドを実行すれば、破壊的変更(temperature/top_p/top_k削除など)への追従を自動化できる可能性がある。個人開発のツールを最新SDKに追従させる作業を減らせる。",
+      "tags": ["Claude Code", "Python SDK", "コマンド"]
+    },
+    {
+      "id": "2026-08-20-platform-python-sdk-v1",
+      "date": "2026-08-20",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Python SDKがv1.0に、HTTP層がhttpx2へ移行(破壊的変更あり)",
+      "summary_ja": "Claude API公式Python SDKのv1.0がリリースされた。HTTP層が`httpx`から互換フォークの`httpx2`に置き換わり、Python 3.10以上が必須になった。レガシーなText Completions API、Messages系メソッドの`temperature`/`top_p`/`top_k`パラメータ、Tool Runnerのクライアント側`compaction_control`など、長期非推奨だった機能が削除された。非同期クライアントの`.with_raw_response`結果は`await response.parse()`が必要になり、`AnthropicBedrock`はAWSリージョン未設定時にエラーを返すようになった(従来は`us-east-1`にフォールバック)。",
+      "usage_example_ja": "個人開発でAnthropic公式Python SDKを使っている場合、v1へのアップデート前に移行ガイドを確認し、`temperature`等のサンプリングパラメータを使っていないか、非同期クライアントの`.with_raw_response`呼び出し箇所がないかをチェックしておくと、更新時のエラーを防げる。",
+      "tags": ["Python SDK", "API", "破壊的変更"]
+    },
+    {
+      "id": "2026-08-20-claude-code-memory-leak-fix",
+      "date": "2026-08-20",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code、長時間セッションでのメモリ増加を修正",
+      "summary_ja": "Claude Code v2.1.238で、長時間の対話セッションにおいてメモリ使用量が際限なく増加していく不具合が修正された。同バージョンでは他に、Bashライクな操作を可能にする`keybindingFlavor`設定の追加や、プラグインマーケットプレイス向けのHTTPヘッダー生成コマンド`headersHelper`の追加なども行われた。",
+      "usage_example_ja": "このサイトの日次自動更新Routineのように、長時間・繰り返しセッションを保持して運用する自動化タスクでは、メモリ関連の不具合修正によって安定性が向上する。長時間起動しっぱなしのClaude Codeセッションを運用している場合はアップデートしておくとよい。",
+      "tags": ["Claude Code", "安定性"]
+    },
     {
       "id": "2026-08-20-claude-code-concise-output-style",
       "date": "2026-08-20",
