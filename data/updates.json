@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-25T09:10:35+09:00",
+  "last_checked": "2026-08-26T09:10:22+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,46 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-25-claude-code-prompt-cache-ttl",
+      "date": "2026-08-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeにプロンプトキャッシュ保持時間の個別設定機能が追加",
+      "summary_ja": "Claude Code v2.1.243で `promptCacheTtl` と `subagentPromptCacheTtl` の設定が追加され、メイン会話とサブエージェントでプロンプトキャッシュの保持時間を別々に制御できるようになった。これにより、メイン会話は1時間キャッシュを維持しつつ、サブエージェントは5分のままにする、といった使い分けが可能になる。",
+      "usage_example_ja": "「一人AI会社」のように長時間の自動化ループを回す場合、メインセッションのキャッシュを長めに保ってコストを抑えつつ、使い捨てのサブエージェントは短いTTLのままにするなど、settings.jsonでの細かいコスト調整に使える。",
+      "tags": ["Claude Code", "コスト最適化", "設定"]
+    },
+    {
+      "id": "2026-08-25-claude-code-usage-loops",
+      "date": "2026-08-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "`/usage`にLoop(定期実行)ごとの内訳表示が追加",
+      "summary_ja": "Claude Code v2.1.243で `/usage` コマンドに、Loopごとの実行回数・合計トークン数・実行あたりのトークン数・最終実行時刻を表示する内訳が追加された。",
+      "usage_example_ja": "日次実行のRoutineなど複数のLoopを運用している場合、どのLoopがどれだけトークンを消費しているかを`/usage`で可視化でき、コスト管理や実行頻度の見直しに役立つ。",
+      "tags": ["Claude Code", "Loop", "使用状況"]
+    },
+    {
+      "id": "2026-08-25-claude-code-remote-mcp-reconnect",
+      "date": "2026-08-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "非対話・SDKセッションでリモートMCPサーバーが自動再接続するよう修正",
+      "summary_ja": "Claude Code v2.1.243で、非対話モード(`-p`)やSDKセッションにおいてリモートMCPサーバーの接続が切断された後、二度と復旧しなかった不具合が修正され、自動的に再接続するようになった。",
+      "usage_example_ja": "自動化スクリプトやCI、Agent SDK経由でMCP連携のツールを使っている場合、接続断による処理停止のリスクが減り、無人実行時の安定性が上がる。",
+      "tags": ["Claude Code", "MCP", "安定性"]
+    },
+    {
+      "id": "2026-08-25-claude-code-auto-mode-safety",
+      "date": "2026-08-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Auto ModeにBashワイルドカードルールの警告と設定タブを追加",
+      "summary_ja": "Claude Code v2.1.246で、サブコマンドの前にワイルドカードを使うBash許可ルール(例: `Bash(git * main)`)に対する起動時警告が追加され、`/permissions`にAuto modeの分類ルールを確認・編集できるタブが追加された。非常に大きなセッションでAuto modeのツール呼び出しが安全確認のタイムアウトにより誤って拒否される不具合も修正された。",
+      "usage_example_ja": "Auto modeで自動承認を使っている場合、意図せず広範囲を許可してしまうルールに気づきやすくなり、`/permissions`から設定を見直せるようになる。",
+      "tags": ["Claude Code", "Auto Mode", "安全性"]
+    },
     {
       "id": "2026-08-21-claude-code-api-upgrade-command",
       "date": "2026-08-21",
