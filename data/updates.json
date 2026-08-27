@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-26T09:10:22+09:00",
+  "last_checked": "2026-08-27T09:08:40+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,16 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-25-claude-apps-shared-memory",
+      "date": "2026-08-25",
+      "source": "claude-apps",
+      "source_url": "https://www.anthropic.com/news/memory",
+      "title_ja": "Claudeの「メモリ」がチャットとCoworkで統合・共有に",
+      "summary_ja": "claude.aiのチャットとCoworkでそれぞれ別々に管理されていた「メモリ」機能が統合され、片方でClaudeに伝えた内容がもう一方の場でも引き継がれるようになった。設定 > メモリの「トピック」画面で、記憶されている内容を一覧・編集・削除できる。健康状態・人種・民族・性自認・宗教・政治的信条などのセンシティブな話題は、「センシティブなトピックを含める」を有効にしない限り記憶されない。メモリはFree/Pro/Maxプランではデフォルトで有効、Team/Enterpriseプランではデフォルトで無効。",
+      "usage_example_ja": "「一人AI会社」のようにチャットでの相談とCoworkでの作業タスクを行き来する運用スタイルの場合、プロジェクトの背景や好みを毎回説明し直す必要が減り、両方の場で一貫した文脈を保ったまま指示できるようになる。センシティブな話題を含む相談をする際は、事前にメモリ設定を確認しておくと安心。",
+      "tags": ["claude.ai", "Cowork", "メモリ"]
+    },
     {
       "id": "2026-08-25-claude-code-prompt-cache-ttl",
       "date": "2026-08-25",
