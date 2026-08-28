@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-27T09:08:40+09:00",
+  "last_checked": "2026-08-28T09:07:07+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,56 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-27-claude-apps-cowork-builtin-browser",
+      "date": "2026-08-27",
+      "source": "claude-apps",
+      "source_url": "https://claude.com/blog/cowork-built-in-browser",
+      "title_ja": "Claude Coworkに専用の内蔵ブラウザが追加",
+      "summary_ja": "Claudeデスクトップアプリ内のCoworkに、拡張機能不要の内蔵ブラウザが追加された。タスクにWebサイトの操作が必要な場合、サイドパネルにブラウザが開きClaudeがページの閲覧・クリック・入力・フォーム記入などを行う。自分のブラウザとは分離されており、タブやパスワードなどは共有されない。まずPro/Max/Teamプランのデスクトップアプリ(macOS/Windows/Linux、Linuxはベータ)に順次展開され、Enterpriseプランでは管理者が組織設定からすぐに有効化できる。既にClaude in Chromeを使っている場合はそちらが引き続きデフォルトのまま動作し、設定からブラウザを切り替えられる。",
+      "usage_example_ja": "コネクタが用意されていない管理画面でのフォーム入力やダッシュボードからの数値取得など、ブラウザ操作を伴う定型作業をCowork上で完結できるようになる。「一人AI会社」のようにブラウザ拡張のセットアップを省きたい場合、内蔵ブラウザを使えば追加インストールなしにClaudeへ作業を任せられる。",
+      "tags": ["Claude Apps", "Cowork", "ブラウザ"]
+    },
+    {
+      "id": "2026-08-27-claude-code-restricted-mode",
+      "date": "2026-08-27",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeに`--restricted`起動オプションが追加",
+      "summary_ja": "Claude Code v2.1.248で `--restricted`(環境変数 `CLAUDE_CODE_RESTRICTED=1` でも指定可)が追加された。コマンドやコードを実行する組み込みツールと `WebFetch`(`--tools` で明示しない限り)を無効化し、ファイル操作系ツールを作業ディレクトリ内に限定、`bypassPermissions` を拒否し、ユーザー・プロジェクト・ローカルの設定ファイルを無視する制限モード。",
+      "usage_example_ja": "信頼できないリポジトリやスクリプトを一時的に調査させたい場合など、実行権限を絞った安全なモードでClaude Codeを起動できる。個人開発でも、外部から取得したコードをレビューだけさせたい場面で活用できる。",
+      "tags": ["Claude Code", "安全性", "起動オプション"]
+    },
+    {
+      "id": "2026-08-27-claude-code-agent-cache-ttl",
+      "date": "2026-08-27",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "サブエージェントごとにプロンプトキャッシュTTLを個別設定可能に",
+      "summary_ja": "Claude Code v2.1.248で、エージェントのfrontmatterに `experimental.cacheTtl`(`\"5m\"` または `\"1h\"`)を設定できるようになった。サブエージェント用のTTL設定が別途構成されていない場合に、そのエージェント専用のプロンプトキャッシュ保持時間として使われる。8/25に追加された `promptCacheTtl`/`subagentPromptCacheTtl` に続く、さらに細かい単位でのキャッシュ制御機能。",
+      "usage_example_ja": "`.claude/agents/*.md` でエージェントごとにモデルを使い分けている場合と同様に、頻繁に呼び出す調査用サブエージェントだけ1時間キャッシュにして、使い捨てのサブエージェントは5分のままにするといった、エージェント単位でのコスト調整が可能になる。",
+      "tags": ["Claude Code", "サブエージェント", "コスト最適化"]
+    },
+    {
+      "id": "2026-08-27-claude-code-cross-session-messaging-cloud",
+      "date": "2026-08-27",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "セッション間メッセージング機能がBedrock/Vertex/Foundry環境でも利用可能に",
+      "summary_ja": "Claude Code v2.1.248で、同一マシン上のセッション同士がメッセージを送り合う `SendMessage`/`ListAgents` 機能が、Amazon Bedrock・Google Vertex・Microsoft Foundry経由の利用や、テレメトリを無効化した環境でも使えるようになった。",
+      "usage_example_ja": "クラウドプロバイダ経由でClaude Codeを使っている場合でも、複数セッションを並列起動して`SendMessage`で連携させる運用パターンがそのまま適用できるようになる。",
+      "tags": ["Claude Code", "マルチエージェント"]
+    },
+    {
+      "id": "2026-08-27-platform-personal-service-account-keys",
+      "date": "2026-08-27",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Consoleに「個人キー」「サービスアカウントキー」が追加",
+      "summary_ja": "Claude Consoleで、個人として動作する「個人キー」と、サービスアカウントとして動作する「サービスアカウントキー」を作成できるようになった。いずれも紐づくアカウントと同じ権限を持ち、そのアカウントが組織から外れると使えなくなる。特定のワークスペースに限定することも、管理系エンドポイントや全ワークスペースにまたがる利用に設定することもできる。従来のワークスペースAPIキーはレガシーオプションとして引き続き利用可能。",
+      "usage_example_ja": "個人開発でAPIキーを発行する際、誰がどのキーをどの用途で使っているかを追跡しやすくなる。キー流出時に無効化する範囲を個人・サービス単位で絞り込みたい場合にも有効。",
+      "tags": ["API", "Console", "APIキー"]
+    },
     {
       "id": "2026-08-25-claude-apps-shared-memory",
       "date": "2026-08-25",
