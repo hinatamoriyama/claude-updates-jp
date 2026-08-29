@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-28T09:07:07+09:00",
+  "last_checked": "2026-08-29T09:10:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,26 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-28-anthropic-news-model-hardware-standard",
+      "date": "2026-08-28",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+      "title_ja": "ロボット・実験機器連携の新標準MHSをプレビュー公開",
+      "summary_ja": "AnthropicはClaudeなどのAIアシスタントとロボットや科学・製造機器を接続するための新しいソフトウェア標準「Model Hardware Standard(MHS)」をリサーチプレビューとして公開した。MHSは機器の安全な操作範囲(速度や角度の制限など)を標準化されたファイルに記述し、紙のマニュアルや専門家の暗黙知に頼らずAIが機器の使い方を理解できるようにする。標準化されたドライバ・自然言語のデバイスタグ・MCP互換の制御を備え、顕微鏡や液体ハンドラー、ロボットアームなど複数機器を同時に操作しながら手順全体を推論できる。Genentech、CMU、AWS、Tecan、Universal Robots、Hugging Face LeRobotなどが提携パートナーとして参加しており、プレビュー終了後にオープンソース化予定。",
+      "usage_example_ja": "ソフトウェア中心の「一人AI会社」で直接使う場面はまだ少ないが、今後AIが物理的な機器を安全に操作する際の設計思想(操作範囲を明示的なファイルで制限する等)は、自作ツールの権限設計を考える際の参考にもなる。ハードウェア連携を伴うプロダクトを検討する場合は、MCP互換という点も含め動向を追っておく価値がある。",
+      "tags": ["Anthropic News", "ロボティクス", "MCP"]
+    },
+    {
+      "id": "2026-08-28-claude-code-v2-1-251-security-streaming",
+      "date": "2026-08-28",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeにモデル切替フックとコスト可視化機能",
+      "summary_ja": "Claude Code v2.1.251で、モデル切り替えをブロック・確認・記録できる`PreModelSwitch`/`PostModelSwitch`フックイベントが追加された。Remote Controlクライアントへフォアグラウンドのサブエージェントのツール呼び出しと結果がライブストリーミングされるようになり、`/usage`に支出上限バーが、`/cost`にセッション単位のプロンプトキャッシュ統計(ヒット率・再キャッシュトークン数・ウォーム/コールド状態)が追加された。あわせて、ファイル操作ツールのシンボリックリンク検証や、プラグインコマンドのディレクトリ外参照、Workflowツールが権限チェック前にファイルを読む問題、Grep/Globがシンボリックリンク経由でdenyルールを回避できる問題など、複数のセキュリティ修正も行われた。",
+      "usage_example_ja": "`/cost`の新しいキャッシュヒット率表示で、頻繁に呼び出すサブエージェントのプロンプト設計がキャッシュを無駄にしていないか日次で確認できる。「一人AI会社」のように複数エージェントを並行運用する場合、`/usage`の支出上限バーで日々のAPIコストを一目で把握し、予算超過を早めに察知できる。",
+      "tags": ["Claude Code", "セキュリティ", "コスト管理"]
+    },
     {
       "id": "2026-08-27-claude-apps-cowork-builtin-browser",
       "date": "2026-08-27",
