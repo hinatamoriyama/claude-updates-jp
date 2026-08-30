@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-29T09:10:00+09:00",
+  "last_checked": "2026-08-30T09:10:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,16 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-27-anthropic-news-team-plan-for-scientists",
+      "date": "2026-08-27",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/expanding-support-for-scientists",
+      "title_ja": "研究者向け「Claude Team plan for scientists」を発表、1万席を無償・割引提供",
+      "summary_ja": "Anthropicは学術・非営利の研究機関に所属する研究者向けに、Claude Teamプランの席を1万席分、無償または割引価格で1年間提供する「Claude Team plan for scientists」を発表した。標準席は無償、利用上限が5倍のプレミアム席は月15ドル。対象は大学・非営利研究機関のPI(研究責任者)相当の立場にある人物で、認証後に自分のラボの研究者を招待できる。営利企業の研究チームは対象外。あわせて、これだけでは利用量が足りないプロジェクト向けに、最大5万ドル相当のクレジットを提供する「AI for Science」プログラムの拡大も発表された。",
+      "usage_example_ja": "「一人AI会社」のような個人開発の文脈では直接対象にはならないが、研究者向け特別プランのように、対象を絞った無償・割引プランを用意する施策の一例として参考になる。周囲に対象となる研究者がいれば案内できる。",
+      "tags": ["Anthropic News", "料金", "研究"]
+    },
     {
       "id": "2026-08-28-anthropic-news-model-hardware-standard",
       "date": "2026-08-28",
