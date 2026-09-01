@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-08-31T09:10:00+09:00",
+  "last_checked": "2026-09-01T09:10:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,16 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-08-31-claude-code-v2-1-252-stability-fixes",
+      "date": "2026-08-31",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.252、複数の安定性関連の不具合を修正",
+      "summary_ja": "Claude Code v2.1.252で、一部のMacでBashコマンドが「task output swap refused」エラーで失敗する不具合、`.claude/settings.local.json`が無いプロジェクトで「常に許可」設定が保存されない不具合、接続が不安定な環境でRemote Controlセッションがツール完了後に停止する不具合、失敗内容が大きいバックグラウンドタスクの通知がAPIのリクエストサイズ上限を超えてしまう不具合が修正された。",
+      "usage_example_ja": "Bashツールの実行やRemote Controlでのリモート操作、バックグラウンドタスクの通知を日常的に使っている場合、これらの不具合修正により体感の安定性が上がる。特にRemote Controlで外出先からセッションを操作しているようなワークフローでは、更新しておくと接続断のリスクを減らせる。",
+      "tags": ["Claude Code", "安定性", "Remote Control"]
+    },
     {
       "id": "2026-08-27-anthropic-news-team-plan-for-scientists",
       "date": "2026-08-27",
