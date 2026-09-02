@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-01T09:10:00+09:00",
+  "last_checked": "2026-09-02T09:15:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,46 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-01-platform-fable-5-1-mythos-5-1",
+      "date": "2026-09-01",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "最上位モデル「Claude Fable 5.1」と「Mythos 5.1」が登場",
+      "summary_ja": "Claude Fable 5の後継となる「Claude Fable 5.1」と、Project Glasswing参加者向け「Claude Mythos 5.1」が公開された。デフォルトで1Mトークンのコンテキストウィンドウ・最大128kトークン出力・常時オンの適応的思考に対応し、価格はFable 5と同じ$10/$50 per MTokだが、プロンプトキャッシュの読み取り価格が基本入力価格の0.025倍(他モデルは0.1倍)にあたる$0.25 per MTokに引き下げられ、典型的なワークロードで約25%、エージェント中心のアプリでは最大45%のコスト削減が見込まれるという。生成テキストにはAnthropicのテキスト透かしが、Files API経由の生成画像・動画にはC2PA Content Credentialsが付与される。",
+      "usage_example_ja": "「一人AI会社」のメインセッションのように複数エージェントを並行運用しキャッシュヒットに依存する構成では、キャッシュ読み取り価格の引き下げにより同じワークフローでも実費が下がる可能性がある。`.claude/agents/*.md`のモデル指定を`claude-fable-5-1`に更新し、キャッシュヒット率と実際のコスト変化を`/cost`で確認してから本格移行するとよい。",
+      "tags": ["新モデル", "Fable", "料金"]
+    },
+    {
+      "id": "2026-09-01-platform-tool-choice-any-tool-unsupported",
+      "date": "2026-09-01",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "`tool_choice`の`any`/`tool`指定が非サポートに(破壊的変更)",
+      "summary_ja": "Claude APIの`tool_choice`パラメータで`any`および`tool`タイプの指定が非サポートとなり、指定すると400エラーが返るようになった。`auto`と`none`は従来通り利用できる。スキーマに準拠したツール入力を保証したい場合は、代わりにstrict tool useまたはstructured outputsの利用が案内されている。",
+      "usage_example_ja": "`tool_choice: {\"type\": \"any\"}`や`{\"type\": \"tool\", ...}`を使って特定ツールの呼び出しを強制している自作アプリがあれば、リクエストが400エラーになる前にstrict tool useまたはstructured outputsへの置き換えが必要。個人開発でAPIを直接叩いている箇所は早めに棚卸ししておきたい。",
+      "tags": ["API", "破壊的変更", "tool_choice"]
+    },
+    {
+      "id": "2026-09-01-anthropic-news-enterprise-frontier-safeguards",
+      "date": "2026-09-01",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+      "title_ja": "エンタープライズ向け新データ保護策「Enterprise Frontier Safeguards」を発表",
+      "summary_ja": "Anthropicは、ゼロデータ保持(ZDR)相当のプライバシーと、不正利用検知のための最新の安全対策を両立させる「Enterprise Frontier Safeguards(EFS)」を発表した。データは顧客自身が管理するクラウド基盤・暗号鍵・アクセスポリシーの下に保存され、Anthropic側には保持されない。金融・医療・製造・通信・法律・小売・公共部門など100社以上の顧客と共同開発したもので、Fable 5から導入された30日間のデータ保持要件に対する規制業種の顧客からの懸念に応える対応とされる。追加費用はなく、今秋以降段階的に提供開始予定。",
+      "usage_example_ja": "個人開発の規模では直接対象にならないが、企業向けにAIサービスを提供する際のデータ保持・プライバシー設計の参考になる。将来「一人AI会社」が企業向けにツールを提供する際は、顧客側にデータを保持させる設計思想を参考にできる。",
+      "tags": ["Anthropic News", "セキュリティ", "エンタープライズ"]
+    },
+    {
+      "id": "2026-09-01-claude-code-v2-1-258-macos-fix",
+      "date": "2026-09-01",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.258、macOS 12起動不具合とリモートセッションのエラーを修正",
+      "summary_ja": "Claude Code v2.1.258で、2.1.255で生じた回帰によりmacOS 12(Monterey)で起動できなくなっていた不具合と、再送された権限承認が適用できなかった際にリモート・スケジュール実行セッションが「user messages must have non-empty content」エラーで失敗する不具合が修正された。",
+      "usage_example_ja": "macOS 12環境や、この会社の日次Routineのようなスケジュール実行・Remote Controlセッションを運用している場合、更新しておくことで起動失敗や権限承認まわりでのセッション停止を避けられる。",
+      "tags": ["Claude Code", "安定性", "macOS"]
+    },
     {
       "id": "2026-08-31-claude-code-v2-1-252-stability-fixes",
       "date": "2026-08-31",
