@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-02T09:15:00+09:00",
+  "last_checked": "2026-09-03T09:11:49+09:00",
   "sources": [
     {
       "key": "platform",
@@ -48,6 +48,26 @@
       "tags": ["API", "破壊的変更", "tool_choice"]
     },
     {
+      "id": "2026-09-01-platform-mid-conversation-effort-system-beta",
+      "date": "2026-09-01",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude APIにキャッシュを保ったまま会話途中でeffort変更・一時的なsystemメッセージを追加できるベータ機能",
+      "summary_ja": "Claude APIにベータ機能として、会話途中に`role: \"system\"`メッセージと`output_config.effort`を送ることで、プロンプトキャッシュを無効化せずにeffortレベルをターン単位で切り替えられる「Per-message effort」(`mid-conversation-output-config-2026-07-01`ヘッダー、Claude Fable 5.1・Mythos 5.1・Opus 5対応、Claude APIのみ)が追加された。あわせて、`clear_at: \"next_user_message\"`を指定したmid-conversation systemメッセージを、そのターンにのみ反映させつつ以降の履歴にはトークンコストなしで残せる「Turn-scoped system messages」(`mid-conversation-system-clear-at-2026-08-21`ヘッダー)も追加された。",
+      "usage_example_ja": "普段は低effortで動かしつつ重要な判断のターンだけeffortを上げたい、あるいは特定のターンだけ一時的な指示を挟みたいといった場面で、プロンプトキャッシュを壊さずに実現できる。Claude APIを直接呼び出す自作ツールで、ターン単位の細かい制御とコスト最適化を両立したい場合に検討できる。",
+      "tags": ["API", "プロンプトキャッシュ", "ベータ"]
+    },
+    {
+      "id": "2026-09-01-platform-thinking-display-updates-beta",
+      "date": "2026-09-01",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude APIのthinkingにツール呼び出し間の進捗テキスト表示ベータ機能が追加",
+      "summary_ja": "Claude APIのベータ機能として、`thinking.display`に`\"updates\"`を指定すると、Claude Fable 5.1・Mythos 5.1・Fable 5がツール呼び出しの合間に生成する短い進捗更新をテキストとして受け取れるようになった(`thinking-display-updates-2026-08-18`ヘッダー)。詳細な推論過程自体は隠したまま、ツール呼び出し直前には最大1つのthinking blockが返される。あわせて、thinking blockはそれを生成したモデルか、それより新しいモデルでのみ再生できるという保持ルールが明確化され、2026年8月31日以降作成のアカウントでは、systemプロンプト・tools・過去メッセージが変更された後に古いthinking blockを再生しようとすると400エラーになる(ベータヘッダーで削除/拒否のいずれかの挙動を選択可能)。",
+      "usage_example_ja": "エージェント的にツールを連続実行するアプリで、内部の詳細な思考過程は隠しつつユーザーには「今何をしているか」の簡易な進捗だけ見せたい場合に使える。thinking blockの保持ルールは、systemプロンプトを動的に書き換えるような自作ツールでエラーの原因になり得るため、Claude APIを直接使っている場合は事前に把握しておきたい。",
+      "tags": ["API", "Thinking", "ベータ"]
+    },
+    {
       "id": "2026-09-01-anthropic-news-enterprise-frontier-safeguards",
       "date": "2026-09-01",
       "source": "anthropic-news",
@@ -66,6 +86,46 @@
       "summary_ja": "Claude Code v2.1.258で、2.1.255で生じた回帰によりmacOS 12(Monterey)で起動できなくなっていた不具合と、再送された権限承認が適用できなかった際にリモート・スケジュール実行セッションが「user messages must have non-empty content」エラーで失敗する不具合が修正された。",
       "usage_example_ja": "macOS 12環境や、この会社の日次Routineのようなスケジュール実行・Remote Controlセッションを運用している場合、更新しておくことで起動失敗や権限承認まわりでのセッション停止を避けられる。",
       "tags": ["Claude Code", "安定性", "macOS"]
+    },
+    {
+      "id": "2026-09-01-claude-code-v2-1-257-time-format-effort",
+      "date": "2026-09-01",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Codeに時刻表示形式の設定とセッション限定のeffort変更を追加",
+      "summary_ja": "Claude Code v2.1.257(2026年9月1日)で、ターン終了時刻やトランスクリプト表示のタイムスタンプを12時間制・24時間制・24時間制UTC・strftime形式パターンから選べる`timeFormat`/`timeZone`設定が追加された。また`/effort`に`/model`と同様の`s`(現在のセッションだけeffortを変更)が追加され、新モデルへの切り替え時に一時的に適用される既定effortの上書きも、そのセッション限定に変更された。",
+      "usage_example_ja": "日本時間で運用しているこの会社のようなケースでは、`timeZone`をJSTに、`timeFormat`を24時間制に設定しておくと、ターン終了時刻やトランスクリプトの時刻表示が読みやすくなる。",
+      "tags": ["Claude Code", "UI設定", "時刻表示"]
+    },
+    {
+      "id": "2026-09-01-claude-code-v2-1-257-containment-escape",
+      "date": "2026-09-01",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Auto ModeにContainment Escapeルールを追加(クラウド認証情報の持ち出しを防止)",
+      "summary_ja": "Claude Code v2.1.257で、auto modeにおいてクラウドのメタデータ認証情報の取得・アウトバウンド制限の回避・テナントをまたぐアクセスといった操作が、環境側で「想定内」と明示しない限り自動承認されなくなる「Containment Escape」ルールが追加された。あわせて、作業ディレクトリ外のファイルを初めて読む際にはauto modeでも一度だけ確認プロンプトが出るようになり(`permissions.blockReadsOutsideWorkingDirectories`でブロックも可能)、プラグインがシンボリックリンク経由で自身のディレクトリ外のファイルを読めてしまう不具合も修正された。",
+      "usage_example_ja": "auto modeで日次Routineのようなクラウドセッションを無人運用している場合、これらの変更により意図しないクラウド認証情報の持ち出しや作業ディレクトリ外への読み取りが自動承認されにくくなり、無人実行時の安全性が高まる。",
+      "tags": ["Claude Code", "安全性", "Auto Mode"]
+    },
+    {
+      "id": "2026-09-01-claude-code-v2-1-257-subagent-cache-fixes",
+      "date": "2026-09-01",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.257でサブエージェントのプロンプトキャッシュ関連の不具合を多数修正",
+      "summary_ja": "Claude Code v2.1.257で、応答がスリープや接続断で途中で切れた際にサブエージェントが不完全なまま終了せず自動的に続行するようになったほか、Remote Controlが会話途中で接続するとBashツール定義が再送信されプロンプトキャッシュがミスしていた不具合、`/fork`で新しいバックグラウンドセッションに元の会話のプロンプトキャッシュが引き継がれない不具合、advisorモデルを設定したセッションでcompaction等のバックグラウンドリクエストがキャッシュされない不具合が修正された。また`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`により、個別のspawn指定やエージェント定義側のモデル指定を無視して全サブエージェントに`CLAUDE_CODE_SUBAGENT_MODEL`(未設定時はメインモデル)を強制適用できるようになった。",
+      "usage_example_ja": "「一人AI会社」のように複数サブエージェントを並行運用しプロンプトキャッシュに依存している構成では、今回のキャッシュミス系の修正で実費・待ち時間が改善する可能性がある。特定の作業だけ全サブエージェントのモデルを一時的に揃えたい場合は`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`が使える。",
+      "tags": ["Claude Code", "サブエージェント", "プロンプトキャッシュ"]
+    },
+    {
+      "id": "2026-09-01-claude-code-v2-1-257-vscode-improvements",
+      "date": "2026-09-01",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "VSCode拡張機能にモデルピル表示・セッションのアーカイブ機能などを追加",
+      "summary_ja": "Claude Code v2.1.257で、VSCode拡張機能のセッション一覧パネルに現在のモデルを表示しモデルピッカーを開ける「モデルピル」や、アカウント・使用状況をまとめた折りたたみ可能なセクションが追加された。また「セッションを削除」が「セッションをアーカイブ」に変更され、アーカイブ済みセッションは一覧下部の折りたたみグループに移動し復元(Unarchive)できるようになった。出力スタイルの選択もコマンドメニューから行えるようになった。",
+      "usage_example_ja": "VSCode上でClaude Codeを使う場合、モデルピルから素早くモデル・effortを切り替えられ、誤って消したくないセッションもアーカイブとして残せるようになるため、GUI上での運用がしやすくなる。",
+      "tags": ["Claude Code", "VSCode", "UI"]
     },
     {
       "id": "2026-08-31-claude-code-v2-1-252-stability-fixes",
