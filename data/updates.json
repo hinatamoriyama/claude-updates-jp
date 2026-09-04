@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-03T09:11:49+09:00",
+  "last_checked": "2026-09-04T09:08:29+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,26 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-03-claude-code-v2-1-260-diff-panel-cache-diagnostics",
+      "date": "2026-09-03",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.260、diffパネルとプロンプトキャッシュ診断を追加",
+      "summary_ja": "Claude Code v2.1.260が公開された。フルスクリーンモードで会話の隣に未コミットの変更を表示するdiffパネル(`/diff`で切替)、`/cost`やステータス行でプロンプトキャッシュのミス原因(ツール定義変更・システムプロンプト変更・TTL超過など)を表示する機能、デスクトップアプリ・Remote Control・ヘッドレスセッションでのテキスト形式`/advisor`コマンドが追加された。ファイルパスに括弧を含む場合の権限ルール不具合など複数のバグ修正も含まれる。",
+      "usage_example_ja": "「一人AI会社」の日次自動更新のような、キャッシュヒットに依存するスケジュール実行では、プロンプトキャッシュのミス原因が`/cost`やステータス行から直接わかるようになるため、想定外にキャッシュが外れてコストが増えていないかを日々の運用チェックに組み込みやすくなる。",
+      "tags": ["Claude Code", "diff", "プロンプトキャッシュ"]
+    },
+    {
+      "id": "2026-09-02-claude-code-v2-1-259-managed-mcp-permission-prompts-none",
+      "date": "2026-09-02",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.259、組織向けmanagedMcpServersと--permission-prompts noneを追加",
+      "summary_ja": "Claude Code v2.1.259が公開された。組織がHTTP/SSE MCPサーバーを全ユーザーに配布できる`managedMcpServers`管理設定と、無人ホストで確認プロンプトが出る操作をすべて自動拒否する`--permission-prompts none`オプションが追加された。あわせて、並行セッションが互いの`~/.claude.json`の変更を打ち消し合う不具合、Bashの`Read()`拒否ルールが一部のコマンド形式をカバーしない不具合、OAuthトークン更新時にプロンプトキャッシュが無効化される不具合、長いターンの後にフルスクリーンモードの会話が空白になる不具合が修正された。",
+      "usage_example_ja": "この日次更新Routineのような無人・スケジュール実行のセッションでは、`--permission-prompts none`を使うことで、想定外の確認待ちで処理が止まるリスクを避けやすくなる(ただし許可されていない操作は自動的に拒否されるため、必要な権限は事前にproject設定へ登録しておく必要がある)。",
+      "tags": ["Claude Code", "MCP", "権限管理"]
+    },
     {
       "id": "2026-09-01-platform-fable-5-1-mythos-5-1",
       "date": "2026-09-01",
