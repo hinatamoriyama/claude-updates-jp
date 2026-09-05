@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-04T09:08:29+09:00",
+  "last_checked": "2026-09-05T09:08:32+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,16 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-04-claude-code-v2-1-261-skill-doctor-output-limits",
+      "date": "2026-09-04",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.261、/skill-doctorと出力文字数上限設定を追加",
+      "summary_ja": "Claude Code v2.1.261が公開された。未使用スキルの検出やスキルごとのコンテキストコストを表示してスキルの棚卸しに使える`/skill-doctor`コマンド、コマンド・バックグラウンドタスクの出力をインラインで受け取る際の文字数上限を設定できる`bashOutputMaxChars`/`taskOutputMaxChars`設定(最大128K文字)、ファイルからサブエージェントのシステムプロンプトを読み込む`--append-subagent-system-prompt-file`フラグが追加された。`/status`と`claude doctor`には組織ポリシーが読み込めない理由(プロキシ未対応など)を示す「Organization policy」行も追加され、高速入力時のキー入力順序や`/add-dir`のサブディレクトリ処理など複数のバグ修正も行われた。",
+      "usage_example_ja": "「一人AI会社」のように`.claude/skills/`にスキルを蓄積していく運用では、`/skill-doctor`で使われていないスキルやコンテキストを圧迫しているスキルを定期的に洗い出し、読み込むスキルを絞り込む棚卸しに使える。",
+      "tags": ["Claude Code", "スキル", "設定"]
+    },
     {
       "id": "2026-09-03-claude-code-v2-1-260-diff-panel-cache-diagnostics",
       "date": "2026-09-03",
