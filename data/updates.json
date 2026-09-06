@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-05T09:08:32+09:00",
+  "last_checked": "2026-09-06T09:05:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -46,6 +46,16 @@
       "summary_ja": "Claude Code v2.1.260が公開された。フルスクリーンモードで会話の隣に未コミットの変更を表示するdiffパネル(`/diff`で切替)、`/cost`やステータス行でプロンプトキャッシュのミス原因(ツール定義変更・システムプロンプト変更・TTL超過など)を表示する機能、デスクトップアプリ・Remote Control・ヘッドレスセッションでのテキスト形式`/advisor`コマンドが追加された。ファイルパスに括弧を含む場合の権限ルール不具合など複数のバグ修正も含まれる。",
       "usage_example_ja": "「一人AI会社」の日次自動更新のような、キャッシュヒットに依存するスケジュール実行では、プロンプトキャッシュのミス原因が`/cost`やステータス行から直接わかるようになるため、想定外にキャッシュが外れてコストが増えていないかを日々の運用チェックに組み込みやすくなる。",
       "tags": ["Claude Code", "diff", "プロンプトキャッシュ"]
+    },
+    {
+      "id": "2026-09-03-platform-ant-apply-cli",
+      "date": "2026-09-03",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "`ant` CLI v1.30.0、リソースをコードとして管理する`ant apply`を追加",
+      "summary_ja": "Claude APIの`ant` CLIがv1.30.0となり、エージェント・環境・スキル・メモリストア・デプロイメントをリポジトリ内のファイルから作成・更新できる`ant apply`コマンドが追加された。各リソースをファイルで記述して`ant apply`を実行すると変更計画が表示され、承認すると適用される。実行時に書き出される`claude-lock.json`ロックファイルをコミットしておくことで、以降の実行(手元・CI問わず)が同じリソースを更新対象にでき、重複作成を避けられる。",
+      "usage_example_ja": "「一人AI会社」でClaude Managed Agentsやエージェント定義を扱う場合、`ant apply`を使えばエージェントやスキルの設定をリポジトリのファイルとして管理し、コードレビューと同じ手順で変更できる。`claude-lock.json`をコミットしておけば、日次実行のような自動化からリソースを更新する際にも意図せず新規リソースを増やさずに済む。",
+      "tags": ["ant CLI", "Managed Agents", "Infrastructure as Code"]
     },
     {
       "id": "2026-09-02-claude-code-v2-1-259-managed-mcp-permission-prompts-none",
