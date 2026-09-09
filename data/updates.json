@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-08T09:09:00+09:00",
+  "last_checked": "2026-09-09T09:10:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,46 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-08-claude-code-v2-1-266-gateway-regression-fix",
+      "date": "2026-09-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.266、v2.1.265のゲートウェイサインイン強制の不具合を修正",
+      "summary_ja": "Claude Code v2.1.265で生じた回帰により、未文書の`CLAUDE_CODE_USE_GATEWAY`環境変数を設定していると、APIキー・`apiKeyHelper`・カスタム認証ヘッダーなどと併用しているLLMゲートウェイ/プロキシ構成で、すべてのリクエストが「Not signed in to the Cloud gateway」エラーになっていた。v2.1.266でこの挙動が修正され、`CLAUDE_CODE_USE_GATEWAY`単体では以前と同様に無視されるようになった。設定変更は不要。",
+      "usage_example_ja": "LLMゲートウェイやプロキシ経由でClaude Codeを使っている場合、v2.1.265で急にリクエストが失敗するようになっていないか確認し、v2.1.266へ更新すれば設定変更なしで復旧する。",
+      "tags": ["Claude Code", "バグ修正", "ゲートウェイ"]
+    },
+    {
+      "id": "2026-09-08-claude-code-v2-1-265-prompt-cache-fixes",
+      "date": "2026-09-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.265、サブエージェント再開時のプロンプトキャッシュ不具合を多数修正",
+      "summary_ja": "Claude Code v2.1.265で、フォアグラウンド起動したサブエージェントを再開するとツール一覧やシステムプロンプト接頭辞が変わりプロンプトキャッシュが再利用できなくなる不具合、エージェントチームメイトや再開したサブエージェントがSubagentStartフックの内容やプリロード済みスキルを後のターンでプロンプト接頭辞から外してしまいキャッシュが外れる不具合が修正された。あわせて、直前のプロセスがツール実行中に強制終了した後の再開では、直前のプロンプトが書き換えられず、中断していたツール呼び出しはinterrupted扱いのまま保持されるようになった。",
+      "usage_example_ja": "「一人AI会社」のように複数サブエージェント・チームメイトを並行運用しプロンプトキャッシュに依存している構成では、これらの修正によりサブエージェント再開時のキャッシュミスが減り、実費・待ち時間の改善が見込める。",
+      "tags": ["Claude Code", "サブエージェント", "プロンプトキャッシュ"]
+    },
+    {
+      "id": "2026-09-08-claude-code-v2-1-265-plugin-dir-tool-output-cap",
+      "date": "2026-09-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.265、--plugin-dirでのフォルダ一括指定とツール結果1GB上限を追加",
+      "summary_ja": "Claude Code v2.1.265で、`--plugin-dir`にプラグインをまとめたフォルダを指定できるようになり、マニフェストを持つ子フォルダがそれぞれ読み込まれ、実行中に追加・削除したプラグインも反映されるようになった。また、ディスクに保存されるツール結果に1GBの上限が設定され、保存ファイルが切り詰められた場合は会話内のプレビューにその旨が表示されるようになった。Claude DesktopとCoworkがゲートウェイ経由で送るテレメトリにも、ターミナルセッションと同様`user.email`・`user.groups`が含まれるようになった。",
+      "usage_example_ja": "複数のプラグインをフォルダ単位で管理・切り替えたい場合、`--plugin-dir`で一括指定できるようになり、開発中のプラグインを追加・削除してもセッションを再起動せず反映できる。大きな出力を返すツールを扱う場合も、ディスク使用量が際限なく増えず1GBで頭打ちになる点を把握しておくとよい。",
+      "tags": ["Claude Code", "プラグイン", "ツール"]
+    },
+    {
+      "id": "2026-09-08-claude-code-v2-1-265-non-interactive-cd-mcp-sse",
+      "date": "2026-09-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.265、非対話セッションの作業ディレクトリ維持とMCPレガシーSSE対応を追加",
+      "summary_ja": "Claude Code v2.1.265で、非対話セッション(`-p`のstream-json入力・Agent SDK・クラウドセッション)がユーザーメッセージのたびにシェルの作業ディレクトリをリセットしていた不具合が修正され、`cd`した状態がターンをまたいで保持されるようになった。また、`http`として設定したMCPサーバーがレガシーなHTTP+SSEトランスポートにしか対応していない場合に接続できなかった不具合が修正され、MCP仕様通りSSEへのフォールバックが行われるようになった。このほか、大規模リポジトリでの`--worktree`起動がgit 2.32以降で並列チェックアウトにより高速化され、`/workflows`のエージェント詳細表示でツール呼び出しの実行中・失敗・完了状態やサブエージェントのタスクリストを確認できるようになった。",
+      "usage_example_ja": "Agent SDKやCI・クラウドセッションで`cd`によりディレクトリを移動しながら複数ステップの処理を行うスクリプトを書いている場合、この修正で意図通り動作するようになる。レガシーなHTTP+SSEしか提供していない自作・社内のMCPサーバーを使っている場合も、この修正で接続できるようになっている可能性がある。",
+      "tags": ["Claude Code", "MCP", "Agent SDK"]
+    },
     {
       "id": "2026-09-04-claude-code-v2-1-261-skill-doctor-output-limits",
       "date": "2026-09-04",
