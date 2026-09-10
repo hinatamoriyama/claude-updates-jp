@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-09T09:10:00+09:00",
+  "last_checked": "2026-09-10T09:10:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,46 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-09-claude-code-v2-1-267-max-effort-level",
+      "date": "2026-09-09",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.267、effort上限を設定できるmaxEffortLevelを追加",
+      "summary_ja": "Claude Code v2.1.267で、モデルごとまたは全体でeffortの上限を設定できる`maxEffortLevel`設定(トップレベルまたは`modelSettings`配下)が追加された。Bedrock・Vertex・Foundry経由でも上限が効き、ユーザーはこの上限以下であれば任意のeffortを選べる。また、システムプロンプトをリクエストごとに毎回組み立て直す`--system-prompt-snapshot off`フラグが追加され、カスタムコマンド・スキル・サブエージェントのfrontmatterにある`effort:`指定が、デフォルトeffortが固定されたモデル(Opus 4.7・Opus 4.8・Fable 5)では無視されていた不具合も修正された。",
+      "usage_example_ja": "「一人AI会社」のように複数サブエージェントを運用し、想定外に高effortでコストがかさむのを防ぎたい場合、`maxEffortLevel`を設定しておけば個々のエージェント指定に関わらず上限を超えないようにできる。frontmatterで`effort:`を指定しているエージェント定義がOpus 4.7/4.8・Fable 5で機能していなかった場合、この修正で意図通り反映されるようになる。",
+      "tags": ["Claude Code", "Effort設定", "コスト管理"]
+    },
+    {
+      "id": "2026-09-09-claude-code-v2-1-267-prompt-cache-fixes",
+      "date": "2026-09-09",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.267、プロンプトキャッシュの整合性に関する不具合を多数修正",
+      "summary_ja": "Claude Code v2.1.267で、プロンプトキャッシュに関する不具合が多数修正された。会話途中でMCPサーバーが再送、または組み込みツールが再描画したツールについて、以前の思考(thinking)が失われなくなったほか、会話からフォークされたバックグラウンドワーカーがセッション途中でEnterWorktreeをツール一覧に追加してキャッシュ再利用を壊す不具合、ToolSearchを使わないセッションで会話途中に追加されたMCP・プラグインツールがキャッシュを壊していた不具合(対応モデルでは遅延定義として受け取るよう変更)が修正された。また`/model`でのモデル切り替え時にツール定義がすべて再送信されキャッシュミスしていた不具合(コミット・PRの帰属表示は会話ノートとして更新される方式に変更)、再開したセッションがMCPコネクタの再接続タイミングの違いでインラインのツール一覧やツール説明・過去のMCPツール通知を書き換えてしまう不具合、`-p`(印刷モード)の会話を対話的に再開した際にシステムプロンプト接頭辞が変わってしまう不具合、`--system-prompt`/`--append-system-prompt`付きのサブエージェント・セッションがシステムプロンプトとツール定義を毎回描画し直していた不具合なども修正された。",
+      "usage_example_ja": "「一人AI会社」のように複数サブエージェントを並行運用しプロンプトキャッシュのヒット率に敏感な構成では、これらの修正によりモデル切り替え・セッション再開・MCPツールの再接続といった日常的な操作でのキャッシュミスが減る可能性が高い。アップデート後は`/cost`でキャッシュヒット率が改善しているか確認するとよい。",
+      "tags": ["Claude Code", "プロンプトキャッシュ", "MCP"]
+    },
+    {
+      "id": "2026-09-09-claude-code-v2-1-267-cowork-sandbox-remote-control",
+      "date": "2026-09-09",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.267、サンドボックス必須組織でのCoworkスケジュール実行不具合などを修正",
+      "summary_ja": "Claude Code v2.1.267で、管理設定によりサンドボックスが必須の組織において、クラウド上のCoworkスケジュールタスクが起動時に失敗していた不具合が修正された。また、`claude remote-control`はサーバー認証情報が(起動から約30日で)期限切れになると接続中のセッションをすべて切断して終了していたが、今後は自動的に再登録して動作を継続する。このほか、モデルやモードによって利用上限のウィンドウが異なりステータス表示がちらつく不具合、接続断でアップロードが中断したArtifact公開が完了未確認のまま失敗していたのを一度だけ自動リトライするよう変更、macOS/Linuxでバックスラッシュを含むマーケットプレイスのパスがフェッチ済みマーケットプレイスの隔離チェックを回避できてしまうセキュリティ上の不具合も修正された。",
+      "usage_example_ja": "「一人AI会社」の日次自動更新のようにスケジュール実行・Remote Controlに依存する運用では、組織側でサンドボックスを必須にしている場合のスケジュールタスク起動失敗や、長期間動かし続けたRemote Controlホストが認証情報切れで全セッション巻き込みで落ちるリスクが解消され、無人運用の安定性が上がる。",
+      "tags": ["Claude Code", "Cowork", "安定性"]
+    },
+    {
+      "id": "2026-09-09-claude-code-v2-1-267-vscode-fixes",
+      "date": "2026-09-09",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.267、VSCode拡張機能の表示・入力まわりの不具合を修正",
+      "summary_ja": "Claude Code v2.1.267のVSCode拡張機能向け修正として、循環した親リンクを含む会話をフォーク・編集・巻き戻しした際に拡張ホストがCPU100%でハングする不具合、WSL2/WSLgでのスクリーンショット貼り付けが画像バイトをそのままチャット欄に挿入してしまう不具合、diffブロックが常にダークテーマで表示されアクティブなVS Codeテーマ(ハイコントラスト含む)に追従しなかった不具合、メッセージ入力欄で右横書きと英語混在テキストの表示順が崩れる不具合、CRLF改行のファイルでdiffビューの編集を反映できない不具合、パスにスペースを含むファイルの@メンションが抜け落ちる不具合、リモートホストにしか存在しないワークスペースフォルダをRemote-SSH接続で開いた際にセッション一覧が読み込めない不具合、大規模またはシンボリックリンクの多いワークスペースでripgrepプロセスが暴走する不具合が修正された。",
+      "usage_example_ja": "VSCode拡張機能でClaude Codeを使っている場合、特にWSL2やRemote-SSH、大規模リポジトリでの開発時に発生していた表示崩れやフリーズが解消され、日常的な編集作業が安定する。",
+      "tags": ["Claude Code", "VSCode", "バグ修正"]
+    },
     {
       "id": "2026-09-08-claude-code-v2-1-266-gateway-regression-fix",
       "date": "2026-09-08",
