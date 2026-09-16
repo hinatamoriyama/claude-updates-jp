@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-10T09:10:00+09:00",
+  "last_checked": "2026-09-16T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -28,6 +28,132 @@
   ],
   "items": [
     {
+      "id": "2026-09-15-claude-code-v2-1-273-auto-compact-context-meter-fix",
+      "date": "2026-09-15",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.273、コンテキストメーターの二重カウント不具合を修正",
+      "summary_ja": "Claude Code v2.1.273で、コンテキストメーターと自動コンパクトが「advisor」系ツールの呼び出しを実際のコンテキストサイズのおよそ2倍として数えてしまい、自動コンパクトが本来の約半分のウィンドウ使用時点で発動していた不具合が修正された。あわせて、`/login`・`/upgrade`・`/extra-usage`が会話中のthinkingを破棄しプロンプトキャッシュの全面書き換えを招いていた不具合、サブエージェント・バックグラウンドエージェントが最終応答にトークン使用量やモデルIDを含まない場合に失敗扱いになり結果が届かなかった不具合も修正された。",
+      "usage_example_ja": "「一人AI会社」のように長時間・大量ツール呼び出しのセッションを回している場合、この修正により自動コンパクトが想定より早く走っていた分が解消され、実際のコンテキスト残量に近い形でセッションを長く保てるようになる。アップデート後はコンテキストメーターの減り方が緩やかになっていないか確認するとよい。",
+      "tags": [
+        "Claude Code",
+        "コンテキスト管理",
+        "バグ修正"
+      ]
+    },
+    {
+      "id": "2026-09-15-claude-code-v2-1-273-remote-control-fork-mcp-disconnect",
+      "date": "2026-09-15",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.273、Remote Controlセッションのバックグラウンドfork機能を追加",
+      "summary_ja": "Claude Code v2.1.273で、`claude --remote-control`またはClaudeアプリの`/remote-control`から開始したセッションを、手元のコンピューター上でバックグラウンドセッションとしてforkできるようになった。また、MCPサーバーがセッション中に切断し自動再接続を諦めた際に`/mcp`を案内する通知が追加され、401/403エラー時のメッセージがBedrock・Vertex・Foundry・Claude appsゲートウェイのどの認証情報を更新すべきか具体的に示すよう改善された。",
+      "usage_example_ja": "外出先からRemote Control経由でセッションを確認しつつ、時間のかかる作業だけを自宅PC上のバックグラウンドセッションに切り出して並行実行する、といった使い方ができるようになる。MCPサーバー接続が切れて自動再接続も失敗した際に気付きやすくなる点も、常時MCP連携している運用では地味に助かる。",
+      "tags": [
+        "Claude Code",
+        "Remote Control",
+        "MCP"
+      ]
+    },
+    {
+      "id": "2026-09-15-claude-code-v2-1-273-code-review-improvements",
+      "date": "2026-09-15",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.273、Code Reviewの誤爆・重複投稿を修正",
+      "summary_ja": "Claude Code v2.1.273で、Code Review機能について、レビュー済みPRにベースブランチをマージしただけで「Additional findings」表示のある場合に不要な全面再レビューが走っていた不具合、REVIEW.mdの一部が@メンションや複数行にまたがるコードスパン・バッククォート付きHTMLタグの影響で丸ごと無視されていた不具合が修正された。また、`/ultrareview --post`はGitHubエラー後のリトライでコメントが二重投稿・未投稿になっていた不具合が修正され、投稿コメントにレビュー対象のコミットが明記されるようになった。",
+      "usage_example_ja": "Claude Code Reviewや`/ultrareview --post`をPRの自動レビューに組み込んでいる場合、これらの修正により再レビューの誤発火やコメントの重複・欠落が減り、レビュー結果を安心して信頼できるようになる。",
+      "tags": [
+        "Claude Code",
+        "Code Review",
+        "バグ修正"
+      ]
+    },
+    {
+      "id": "2026-09-14-claude-code-v2-1-271-auto-mode-sandbox-allowed-domains",
+      "date": "2026-09-14",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.271、autoモードにコマンド単位の許可ドメイン設定を追加",
+      "summary_ja": "Claude Code v2.1.271で、サンドボックス化されたautoモードにおいて、Bash・PowerShell・Monitorの各コマンドに`allowed_domains`をコマンド単位で指定できるようになった。コマンド実行に必要なホストがその実行と合わせてレビューされそのコマンドのみに開放され、それ以外のホストへの通信は拒否される。また、カスタム・プラグインサブエージェントがユーザー・プロジェクト・ローカルのCLAUDE.mdを読み込まずに動作できる`omitClaudeMd`フロントマター(および`--agents` JSONの同名オプション)も追加された(組織の管理ポリシーファイルは引き続き読み込まれる)。",
+      "usage_example_ja": "autoモードでネットワークアクセスを伴うエージェントを動かす場合、コマンドごとに必要な通信先だけを許可でき、意図しない外部送信のリスクを抑えられる。汎用サブエージェントを`omitClaudeMd`付きで定義すれば、プロジェクト固有のCLAUDE.md方針に引っ張られない独立したエージェントを作りやすくなる。",
+      "tags": [
+        "Claude Code",
+        "autoモード",
+        "セキュリティ"
+      ]
+    },
+    {
+      "id": "2026-09-14-claude-code-v2-1-271-web-routines-redesign",
+      "date": "2026-09-14",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code on the web、Routinesページが刷新",
+      "summary_ja": "Claude Code v2.1.271で、claude.ai/code上のRoutinesページが「Yours」と「Templates」の2タブと、実行状況を表示する2カラムのルーチンカードを備えた新レイアウトに変更され、従来のカレンダー表示は廃止された。また管理者設定のCloud environmentsエディタに、claude.ai/codeの環境ダイアログと同じ許可ドメインリストを指定できる「Custom network access」オプションが追加された。",
+      "usage_example_ja": "この「claude-updates-jp」の日次更新自体もClaude Code on the webのRoutine(スケジュール実行)で動いているため、新しいRoutinesページのYours/Templatesタブや実行状況表示を使うと、日次実行が正常に走っているかの確認や、テンプレート化して他のRoutineを増やす作業がしやすくなる。",
+      "tags": [
+        "Claude Code on the web",
+        "Routine",
+        "UI改善"
+      ]
+    },
+    {
+      "id": "2026-09-14-platform-compact-on-demand",
+      "date": "2026-09-14",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/compaction#compact-on-demand-with-the-compaction-parameter",
+      "title_ja": "Claude API、任意タイミングで会話を圧縮する「compact on demand」追加",
+      "summary_ja": "Claude APIにベータ機能(`compact-2026-09-04`ヘッダー)として、トップレベルの`compaction`パラメータを送ることで任意のタイミングで会話履歴を圧縮できる「compact on demand」が追加された。API側はそれまでのメッセージを要約した署名付き`compaction`ブロックを返し、以降のリクエストではそのブロックを先頭に置くことで元のメッセージ群の代わりに使える。圧縮はバックグラウンドで実行でき、直近のターンは要約せずそのまま残すことも可能で、thinkingを保持するモデルであれば残したターンのthinkingも有効なまま使える。",
+      "usage_example_ja": "「一人AI会社」のように長時間稼働するエージェントセッションを自前のAPI呼び出しで組んでいる場合、コンテキストが伸びてきたタイミングを自分で判断してcompactionを呼び出すことで、Claude Code側の自動コンパクトに頼らず能動的にトークンコストとレイテンシを管理できる。",
+      "tags": [
+        "Claude API",
+        "コンテキスト圧縮",
+        "ベータ機能"
+      ]
+    },
+    {
+      "id": "2026-09-12-claude-code-v2-1-270-git-permission-regression-fix",
+      "date": "2026-09-12",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.270、読み取り専用git操作の許可確認バグを修正",
+      "summary_ja": "Claude Code v2.1.270で、v2.1.269で生じた回帰により、セッションをしばらく実行し続けた後に読み取り専用のgitコマンド(Bash経由)が予期せず許可確認を求めるようになっていた不具合が修正された。",
+      "usage_example_ja": "長時間セッションを回しっぱなしにする運用では、`git status`や`git log`などの読み取り専用コマンドのたびに許可確認が出て作業が止まる状態になっていた可能性があるため、v2.1.270以降へ更新すれば元通りスムーズに実行されるようになる。",
+      "tags": [
+        "Claude Code",
+        "バグ修正",
+        "git"
+      ]
+    },
+    {
+      "id": "2026-09-11-claude-code-v2-1-269-plugin-eval-output-style",
+      "date": "2026-09-11",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.269、プラグイン評価コマンド`claude plugin eval`を追加",
+      "summary_ja": "Claude Code v2.1.269で、プラグインのevalスイートをClaude Code上で実行しスコア付きの再現可能な結果(JSON・HTMLレポート)を得られる`claude plugin eval`コマンドが追加された。また、`/output-style [name]`でRemote Control・クラウド・その他ヘッドレスセッションを含め出力スタイルの一覧表示・切り替えができるようになり、Bashツールがファイル編集を扱う設定(`bashEditDiffEnabled`)時にBashコマンドが変更したファイルのdiffがツール結果に添付されるようになった。",
+      "usage_example_ja": "自作プラグインを配布・保守している場合、`claude plugin eval`でリグレッションを数値化して確認できるようになり、変更のたびに手動で動作確認する手間を減らせる。Remote Control越しにoutput styleを切り替えられる点も、外出先からの運用で地味に便利。",
+      "tags": [
+        "Claude Code",
+        "プラグイン",
+        "output-style"
+      ]
+    },
+    {
+      "id": "2026-09-10-platform-managed-agents-auto-permission-ant-cli",
+      "date": "2026-09-10",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/managed-agents/permission-policies#let-the-server-evaluate-each-call-with-auto",
+      "title_ja": "Claude Managed Agents、権限ポリシーに`auto`モードを追加",
+      "summary_ja": "Claude Managed Agentsの権限ポリシーに、エージェント・MCPツール呼び出しごとにサーバー側が実行・拒否・承認待ちのいずれかを判定する`auto`モードが追加された。`agent.tool_use`・`agent.mcp_tool_use`イベントには判定結果を示す`evaluation`フィールドが`evaluated_permission`と併せて記録される。あわせて`ant` CLIに、Managed Agentsセッションにターミナルから接続しライブ追跡・メッセージ送信・承認待ちツール呼び出しの許可/拒否ができる`ant beta:sessions connect`(`--web`でConsoleのセッションビューアをローカルで開くことも可能)が追加された。",
+      "usage_example_ja": "Managed Agentsで動かしている自律エージェントの権限判断をサーバー側の`auto`ポリシーに任せることで、危険な操作だけを承認待ちにしつつ大半の呼び出しを自動化でき、`ant beta:sessions connect`を使えばターミナルからその承認待ちに気付いた時にすぐ対応できる。",
+      "tags": [
+        "Managed Agents",
+        "権限管理",
+        "ant CLI"
+      ]
+    },
+    {
       "id": "2026-09-09-claude-code-v2-1-267-max-effort-level",
       "date": "2026-09-09",
       "source": "claude-code",
@@ -35,7 +161,11 @@
       "title_ja": "Claude Code v2.1.267、effort上限を設定できるmaxEffortLevelを追加",
       "summary_ja": "Claude Code v2.1.267で、モデルごとまたは全体でeffortの上限を設定できる`maxEffortLevel`設定(トップレベルまたは`modelSettings`配下)が追加された。Bedrock・Vertex・Foundry経由でも上限が効き、ユーザーはこの上限以下であれば任意のeffortを選べる。また、システムプロンプトをリクエストごとに毎回組み立て直す`--system-prompt-snapshot off`フラグが追加され、カスタムコマンド・スキル・サブエージェントのfrontmatterにある`effort:`指定が、デフォルトeffortが固定されたモデル(Opus 4.7・Opus 4.8・Fable 5)では無視されていた不具合も修正された。",
       "usage_example_ja": "「一人AI会社」のように複数サブエージェントを運用し、想定外に高effortでコストがかさむのを防ぎたい場合、`maxEffortLevel`を設定しておけば個々のエージェント指定に関わらず上限を超えないようにできる。frontmatterで`effort:`を指定しているエージェント定義がOpus 4.7/4.8・Fable 5で機能していなかった場合、この修正で意図通り反映されるようになる。",
-      "tags": ["Claude Code", "Effort設定", "コスト管理"]
+      "tags": [
+        "Claude Code",
+        "Effort設定",
+        "コスト管理"
+      ]
     },
     {
       "id": "2026-09-09-claude-code-v2-1-267-prompt-cache-fixes",
@@ -45,7 +175,11 @@
       "title_ja": "Claude Code v2.1.267、プロンプトキャッシュの整合性に関する不具合を多数修正",
       "summary_ja": "Claude Code v2.1.267で、プロンプトキャッシュに関する不具合が多数修正された。会話途中でMCPサーバーが再送、または組み込みツールが再描画したツールについて、以前の思考(thinking)が失われなくなったほか、会話からフォークされたバックグラウンドワーカーがセッション途中でEnterWorktreeをツール一覧に追加してキャッシュ再利用を壊す不具合、ToolSearchを使わないセッションで会話途中に追加されたMCP・プラグインツールがキャッシュを壊していた不具合(対応モデルでは遅延定義として受け取るよう変更)が修正された。また`/model`でのモデル切り替え時にツール定義がすべて再送信されキャッシュミスしていた不具合(コミット・PRの帰属表示は会話ノートとして更新される方式に変更)、再開したセッションがMCPコネクタの再接続タイミングの違いでインラインのツール一覧やツール説明・過去のMCPツール通知を書き換えてしまう不具合、`-p`(印刷モード)の会話を対話的に再開した際にシステムプロンプト接頭辞が変わってしまう不具合、`--system-prompt`/`--append-system-prompt`付きのサブエージェント・セッションがシステムプロンプトとツール定義を毎回描画し直していた不具合なども修正された。",
       "usage_example_ja": "「一人AI会社」のように複数サブエージェントを並行運用しプロンプトキャッシュのヒット率に敏感な構成では、これらの修正によりモデル切り替え・セッション再開・MCPツールの再接続といった日常的な操作でのキャッシュミスが減る可能性が高い。アップデート後は`/cost`でキャッシュヒット率が改善しているか確認するとよい。",
-      "tags": ["Claude Code", "プロンプトキャッシュ", "MCP"]
+      "tags": [
+        "Claude Code",
+        "プロンプトキャッシュ",
+        "MCP"
+      ]
     },
     {
       "id": "2026-09-09-claude-code-v2-1-267-cowork-sandbox-remote-control",
@@ -55,7 +189,11 @@
       "title_ja": "Claude Code v2.1.267、サンドボックス必須組織でのCoworkスケジュール実行不具合などを修正",
       "summary_ja": "Claude Code v2.1.267で、管理設定によりサンドボックスが必須の組織において、クラウド上のCoworkスケジュールタスクが起動時に失敗していた不具合が修正された。また、`claude remote-control`はサーバー認証情報が(起動から約30日で)期限切れになると接続中のセッションをすべて切断して終了していたが、今後は自動的に再登録して動作を継続する。このほか、モデルやモードによって利用上限のウィンドウが異なりステータス表示がちらつく不具合、接続断でアップロードが中断したArtifact公開が完了未確認のまま失敗していたのを一度だけ自動リトライするよう変更、macOS/Linuxでバックスラッシュを含むマーケットプレイスのパスがフェッチ済みマーケットプレイスの隔離チェックを回避できてしまうセキュリティ上の不具合も修正された。",
       "usage_example_ja": "「一人AI会社」の日次自動更新のようにスケジュール実行・Remote Controlに依存する運用では、組織側でサンドボックスを必須にしている場合のスケジュールタスク起動失敗や、長期間動かし続けたRemote Controlホストが認証情報切れで全セッション巻き込みで落ちるリスクが解消され、無人運用の安定性が上がる。",
-      "tags": ["Claude Code", "Cowork", "安定性"]
+      "tags": [
+        "Claude Code",
+        "Cowork",
+        "安定性"
+      ]
     },
     {
       "id": "2026-09-09-claude-code-v2-1-267-vscode-fixes",
@@ -65,7 +203,11 @@
       "title_ja": "Claude Code v2.1.267、VSCode拡張機能の表示・入力まわりの不具合を修正",
       "summary_ja": "Claude Code v2.1.267のVSCode拡張機能向け修正として、循環した親リンクを含む会話をフォーク・編集・巻き戻しした際に拡張ホストがCPU100%でハングする不具合、WSL2/WSLgでのスクリーンショット貼り付けが画像バイトをそのままチャット欄に挿入してしまう不具合、diffブロックが常にダークテーマで表示されアクティブなVS Codeテーマ(ハイコントラスト含む)に追従しなかった不具合、メッセージ入力欄で右横書きと英語混在テキストの表示順が崩れる不具合、CRLF改行のファイルでdiffビューの編集を反映できない不具合、パスにスペースを含むファイルの@メンションが抜け落ちる不具合、リモートホストにしか存在しないワークスペースフォルダをRemote-SSH接続で開いた際にセッション一覧が読み込めない不具合、大規模またはシンボリックリンクの多いワークスペースでripgrepプロセスが暴走する不具合が修正された。",
       "usage_example_ja": "VSCode拡張機能でClaude Codeを使っている場合、特にWSL2やRemote-SSH、大規模リポジトリでの開発時に発生していた表示崩れやフリーズが解消され、日常的な編集作業が安定する。",
-      "tags": ["Claude Code", "VSCode", "バグ修正"]
+      "tags": [
+        "Claude Code",
+        "VSCode",
+        "バグ修正"
+      ]
     },
     {
       "id": "2026-09-08-claude-code-v2-1-266-gateway-regression-fix",
@@ -75,7 +217,11 @@
       "title_ja": "Claude Code v2.1.266、v2.1.265のゲートウェイサインイン強制の不具合を修正",
       "summary_ja": "Claude Code v2.1.265で生じた回帰により、未文書の`CLAUDE_CODE_USE_GATEWAY`環境変数を設定していると、APIキー・`apiKeyHelper`・カスタム認証ヘッダーなどと併用しているLLMゲートウェイ/プロキシ構成で、すべてのリクエストが「Not signed in to the Cloud gateway」エラーになっていた。v2.1.266でこの挙動が修正され、`CLAUDE_CODE_USE_GATEWAY`単体では以前と同様に無視されるようになった。設定変更は不要。",
       "usage_example_ja": "LLMゲートウェイやプロキシ経由でClaude Codeを使っている場合、v2.1.265で急にリクエストが失敗するようになっていないか確認し、v2.1.266へ更新すれば設定変更なしで復旧する。",
-      "tags": ["Claude Code", "バグ修正", "ゲートウェイ"]
+      "tags": [
+        "Claude Code",
+        "バグ修正",
+        "ゲートウェイ"
+      ]
     },
     {
       "id": "2026-09-08-claude-code-v2-1-265-prompt-cache-fixes",
@@ -85,7 +231,11 @@
       "title_ja": "Claude Code v2.1.265、サブエージェント再開時のプロンプトキャッシュ不具合を多数修正",
       "summary_ja": "Claude Code v2.1.265で、フォアグラウンド起動したサブエージェントを再開するとツール一覧やシステムプロンプト接頭辞が変わりプロンプトキャッシュが再利用できなくなる不具合、エージェントチームメイトや再開したサブエージェントがSubagentStartフックの内容やプリロード済みスキルを後のターンでプロンプト接頭辞から外してしまいキャッシュが外れる不具合が修正された。あわせて、直前のプロセスがツール実行中に強制終了した後の再開では、直前のプロンプトが書き換えられず、中断していたツール呼び出しはinterrupted扱いのまま保持されるようになった。",
       "usage_example_ja": "「一人AI会社」のように複数サブエージェント・チームメイトを並行運用しプロンプトキャッシュに依存している構成では、これらの修正によりサブエージェント再開時のキャッシュミスが減り、実費・待ち時間の改善が見込める。",
-      "tags": ["Claude Code", "サブエージェント", "プロンプトキャッシュ"]
+      "tags": [
+        "Claude Code",
+        "サブエージェント",
+        "プロンプトキャッシュ"
+      ]
     },
     {
       "id": "2026-09-08-claude-code-v2-1-265-plugin-dir-tool-output-cap",
@@ -95,7 +245,11 @@
       "title_ja": "Claude Code v2.1.265、--plugin-dirでのフォルダ一括指定とツール結果1GB上限を追加",
       "summary_ja": "Claude Code v2.1.265で、`--plugin-dir`にプラグインをまとめたフォルダを指定できるようになり、マニフェストを持つ子フォルダがそれぞれ読み込まれ、実行中に追加・削除したプラグインも反映されるようになった。また、ディスクに保存されるツール結果に1GBの上限が設定され、保存ファイルが切り詰められた場合は会話内のプレビューにその旨が表示されるようになった。Claude DesktopとCoworkがゲートウェイ経由で送るテレメトリにも、ターミナルセッションと同様`user.email`・`user.groups`が含まれるようになった。",
       "usage_example_ja": "複数のプラグインをフォルダ単位で管理・切り替えたい場合、`--plugin-dir`で一括指定できるようになり、開発中のプラグインを追加・削除してもセッションを再起動せず反映できる。大きな出力を返すツールを扱う場合も、ディスク使用量が際限なく増えず1GBで頭打ちになる点を把握しておくとよい。",
-      "tags": ["Claude Code", "プラグイン", "ツール"]
+      "tags": [
+        "Claude Code",
+        "プラグイン",
+        "ツール"
+      ]
     },
     {
       "id": "2026-09-08-claude-code-v2-1-265-non-interactive-cd-mcp-sse",
@@ -105,7 +259,11 @@
       "title_ja": "Claude Code v2.1.265、非対話セッションの作業ディレクトリ維持とMCPレガシーSSE対応を追加",
       "summary_ja": "Claude Code v2.1.265で、非対話セッション(`-p`のstream-json入力・Agent SDK・クラウドセッション)がユーザーメッセージのたびにシェルの作業ディレクトリをリセットしていた不具合が修正され、`cd`した状態がターンをまたいで保持されるようになった。また、`http`として設定したMCPサーバーがレガシーなHTTP+SSEトランスポートにしか対応していない場合に接続できなかった不具合が修正され、MCP仕様通りSSEへのフォールバックが行われるようになった。このほか、大規模リポジトリでの`--worktree`起動がgit 2.32以降で並列チェックアウトにより高速化され、`/workflows`のエージェント詳細表示でツール呼び出しの実行中・失敗・完了状態やサブエージェントのタスクリストを確認できるようになった。",
       "usage_example_ja": "Agent SDKやCI・クラウドセッションで`cd`によりディレクトリを移動しながら複数ステップの処理を行うスクリプトを書いている場合、この修正で意図通り動作するようになる。レガシーなHTTP+SSEしか提供していない自作・社内のMCPサーバーを使っている場合も、この修正で接続できるようになっている可能性がある。",
-      "tags": ["Claude Code", "MCP", "Agent SDK"]
+      "tags": [
+        "Claude Code",
+        "MCP",
+        "Agent SDK"
+      ]
     },
     {
       "id": "2026-09-04-claude-code-v2-1-261-skill-doctor-output-limits",
@@ -115,7 +273,11 @@
       "title_ja": "Claude Code v2.1.261、/skill-doctorと出力文字数上限設定を追加",
       "summary_ja": "Claude Code v2.1.261が公開された。未使用スキルの検出やスキルごとのコンテキストコストを表示してスキルの棚卸しに使える`/skill-doctor`コマンド、コマンド・バックグラウンドタスクの出力をインラインで受け取る際の文字数上限を設定できる`bashOutputMaxChars`/`taskOutputMaxChars`設定(最大128K文字)、ファイルからサブエージェントのシステムプロンプトを読み込む`--append-subagent-system-prompt-file`フラグが追加された。`/status`と`claude doctor`には組織ポリシーが読み込めない理由(プロキシ未対応など)を示す「Organization policy」行も追加され、高速入力時のキー入力順序や`/add-dir`のサブディレクトリ処理など複数のバグ修正も行われた。",
       "usage_example_ja": "「一人AI会社」のように`.claude/skills/`にスキルを蓄積していく運用では、`/skill-doctor`で使われていないスキルやコンテキストを圧迫しているスキルを定期的に洗い出し、読み込むスキルを絞り込む棚卸しに使える。",
-      "tags": ["Claude Code", "スキル", "設定"]
+      "tags": [
+        "Claude Code",
+        "スキル",
+        "設定"
+      ]
     },
     {
       "id": "2026-09-03-claude-code-v2-1-260-diff-panel-cache-diagnostics",
@@ -125,7 +287,11 @@
       "title_ja": "Claude Code v2.1.260、diffパネルとプロンプトキャッシュ診断を追加",
       "summary_ja": "Claude Code v2.1.260が公開された。フルスクリーンモードで会話の隣に未コミットの変更を表示するdiffパネル(`/diff`で切替)、`/cost`やステータス行でプロンプトキャッシュのミス原因(ツール定義変更・システムプロンプト変更・TTL超過など)を表示する機能、デスクトップアプリ・Remote Control・ヘッドレスセッションでのテキスト形式`/advisor`コマンドが追加された。ファイルパスに括弧を含む場合の権限ルール不具合など複数のバグ修正も含まれる。",
       "usage_example_ja": "「一人AI会社」の日次自動更新のような、キャッシュヒットに依存するスケジュール実行では、プロンプトキャッシュのミス原因が`/cost`やステータス行から直接わかるようになるため、想定外にキャッシュが外れてコストが増えていないかを日々の運用チェックに組み込みやすくなる。",
-      "tags": ["Claude Code", "diff", "プロンプトキャッシュ"]
+      "tags": [
+        "Claude Code",
+        "diff",
+        "プロンプトキャッシュ"
+      ]
     },
     {
       "id": "2026-09-03-platform-ant-apply-cli",
@@ -135,7 +301,11 @@
       "title_ja": "`ant` CLI v1.30.0、リソースをコードとして管理する`ant apply`を追加",
       "summary_ja": "Claude APIの`ant` CLIがv1.30.0となり、エージェント・環境・スキル・メモリストア・デプロイメントをリポジトリ内のファイルから作成・更新できる`ant apply`コマンドが追加された。各リソースをファイルで記述して`ant apply`を実行すると変更計画が表示され、承認すると適用される。実行時に書き出される`claude-lock.json`ロックファイルをコミットしておくことで、以降の実行(手元・CI問わず)が同じリソースを更新対象にでき、重複作成を避けられる。",
       "usage_example_ja": "「一人AI会社」でClaude Managed Agentsやエージェント定義を扱う場合、`ant apply`を使えばエージェントやスキルの設定をリポジトリのファイルとして管理し、コードレビューと同じ手順で変更できる。`claude-lock.json`をコミットしておけば、日次実行のような自動化からリソースを更新する際にも意図せず新規リソースを増やさずに済む。",
-      "tags": ["ant CLI", "Managed Agents", "Infrastructure as Code"]
+      "tags": [
+        "ant CLI",
+        "Managed Agents",
+        "Infrastructure as Code"
+      ]
     },
     {
       "id": "2026-09-02-claude-code-v2-1-259-managed-mcp-permission-prompts-none",
@@ -145,7 +315,11 @@
       "title_ja": "Claude Code v2.1.259、組織向けmanagedMcpServersと--permission-prompts noneを追加",
       "summary_ja": "Claude Code v2.1.259が公開された。組織がHTTP/SSE MCPサーバーを全ユーザーに配布できる`managedMcpServers`管理設定と、無人ホストで確認プロンプトが出る操作をすべて自動拒否する`--permission-prompts none`オプションが追加された。あわせて、並行セッションが互いの`~/.claude.json`の変更を打ち消し合う不具合、Bashの`Read()`拒否ルールが一部のコマンド形式をカバーしない不具合、OAuthトークン更新時にプロンプトキャッシュが無効化される不具合、長いターンの後にフルスクリーンモードの会話が空白になる不具合が修正された。",
       "usage_example_ja": "この日次更新Routineのような無人・スケジュール実行のセッションでは、`--permission-prompts none`を使うことで、想定外の確認待ちで処理が止まるリスクを避けやすくなる(ただし許可されていない操作は自動的に拒否されるため、必要な権限は事前にproject設定へ登録しておく必要がある)。",
-      "tags": ["Claude Code", "MCP", "権限管理"]
+      "tags": [
+        "Claude Code",
+        "MCP",
+        "権限管理"
+      ]
     },
     {
       "id": "2026-09-01-platform-fable-5-1-mythos-5-1",
@@ -155,7 +329,11 @@
       "title_ja": "最上位モデル「Claude Fable 5.1」と「Mythos 5.1」が登場",
       "summary_ja": "Claude Fable 5の後継となる「Claude Fable 5.1」と、Project Glasswing参加者向け「Claude Mythos 5.1」が公開された。デフォルトで1Mトークンのコンテキストウィンドウ・最大128kトークン出力・常時オンの適応的思考に対応し、価格はFable 5と同じ$10/$50 per MTokだが、プロンプトキャッシュの読み取り価格が基本入力価格の0.025倍(他モデルは0.1倍)にあたる$0.25 per MTokに引き下げられ、典型的なワークロードで約25%、エージェント中心のアプリでは最大45%のコスト削減が見込まれるという。生成テキストにはAnthropicのテキスト透かしが、Files API経由の生成画像・動画にはC2PA Content Credentialsが付与される。",
       "usage_example_ja": "「一人AI会社」のメインセッションのように複数エージェントを並行運用しキャッシュヒットに依存する構成では、キャッシュ読み取り価格の引き下げにより同じワークフローでも実費が下がる可能性がある。`.claude/agents/*.md`のモデル指定を`claude-fable-5-1`に更新し、キャッシュヒット率と実際のコスト変化を`/cost`で確認してから本格移行するとよい。",
-      "tags": ["新モデル", "Fable", "料金"]
+      "tags": [
+        "新モデル",
+        "Fable",
+        "料金"
+      ]
     },
     {
       "id": "2026-09-01-platform-tool-choice-any-tool-unsupported",
@@ -165,7 +343,11 @@
       "title_ja": "`tool_choice`の`any`/`tool`指定が非サポートに(破壊的変更)",
       "summary_ja": "Claude APIの`tool_choice`パラメータで`any`および`tool`タイプの指定が非サポートとなり、指定すると400エラーが返るようになった。`auto`と`none`は従来通り利用できる。スキーマに準拠したツール入力を保証したい場合は、代わりにstrict tool useまたはstructured outputsの利用が案内されている。",
       "usage_example_ja": "`tool_choice: {\"type\": \"any\"}`や`{\"type\": \"tool\", ...}`を使って特定ツールの呼び出しを強制している自作アプリがあれば、リクエストが400エラーになる前にstrict tool useまたはstructured outputsへの置き換えが必要。個人開発でAPIを直接叩いている箇所は早めに棚卸ししておきたい。",
-      "tags": ["API", "破壊的変更", "tool_choice"]
+      "tags": [
+        "API",
+        "破壊的変更",
+        "tool_choice"
+      ]
     },
     {
       "id": "2026-09-01-platform-mid-conversation-effort-system-beta",
@@ -175,7 +357,11 @@
       "title_ja": "Claude APIにキャッシュを保ったまま会話途中でeffort変更・一時的なsystemメッセージを追加できるベータ機能",
       "summary_ja": "Claude APIにベータ機能として、会話途中に`role: \"system\"`メッセージと`output_config.effort`を送ることで、プロンプトキャッシュを無効化せずにeffortレベルをターン単位で切り替えられる「Per-message effort」(`mid-conversation-output-config-2026-07-01`ヘッダー、Claude Fable 5.1・Mythos 5.1・Opus 5対応、Claude APIのみ)が追加された。あわせて、`clear_at: \"next_user_message\"`を指定したmid-conversation systemメッセージを、そのターンにのみ反映させつつ以降の履歴にはトークンコストなしで残せる「Turn-scoped system messages」(`mid-conversation-system-clear-at-2026-08-21`ヘッダー)も追加された。",
       "usage_example_ja": "普段は低effortで動かしつつ重要な判断のターンだけeffortを上げたい、あるいは特定のターンだけ一時的な指示を挟みたいといった場面で、プロンプトキャッシュを壊さずに実現できる。Claude APIを直接呼び出す自作ツールで、ターン単位の細かい制御とコスト最適化を両立したい場合に検討できる。",
-      "tags": ["API", "プロンプトキャッシュ", "ベータ"]
+      "tags": [
+        "API",
+        "プロンプトキャッシュ",
+        "ベータ"
+      ]
     },
     {
       "id": "2026-09-01-platform-thinking-display-updates-beta",
@@ -185,7 +371,11 @@
       "title_ja": "Claude APIのthinkingにツール呼び出し間の進捗テキスト表示ベータ機能が追加",
       "summary_ja": "Claude APIのベータ機能として、`thinking.display`に`\"updates\"`を指定すると、Claude Fable 5.1・Mythos 5.1・Fable 5がツール呼び出しの合間に生成する短い進捗更新をテキストとして受け取れるようになった(`thinking-display-updates-2026-08-18`ヘッダー)。詳細な推論過程自体は隠したまま、ツール呼び出し直前には最大1つのthinking blockが返される。あわせて、thinking blockはそれを生成したモデルか、それより新しいモデルでのみ再生できるという保持ルールが明確化され、2026年8月31日以降作成のアカウントでは、systemプロンプト・tools・過去メッセージが変更された後に古いthinking blockを再生しようとすると400エラーになる(ベータヘッダーで削除/拒否のいずれかの挙動を選択可能)。",
       "usage_example_ja": "エージェント的にツールを連続実行するアプリで、内部の詳細な思考過程は隠しつつユーザーには「今何をしているか」の簡易な進捗だけ見せたい場合に使える。thinking blockの保持ルールは、systemプロンプトを動的に書き換えるような自作ツールでエラーの原因になり得るため、Claude APIを直接使っている場合は事前に把握しておきたい。",
-      "tags": ["API", "Thinking", "ベータ"]
+      "tags": [
+        "API",
+        "Thinking",
+        "ベータ"
+      ]
     },
     {
       "id": "2026-09-01-anthropic-news-enterprise-frontier-safeguards",
@@ -195,7 +385,11 @@
       "title_ja": "エンタープライズ向け新データ保護策「Enterprise Frontier Safeguards」を発表",
       "summary_ja": "Anthropicは、ゼロデータ保持(ZDR)相当のプライバシーと、不正利用検知のための最新の安全対策を両立させる「Enterprise Frontier Safeguards(EFS)」を発表した。データは顧客自身が管理するクラウド基盤・暗号鍵・アクセスポリシーの下に保存され、Anthropic側には保持されない。金融・医療・製造・通信・法律・小売・公共部門など100社以上の顧客と共同開発したもので、Fable 5から導入された30日間のデータ保持要件に対する規制業種の顧客からの懸念に応える対応とされる。追加費用はなく、今秋以降段階的に提供開始予定。",
       "usage_example_ja": "個人開発の規模では直接対象にならないが、企業向けにAIサービスを提供する際のデータ保持・プライバシー設計の参考になる。将来「一人AI会社」が企業向けにツールを提供する際は、顧客側にデータを保持させる設計思想を参考にできる。",
-      "tags": ["Anthropic News", "セキュリティ", "エンタープライズ"]
+      "tags": [
+        "Anthropic News",
+        "セキュリティ",
+        "エンタープライズ"
+      ]
     },
     {
       "id": "2026-09-01-claude-code-v2-1-258-macos-fix",
@@ -205,7 +399,11 @@
       "title_ja": "Claude Code v2.1.258、macOS 12起動不具合とリモートセッションのエラーを修正",
       "summary_ja": "Claude Code v2.1.258で、2.1.255で生じた回帰によりmacOS 12(Monterey)で起動できなくなっていた不具合と、再送された権限承認が適用できなかった際にリモート・スケジュール実行セッションが「user messages must have non-empty content」エラーで失敗する不具合が修正された。",
       "usage_example_ja": "macOS 12環境や、この会社の日次Routineのようなスケジュール実行・Remote Controlセッションを運用している場合、更新しておくことで起動失敗や権限承認まわりでのセッション停止を避けられる。",
-      "tags": ["Claude Code", "安定性", "macOS"]
+      "tags": [
+        "Claude Code",
+        "安定性",
+        "macOS"
+      ]
     },
     {
       "id": "2026-09-01-claude-code-v2-1-257-time-format-effort",
@@ -215,7 +413,11 @@
       "title_ja": "Claude Codeに時刻表示形式の設定とセッション限定のeffort変更を追加",
       "summary_ja": "Claude Code v2.1.257(2026年9月1日)で、ターン終了時刻やトランスクリプト表示のタイムスタンプを12時間制・24時間制・24時間制UTC・strftime形式パターンから選べる`timeFormat`/`timeZone`設定が追加された。また`/effort`に`/model`と同様の`s`(現在のセッションだけeffortを変更)が追加され、新モデルへの切り替え時に一時的に適用される既定effortの上書きも、そのセッション限定に変更された。",
       "usage_example_ja": "日本時間で運用しているこの会社のようなケースでは、`timeZone`をJSTに、`timeFormat`を24時間制に設定しておくと、ターン終了時刻やトランスクリプトの時刻表示が読みやすくなる。",
-      "tags": ["Claude Code", "UI設定", "時刻表示"]
+      "tags": [
+        "Claude Code",
+        "UI設定",
+        "時刻表示"
+      ]
     },
     {
       "id": "2026-09-01-claude-code-v2-1-257-containment-escape",
@@ -225,7 +427,11 @@
       "title_ja": "Auto ModeにContainment Escapeルールを追加(クラウド認証情報の持ち出しを防止)",
       "summary_ja": "Claude Code v2.1.257で、auto modeにおいてクラウドのメタデータ認証情報の取得・アウトバウンド制限の回避・テナントをまたぐアクセスといった操作が、環境側で「想定内」と明示しない限り自動承認されなくなる「Containment Escape」ルールが追加された。あわせて、作業ディレクトリ外のファイルを初めて読む際にはauto modeでも一度だけ確認プロンプトが出るようになり(`permissions.blockReadsOutsideWorkingDirectories`でブロックも可能)、プラグインがシンボリックリンク経由で自身のディレクトリ外のファイルを読めてしまう不具合も修正された。",
       "usage_example_ja": "auto modeで日次Routineのようなクラウドセッションを無人運用している場合、これらの変更により意図しないクラウド認証情報の持ち出しや作業ディレクトリ外への読み取りが自動承認されにくくなり、無人実行時の安全性が高まる。",
-      "tags": ["Claude Code", "安全性", "Auto Mode"]
+      "tags": [
+        "Claude Code",
+        "安全性",
+        "Auto Mode"
+      ]
     },
     {
       "id": "2026-09-01-claude-code-v2-1-257-subagent-cache-fixes",
@@ -235,7 +441,11 @@
       "title_ja": "Claude Code v2.1.257でサブエージェントのプロンプトキャッシュ関連の不具合を多数修正",
       "summary_ja": "Claude Code v2.1.257で、応答がスリープや接続断で途中で切れた際にサブエージェントが不完全なまま終了せず自動的に続行するようになったほか、Remote Controlが会話途中で接続するとBashツール定義が再送信されプロンプトキャッシュがミスしていた不具合、`/fork`で新しいバックグラウンドセッションに元の会話のプロンプトキャッシュが引き継がれない不具合、advisorモデルを設定したセッションでcompaction等のバックグラウンドリクエストがキャッシュされない不具合が修正された。また`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`により、個別のspawn指定やエージェント定義側のモデル指定を無視して全サブエージェントに`CLAUDE_CODE_SUBAGENT_MODEL`(未設定時はメインモデル)を強制適用できるようになった。",
       "usage_example_ja": "「一人AI会社」のように複数サブエージェントを並行運用しプロンプトキャッシュに依存している構成では、今回のキャッシュミス系の修正で実費・待ち時間が改善する可能性がある。特定の作業だけ全サブエージェントのモデルを一時的に揃えたい場合は`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`が使える。",
-      "tags": ["Claude Code", "サブエージェント", "プロンプトキャッシュ"]
+      "tags": [
+        "Claude Code",
+        "サブエージェント",
+        "プロンプトキャッシュ"
+      ]
     },
     {
       "id": "2026-09-01-claude-code-v2-1-257-vscode-improvements",
@@ -245,7 +455,11 @@
       "title_ja": "VSCode拡張機能にモデルピル表示・セッションのアーカイブ機能などを追加",
       "summary_ja": "Claude Code v2.1.257で、VSCode拡張機能のセッション一覧パネルに現在のモデルを表示しモデルピッカーを開ける「モデルピル」や、アカウント・使用状況をまとめた折りたたみ可能なセクションが追加された。また「セッションを削除」が「セッションをアーカイブ」に変更され、アーカイブ済みセッションは一覧下部の折りたたみグループに移動し復元(Unarchive)できるようになった。出力スタイルの選択もコマンドメニューから行えるようになった。",
       "usage_example_ja": "VSCode上でClaude Codeを使う場合、モデルピルから素早くモデル・effortを切り替えられ、誤って消したくないセッションもアーカイブとして残せるようになるため、GUI上での運用がしやすくなる。",
-      "tags": ["Claude Code", "VSCode", "UI"]
+      "tags": [
+        "Claude Code",
+        "VSCode",
+        "UI"
+      ]
     },
     {
       "id": "2026-08-31-claude-code-v2-1-252-stability-fixes",
@@ -255,7 +469,11 @@
       "title_ja": "Claude Code v2.1.252、複数の安定性関連の不具合を修正",
       "summary_ja": "Claude Code v2.1.252で、一部のMacでBashコマンドが「task output swap refused」エラーで失敗する不具合、`.claude/settings.local.json`が無いプロジェクトで「常に許可」設定が保存されない不具合、接続が不安定な環境でRemote Controlセッションがツール完了後に停止する不具合、失敗内容が大きいバックグラウンドタスクの通知がAPIのリクエストサイズ上限を超えてしまう不具合が修正された。",
       "usage_example_ja": "Bashツールの実行やRemote Controlでのリモート操作、バックグラウンドタスクの通知を日常的に使っている場合、これらの不具合修正により体感の安定性が上がる。特にRemote Controlで外出先からセッションを操作しているようなワークフローでは、更新しておくと接続断のリスクを減らせる。",
-      "tags": ["Claude Code", "安定性", "Remote Control"]
+      "tags": [
+        "Claude Code",
+        "安定性",
+        "Remote Control"
+      ]
     },
     {
       "id": "2026-08-27-anthropic-news-team-plan-for-scientists",
@@ -265,7 +483,11 @@
       "title_ja": "研究者向け「Claude Team plan for scientists」を発表、1万席を無償・割引提供",
       "summary_ja": "Anthropicは学術・非営利の研究機関に所属する研究者向けに、Claude Teamプランの席を1万席分、無償または割引価格で1年間提供する「Claude Team plan for scientists」を発表した。標準席は無償、利用上限が5倍のプレミアム席は月15ドル。対象は大学・非営利研究機関のPI(研究責任者)相当の立場にある人物で、認証後に自分のラボの研究者を招待できる。営利企業の研究チームは対象外。あわせて、これだけでは利用量が足りないプロジェクト向けに、最大5万ドル相当のクレジットを提供する「AI for Science」プログラムの拡大も発表された。",
       "usage_example_ja": "「一人AI会社」のような個人開発の文脈では直接対象にはならないが、研究者向け特別プランのように、対象を絞った無償・割引プランを用意する施策の一例として参考になる。周囲に対象となる研究者がいれば案内できる。",
-      "tags": ["Anthropic News", "料金", "研究"]
+      "tags": [
+        "Anthropic News",
+        "料金",
+        "研究"
+      ]
     },
     {
       "id": "2026-08-28-anthropic-news-model-hardware-standard",
@@ -275,7 +497,11 @@
       "title_ja": "ロボット・実験機器連携の新標準MHSをプレビュー公開",
       "summary_ja": "AnthropicはClaudeなどのAIアシスタントとロボットや科学・製造機器を接続するための新しいソフトウェア標準「Model Hardware Standard(MHS)」をリサーチプレビューとして公開した。MHSは機器の安全な操作範囲(速度や角度の制限など)を標準化されたファイルに記述し、紙のマニュアルや専門家の暗黙知に頼らずAIが機器の使い方を理解できるようにする。標準化されたドライバ・自然言語のデバイスタグ・MCP互換の制御を備え、顕微鏡や液体ハンドラー、ロボットアームなど複数機器を同時に操作しながら手順全体を推論できる。Genentech、CMU、AWS、Tecan、Universal Robots、Hugging Face LeRobotなどが提携パートナーとして参加しており、プレビュー終了後にオープンソース化予定。",
       "usage_example_ja": "ソフトウェア中心の「一人AI会社」で直接使う場面はまだ少ないが、今後AIが物理的な機器を安全に操作する際の設計思想(操作範囲を明示的なファイルで制限する等)は、自作ツールの権限設計を考える際の参考にもなる。ハードウェア連携を伴うプロダクトを検討する場合は、MCP互換という点も含め動向を追っておく価値がある。",
-      "tags": ["Anthropic News", "ロボティクス", "MCP"]
+      "tags": [
+        "Anthropic News",
+        "ロボティクス",
+        "MCP"
+      ]
     },
     {
       "id": "2026-08-28-claude-code-v2-1-251-security-streaming",
@@ -285,7 +511,11 @@
       "title_ja": "Claude Codeにモデル切替フックとコスト可視化機能",
       "summary_ja": "Claude Code v2.1.251で、モデル切り替えをブロック・確認・記録できる`PreModelSwitch`/`PostModelSwitch`フックイベントが追加された。Remote Controlクライアントへフォアグラウンドのサブエージェントのツール呼び出しと結果がライブストリーミングされるようになり、`/usage`に支出上限バーが、`/cost`にセッション単位のプロンプトキャッシュ統計(ヒット率・再キャッシュトークン数・ウォーム/コールド状態)が追加された。あわせて、ファイル操作ツールのシンボリックリンク検証や、プラグインコマンドのディレクトリ外参照、Workflowツールが権限チェック前にファイルを読む問題、Grep/Globがシンボリックリンク経由でdenyルールを回避できる問題など、複数のセキュリティ修正も行われた。",
       "usage_example_ja": "`/cost`の新しいキャッシュヒット率表示で、頻繁に呼び出すサブエージェントのプロンプト設計がキャッシュを無駄にしていないか日次で確認できる。「一人AI会社」のように複数エージェントを並行運用する場合、`/usage`の支出上限バーで日々のAPIコストを一目で把握し、予算超過を早めに察知できる。",
-      "tags": ["Claude Code", "セキュリティ", "コスト管理"]
+      "tags": [
+        "Claude Code",
+        "セキュリティ",
+        "コスト管理"
+      ]
     },
     {
       "id": "2026-08-27-claude-apps-cowork-builtin-browser",
@@ -295,7 +525,11 @@
       "title_ja": "Claude Coworkに専用の内蔵ブラウザが追加",
       "summary_ja": "Claudeデスクトップアプリ内のCoworkに、拡張機能不要の内蔵ブラウザが追加された。タスクにWebサイトの操作が必要な場合、サイドパネルにブラウザが開きClaudeがページの閲覧・クリック・入力・フォーム記入などを行う。自分のブラウザとは分離されており、タブやパスワードなどは共有されない。まずPro/Max/Teamプランのデスクトップアプリ(macOS/Windows/Linux、Linuxはベータ)に順次展開され、Enterpriseプランでは管理者が組織設定からすぐに有効化できる。既にClaude in Chromeを使っている場合はそちらが引き続きデフォルトのまま動作し、設定からブラウザを切り替えられる。",
       "usage_example_ja": "コネクタが用意されていない管理画面でのフォーム入力やダッシュボードからの数値取得など、ブラウザ操作を伴う定型作業をCowork上で完結できるようになる。「一人AI会社」のようにブラウザ拡張のセットアップを省きたい場合、内蔵ブラウザを使えば追加インストールなしにClaudeへ作業を任せられる。",
-      "tags": ["Claude Apps", "Cowork", "ブラウザ"]
+      "tags": [
+        "Claude Apps",
+        "Cowork",
+        "ブラウザ"
+      ]
     },
     {
       "id": "2026-08-27-claude-code-restricted-mode",
@@ -305,7 +539,11 @@
       "title_ja": "Claude Codeに`--restricted`起動オプションが追加",
       "summary_ja": "Claude Code v2.1.248で `--restricted`(環境変数 `CLAUDE_CODE_RESTRICTED=1` でも指定可)が追加された。コマンドやコードを実行する組み込みツールと `WebFetch`(`--tools` で明示しない限り)を無効化し、ファイル操作系ツールを作業ディレクトリ内に限定、`bypassPermissions` を拒否し、ユーザー・プロジェクト・ローカルの設定ファイルを無視する制限モード。",
       "usage_example_ja": "信頼できないリポジトリやスクリプトを一時的に調査させたい場合など、実行権限を絞った安全なモードでClaude Codeを起動できる。個人開発でも、外部から取得したコードをレビューだけさせたい場面で活用できる。",
-      "tags": ["Claude Code", "安全性", "起動オプション"]
+      "tags": [
+        "Claude Code",
+        "安全性",
+        "起動オプション"
+      ]
     },
     {
       "id": "2026-08-27-claude-code-agent-cache-ttl",
@@ -315,7 +553,11 @@
       "title_ja": "サブエージェントごとにプロンプトキャッシュTTLを個別設定可能に",
       "summary_ja": "Claude Code v2.1.248で、エージェントのfrontmatterに `experimental.cacheTtl`(`\"5m\"` または `\"1h\"`)を設定できるようになった。サブエージェント用のTTL設定が別途構成されていない場合に、そのエージェント専用のプロンプトキャッシュ保持時間として使われる。8/25に追加された `promptCacheTtl`/`subagentPromptCacheTtl` に続く、さらに細かい単位でのキャッシュ制御機能。",
       "usage_example_ja": "`.claude/agents/*.md` でエージェントごとにモデルを使い分けている場合と同様に、頻繁に呼び出す調査用サブエージェントだけ1時間キャッシュにして、使い捨てのサブエージェントは5分のままにするといった、エージェント単位でのコスト調整が可能になる。",
-      "tags": ["Claude Code", "サブエージェント", "コスト最適化"]
+      "tags": [
+        "Claude Code",
+        "サブエージェント",
+        "コスト最適化"
+      ]
     },
     {
       "id": "2026-08-27-claude-code-cross-session-messaging-cloud",
@@ -325,7 +567,10 @@
       "title_ja": "セッション間メッセージング機能がBedrock/Vertex/Foundry環境でも利用可能に",
       "summary_ja": "Claude Code v2.1.248で、同一マシン上のセッション同士がメッセージを送り合う `SendMessage`/`ListAgents` 機能が、Amazon Bedrock・Google Vertex・Microsoft Foundry経由の利用や、テレメトリを無効化した環境でも使えるようになった。",
       "usage_example_ja": "クラウドプロバイダ経由でClaude Codeを使っている場合でも、複数セッションを並列起動して`SendMessage`で連携させる運用パターンがそのまま適用できるようになる。",
-      "tags": ["Claude Code", "マルチエージェント"]
+      "tags": [
+        "Claude Code",
+        "マルチエージェント"
+      ]
     },
     {
       "id": "2026-08-27-platform-personal-service-account-keys",
@@ -335,7 +580,11 @@
       "title_ja": "Claude Consoleに「個人キー」「サービスアカウントキー」が追加",
       "summary_ja": "Claude Consoleで、個人として動作する「個人キー」と、サービスアカウントとして動作する「サービスアカウントキー」を作成できるようになった。いずれも紐づくアカウントと同じ権限を持ち、そのアカウントが組織から外れると使えなくなる。特定のワークスペースに限定することも、管理系エンドポイントや全ワークスペースにまたがる利用に設定することもできる。従来のワークスペースAPIキーはレガシーオプションとして引き続き利用可能。",
       "usage_example_ja": "個人開発でAPIキーを発行する際、誰がどのキーをどの用途で使っているかを追跡しやすくなる。キー流出時に無効化する範囲を個人・サービス単位で絞り込みたい場合にも有効。",
-      "tags": ["API", "Console", "APIキー"]
+      "tags": [
+        "API",
+        "Console",
+        "APIキー"
+      ]
     },
     {
       "id": "2026-08-25-claude-apps-shared-memory",
@@ -345,7 +594,11 @@
       "title_ja": "Claudeの「メモリ」がチャットとCoworkで統合・共有に",
       "summary_ja": "claude.aiのチャットとCoworkでそれぞれ別々に管理されていた「メモリ」機能が統合され、片方でClaudeに伝えた内容がもう一方の場でも引き継がれるようになった。設定 > メモリの「トピック」画面で、記憶されている内容を一覧・編集・削除できる。健康状態・人種・民族・性自認・宗教・政治的信条などのセンシティブな話題は、「センシティブなトピックを含める」を有効にしない限り記憶されない。メモリはFree/Pro/Maxプランではデフォルトで有効、Team/Enterpriseプランではデフォルトで無効。",
       "usage_example_ja": "「一人AI会社」のようにチャットでの相談とCoworkでの作業タスクを行き来する運用スタイルの場合、プロジェクトの背景や好みを毎回説明し直す必要が減り、両方の場で一貫した文脈を保ったまま指示できるようになる。センシティブな話題を含む相談をする際は、事前にメモリ設定を確認しておくと安心。",
-      "tags": ["claude.ai", "Cowork", "メモリ"]
+      "tags": [
+        "claude.ai",
+        "Cowork",
+        "メモリ"
+      ]
     },
     {
       "id": "2026-08-25-claude-code-prompt-cache-ttl",
@@ -355,7 +608,11 @@
       "title_ja": "Claude Codeにプロンプトキャッシュ保持時間の個別設定機能が追加",
       "summary_ja": "Claude Code v2.1.243で `promptCacheTtl` と `subagentPromptCacheTtl` の設定が追加され、メイン会話とサブエージェントでプロンプトキャッシュの保持時間を別々に制御できるようになった。これにより、メイン会話は1時間キャッシュを維持しつつ、サブエージェントは5分のままにする、といった使い分けが可能になる。",
       "usage_example_ja": "「一人AI会社」のように長時間の自動化ループを回す場合、メインセッションのキャッシュを長めに保ってコストを抑えつつ、使い捨てのサブエージェントは短いTTLのままにするなど、settings.jsonでの細かいコスト調整に使える。",
-      "tags": ["Claude Code", "コスト最適化", "設定"]
+      "tags": [
+        "Claude Code",
+        "コスト最適化",
+        "設定"
+      ]
     },
     {
       "id": "2026-08-25-claude-code-usage-loops",
@@ -365,7 +622,11 @@
       "title_ja": "`/usage`にLoop(定期実行)ごとの内訳表示が追加",
       "summary_ja": "Claude Code v2.1.243で `/usage` コマンドに、Loopごとの実行回数・合計トークン数・実行あたりのトークン数・最終実行時刻を表示する内訳が追加された。",
       "usage_example_ja": "日次実行のRoutineなど複数のLoopを運用している場合、どのLoopがどれだけトークンを消費しているかを`/usage`で可視化でき、コスト管理や実行頻度の見直しに役立つ。",
-      "tags": ["Claude Code", "Loop", "使用状況"]
+      "tags": [
+        "Claude Code",
+        "Loop",
+        "使用状況"
+      ]
     },
     {
       "id": "2026-08-25-claude-code-remote-mcp-reconnect",
@@ -375,7 +636,11 @@
       "title_ja": "非対話・SDKセッションでリモートMCPサーバーが自動再接続するよう修正",
       "summary_ja": "Claude Code v2.1.243で、非対話モード(`-p`)やSDKセッションにおいてリモートMCPサーバーの接続が切断された後、二度と復旧しなかった不具合が修正され、自動的に再接続するようになった。",
       "usage_example_ja": "自動化スクリプトやCI、Agent SDK経由でMCP連携のツールを使っている場合、接続断による処理停止のリスクが減り、無人実行時の安定性が上がる。",
-      "tags": ["Claude Code", "MCP", "安定性"]
+      "tags": [
+        "Claude Code",
+        "MCP",
+        "安定性"
+      ]
     },
     {
       "id": "2026-08-25-claude-code-auto-mode-safety",
@@ -385,7 +650,11 @@
       "title_ja": "Auto ModeにBashワイルドカードルールの警告と設定タブを追加",
       "summary_ja": "Claude Code v2.1.246で、サブコマンドの前にワイルドカードを使うBash許可ルール(例: `Bash(git * main)`)に対する起動時警告が追加され、`/permissions`にAuto modeの分類ルールを確認・編集できるタブが追加された。非常に大きなセッションでAuto modeのツール呼び出しが安全確認のタイムアウトにより誤って拒否される不具合も修正された。",
       "usage_example_ja": "Auto modeで自動承認を使っている場合、意図せず広範囲を許可してしまうルールに気づきやすくなり、`/permissions`から設定を見直せるようになる。",
-      "tags": ["Claude Code", "Auto Mode", "安全性"]
+      "tags": [
+        "Claude Code",
+        "Auto Mode",
+        "安全性"
+      ]
     },
     {
       "id": "2026-08-21-claude-code-api-upgrade-command",
@@ -395,7 +664,11 @@
       "title_ja": "Claude Codeに`/claude-api upgrade`コマンドが追加、Python SDK 1.x移行を支援",
       "summary_ja": "Claude Code v2.1.239で `/claude-api upgrade` コマンドが追加され、`anthropic` Pythonパッケージを0.x系から1.x系へ移行する作業を支援できるようになった。同バージョンではこの他、データ常駐ワークスペース向けのコスト見積もりに1.1倍の米国限定推論プレミアムを反映する変更や、Alpine/musl環境でのネイティブ画像貼り付け対応なども行われた。",
       "usage_example_ja": "後述のPython SDK v1.0化に伴って自作スクリプトのマイグレーションが必要になった場合、Claude Code上でこのコマンドを実行すれば、破壊的変更(temperature/top_p/top_k削除など)への追従を自動化できる可能性がある。個人開発のツールを最新SDKに追従させる作業を減らせる。",
-      "tags": ["Claude Code", "Python SDK", "コマンド"]
+      "tags": [
+        "Claude Code",
+        "Python SDK",
+        "コマンド"
+      ]
     },
     {
       "id": "2026-08-20-platform-python-sdk-v1",
@@ -405,7 +678,11 @@
       "title_ja": "Python SDKがv1.0に、HTTP層がhttpx2へ移行(破壊的変更あり)",
       "summary_ja": "Claude API公式Python SDKのv1.0がリリースされた。HTTP層が`httpx`から互換フォークの`httpx2`に置き換わり、Python 3.10以上が必須になった。レガシーなText Completions API、Messages系メソッドの`temperature`/`top_p`/`top_k`パラメータ、Tool Runnerのクライアント側`compaction_control`など、長期非推奨だった機能が削除された。非同期クライアントの`.with_raw_response`結果は`await response.parse()`が必要になり、`AnthropicBedrock`はAWSリージョン未設定時にエラーを返すようになった(従来は`us-east-1`にフォールバック)。",
       "usage_example_ja": "個人開発でAnthropic公式Python SDKを使っている場合、v1へのアップデート前に移行ガイドを確認し、`temperature`等のサンプリングパラメータを使っていないか、非同期クライアントの`.with_raw_response`呼び出し箇所がないかをチェックしておくと、更新時のエラーを防げる。",
-      "tags": ["Python SDK", "API", "破壊的変更"]
+      "tags": [
+        "Python SDK",
+        "API",
+        "破壊的変更"
+      ]
     },
     {
       "id": "2026-08-20-claude-code-memory-leak-fix",
@@ -415,7 +692,10 @@
       "title_ja": "Claude Code、長時間セッションでのメモリ増加を修正",
       "summary_ja": "Claude Code v2.1.238で、長時間の対話セッションにおいてメモリ使用量が際限なく増加していく不具合が修正された。同バージョンでは他に、Bashライクな操作を可能にする`keybindingFlavor`設定の追加や、プラグインマーケットプレイス向けのHTTPヘッダー生成コマンド`headersHelper`の追加なども行われた。",
       "usage_example_ja": "このサイトの日次自動更新Routineのように、長時間・繰り返しセッションを保持して運用する自動化タスクでは、メモリ関連の不具合修正によって安定性が向上する。長時間起動しっぱなしのClaude Codeセッションを運用している場合はアップデートしておくとよい。",
-      "tags": ["Claude Code", "安定性"]
+      "tags": [
+        "Claude Code",
+        "安定性"
+      ]
     },
     {
       "id": "2026-08-20-claude-code-concise-output-style",
@@ -425,7 +705,10 @@
       "title_ja": "Claude Codeに簡潔な出力スタイル「Concise」を追加",
       "summary_ja": "Claude Code (v2.1.237) に組み込みの出力スタイル「Concise」が追加された。前置きや経過説明を省き、作業の丁寧さはそのままに結果から述べるようになる。`/config` の Output style から選択できる。",
       "usage_example_ja": "日次アップデート反映のような定型的な自動実行タスクでは、余計な前置きが省かれることで実行ログが読みやすくなる。ログを見返して結果だけ素早く確認したい場面で有効。",
-      "tags": ["Claude Code", "出力スタイル"]
+      "tags": [
+        "Claude Code",
+        "出力スタイル"
+      ]
     },
     {
       "id": "2026-08-19-platform-files-skills-api-ga",
@@ -435,7 +718,11 @@
       "title_ja": "Files APIとAgent Skills APIが正式版に",
       "summary_ja": "Claude APIのFiles API(`/v1/files`)とAgent Skills API(`/v1/skills`)がベータを終了し正式版になった。それぞれ `files-api-2025-04-14`・`skills-2025-10-02` ベータヘッダーが不要になり、ファイルの有効期限設定やページネーションなど現行仕様がヘッダーなしのリクエストでも使える。既存のベータヘッダー付きリクエストは引き続き動作する。",
       "usage_example_ja": "APIでファイルアップロードやカスタムSkillsを使う個人開発のアプリでベータヘッダーの記述が不要になり、実装がシンプルになる。",
-      "tags": ["API", "Files API", "Agent Skills"]
+      "tags": [
+        "API",
+        "Files API",
+        "Agent Skills"
+      ]
     },
     {
       "id": "2026-08-19-platform-computer-browser-use-ga",
@@ -445,7 +732,11 @@
       "title_ja": "Computer useツールが正式版に、新しいBrowser useツールも登場",
       "summary_ja": "Claude APIのcomputer useツールがベータを終了し `computer_toolset_20260801` として正式版になった(ベータヘッダー不要、1ターンで複数操作、zoomがデフォルト有効)。あわせて、アプリ側が用意するブラウザ内で動作する新しい `browser_toolset_20260801`(browser useツール)も公開され、画面のスクリーンショットではなくページのアクセシビリティツリーを直接読み取って操作できる。ともにClaude Fable 5・Mythos 5・Opus 5・Sonnet 5・Opus 4.8で利用可能。",
       "usage_example_ja": "ブラウザ操作を伴う個人開発の自動化(例: 管理画面でのデータ入力代行ツール)を作る場合、browser useツールを使うとスクリーンショット解析より正確かつ低コストにフォーム入力やタブ操作を実装できる可能性がある。",
-      "tags": ["API", "Computer use", "Browser use"]
+      "tags": [
+        "API",
+        "Computer use",
+        "Browser use"
+      ]
     },
     {
       "id": "2026-08-18-platform-workbench-to-playground",
@@ -455,7 +746,10 @@
       "title_ja": "Claude ConsoleのWorkbenchが「Playground」にリニューアル",
       "summary_ja": "Claude Console内のWorkbenchが「Playground」として刷新された。Messages APIの全パラメータに対応し、コード実行やWeb検索などAPI機能を試せるテンプレートを用意。各実行ごとに完全なSDKリクエストとAPIレスポンスを確認できる。",
       "usage_example_ja": "APIの新しいパラメータやツールを本番コードに組み込む前に、Playgroundでリクエスト・レスポンスの形を確認してから実装すると手戻りが減る。",
-      "tags": ["Console", "Playground"]
+      "tags": [
+        "Console",
+        "Playground"
+      ]
     },
     {
       "id": "2026-08-17-claude-code-usage-limit-auto-continue",
@@ -465,7 +759,10 @@
       "title_ja": "Claude Code、利用上限リセット時にセッションを自動再開",
       "summary_ja": "Claude Code (v2.1.234) は、claude.aiの利用上限に達して中断したセッションを、上限がリセットされたタイミングで自動的に再開するようになった。`/config` の「Continue automatically at usage limit」でオフにできる。",
       "usage_example_ja": "長時間の自動実行タスクが利用上限で止まってしまっても、リセット後に手動で再開する手間がなくなる。オーナー不在時の日次自動実行や長時間タスクの安定運用に直結する改善。",
-      "tags": ["Claude Code", "利用上限"]
+      "tags": [
+        "Claude Code",
+        "利用上限"
+      ]
     },
     {
       "id": "2026-08-13-claude-code-subagent-forking-default",
@@ -475,7 +772,11 @@
       "title_ja": "Claude Code、Subagent forkingがデフォルト有効に",
       "summary_ja": "Claude Code (v2.1.232) で、`subagent_type: \"fork\"` のサブエージェントが会話全体とプロンプトキャッシュを引き継ぐ「Subagent forking」がデフォルトで有効になった。あわせて、対話セッション内でチームメイト以外のエージェントを起動すると既定でバックグラウンド実行になる。プロンプト中で `@` を入力すると名前で別のClaudeセッションにメンションでき、`SendMessage` で直接やり取りできるようになった。",
       "usage_example_ja": "サブエージェントに親セッションの文脈をそのまま引き継がせたい調査・実装タスクで、プロンプトキャッシュが効いたままフォークできるためコストと待ち時間を抑えられる。複数セッションを併走させる運用でも `@` メンションで直接呼びかけられ、連携がしやすくなる。",
-      "tags": ["Claude Code", "サブエージェント", "マルチエージェント"]
+      "tags": [
+        "Claude Code",
+        "サブエージェント",
+        "マルチエージェント"
+      ]
     },
     {
       "id": "2026-08-12-claude-apps-cowork-chrome-side-panel",
@@ -485,7 +786,11 @@
       "title_ja": "ChromeのサイドパネルがフルのClaude Coworkセッションに",
       "summary_ja": "Claude in ChromeのサイドパネルがClaude Coworkの本セッションとして動作するようになった。会話履歴が保存され、スキルやコネクタもブラウザ内でそのまま使え、ブラウザで始めた作業をデスクトップ・Web・モバイルアプリで続きから再開できる。Max・Teamプランでまず提供され、Proプランには順次展開。Enterpriseではデフォルトオフで管理者が許可ドメインを限定して有効化できる。",
       "usage_example_ja": "ブラウザで軽く調べ物を始めて、続きをデスクトップのClaude Codeやアプリで仕上げるといった使い方がしやすくなる。ブラウザ操作を伴う調査タスクの入口として使える。",
-      "tags": ["Claude Apps", "Cowork", "Chrome"]
+      "tags": [
+        "Claude Apps",
+        "Cowork",
+        "Chrome"
+      ]
     },
     {
       "id": "2026-08-10-platform-sonnet-5-pricing-permanent",
@@ -495,7 +800,10 @@
       "title_ja": "Claude Sonnet 5の導入価格が正式価格に(値上げなし)",
       "summary_ja": "Claude Sonnet 5の導入価格($2/$10 per MTok)がそのまま正式価格になった。2026年9月1日に予定されていた$3/$15への値上げは実施されない。",
       "usage_example_ja": "コスト試算をSonnet 5の値上げ後価格で見込んでいた場合は再計算不要。個人開発でのランニングコストを引き続き低く見積もれる。",
-      "tags": ["料金", "Sonnet"]
+      "tags": [
+        "料金",
+        "Sonnet"
+      ]
     },
     {
       "id": "2026-08-08-claude-code-sendmessage",
@@ -505,7 +813,10 @@
       "title_ja": "Claude Codeでセッションをまたいだ SendMessage が可能に",
       "summary_ja": "Claude Codeのセッション同士が名前で直接メッセージを送り合える `SendMessage` 機能が追加された(macOS/Linux)。`ListAgents` を使うと、同じマシンのセッションだけでなく他のマシン上の Remote Control セッションも名前付きで見つけられる。あわせて、ゲートウェイの利用上限に達した際の警告に上限額とリセット時刻が表示されるようになった。",
       "usage_example_ja": "この会社で実践している「バックグラウンドで複数の調査エージェントを並列起動し、完了通知を待つ」運用が、同一マシン内に限らず複数セッション間でも直接連携できる可能性がある。オーナー不在時の並列処理パターン(learnings.md 2026-07-04)を今後さらに拡張できるかもしれない。",
-      "tags": ["Claude Code", "マルチエージェント"]
+      "tags": [
+        "Claude Code",
+        "マルチエージェント"
+      ]
     },
     {
       "id": "2026-08-07-claude-code-self-hosted",
@@ -515,7 +826,10 @@
       "title_ja": "Claude Codeに「セルフホスト環境」が追加(Team/Enterprise向け)",
       "summary_ja": "`claude self-hosted-runner` コマンドにより、自分のマシンやコンテナを Claude Code web/モバイル/デスクトップセッションの実行場所にできるようになった。Team・Enterprise プランで利用可能。",
       "usage_example_ja": "現状は個人開発の規模では対象外(Team/Enterprise限定)。将来、社内ルールに記録している「EC2常時起動案」(learnings.md 2026-07-03、コスト不透明で保留)を再検討する材料になり得る。",
-      "tags": ["Claude Code", "インフラ"]
+      "tags": [
+        "Claude Code",
+        "インフラ"
+      ]
     },
     {
       "id": "2026-08-07-managed-agents-skills-from-github",
@@ -525,7 +839,10 @@
       "title_ja": "Claude Managed Agentsが、GitHubリポジトリのスキルを自動読み込み",
       "summary_ja": "Managed Agentsのセッションが、マウントしたGitHubリポジトリのルート `.claude/skills` ディレクトリにあるスキルをセッション開始時に自動検出・利用できるようになった。",
       "usage_example_ja": "この会社の `.claude/skills/`(project-kickoff・market-research等)をリポジトリ直下に置く現行の運用は、将来Managed Agents文脈に持ち込んでもそのまま活きる設計だと確認できる。",
-      "tags": ["Managed Agents", "スキル"]
+      "tags": [
+        "Managed Agents",
+        "スキル"
+      ]
     },
     {
       "id": "2026-08-05-opus-4-1-retired",
@@ -535,7 +852,9 @@
       "title_ja": "Claude Opus 4.1が提供終了",
       "summary_ja": "Claude Opus 4.1(claude-opus-4-1-20250805)モデルの提供が終了し、同モデルへのリクエストはエラーになる。Claude Opus 5へのアップグレードが推奨されている。",
       "usage_example_ja": "旧モデルIDをコードや設定に固定している場合は更新が必要。この会社はサブエージェントのモデルを `.claude/agents/*.md` のfrontmatterで個別指定しているため、モデル退役のたびにここを点検する運用(learnings.md 2026-07-13の教訓)が活きる。",
-      "tags": ["モデル退役"]
+      "tags": [
+        "モデル退役"
+      ]
     },
     {
       "id": "2026-07-24-opus-5",
@@ -545,7 +864,10 @@
       "title_ja": "Claude Opus 5 が登場",
       "summary_ja": "Claude Opus 4.8から性能を大きく引き上げた「Claude Opus 5」(claude-opus-5)が公開された。1Mトークンのコンテキストウィンドウ(デフォルトかつ上限)、最大128kトークンの出力、標準で有効な思考(thinking)機能に対応。価格はClaude Opus 4.8と同じ$5/$25 per MTok。",
       "usage_example_ja": "個人開発では、複雑な設計判断やアプリ全体のアーキテクチャ検討などコストより精度を優先したい場面でOpusを使うのが向く。日常のコーディング作業はSonnetで十分なことが多く、Opusは投資判断が絡む重要な場面に絞って使うとコストを抑えられる(CLAUDE.md「モデルの使い分け」と同じ考え方)。",
-      "tags": ["新モデル", "Opus"]
+      "tags": [
+        "新モデル",
+        "Opus"
+      ]
     },
     {
       "id": "2026-07-17-workbench-sunset",
@@ -555,7 +877,10 @@
       "title_ja": "レガシー版Workbenchが8/17でサンセット",
       "summary_ja": "Claude Console内の旧Workbench(platform.claude.com/workbench)へのアクセスが2026年8月17日に終了する。保存済みプロンプト・変数・evalは新Workbenchに引き継がれないため、必要なデータは事前にエクスポートが必要。",
       "usage_example_ja": "Claude ConsoleでAPIプロンプトを試作している場合は影響があるが、この会社はClaude Code中心の運用のため直接の影響は小さい。念のため知識として記録。",
-      "tags": ["Console", "廃止予定"]
+      "tags": [
+        "Console",
+        "廃止予定"
+      ]
     },
     {
       "id": "2026-06-30-sonnet-5",
@@ -565,7 +890,11 @@
       "title_ja": "Claude Sonnet 5 が登場、9月から通常料金に",
       "summary_ja": "次世代のSonnetモデル「Claude Sonnet 5」(claude-sonnet-5)が公開。1Mトークンのコンテキストウィンドウ、最大128kトークンの出力に対応し、2026年8月31日までは$2/$10 per MTokの導入価格(9月1日以降は$3/$15の通常料金)。適応的思考(adaptive thinking)がデフォルトで有効になった。",
       "usage_example_ja": "この会社のメインセッションが2026-07-13にOpus 5へ移行する前は主力だったモデル。トークナイザーが変わり同じ文章でも約30%トークン数が増える点は、長い会話が続くセッションのコスト試算で意識しておきたい。",
-      "tags": ["新モデル", "Sonnet", "料金"]
+      "tags": [
+        "新モデル",
+        "Sonnet",
+        "料金"
+      ]
     },
     {
       "id": "2026-06-26-rate-limits",
@@ -575,7 +904,10 @@
       "title_ja": "Claude APIのレート制限を引き上げ、利用ティアを3段階に整理",
       "summary_ja": "Claude Sonnet・HaikuのレートリミットがClaude Opusと同水準に引き上げられた。利用ティアはStart/Build/Scaleの3段階に整理され、ほとんどの組織はより上位のティアに移行する(下位ティアへの変更はない)。",
       "usage_example_ja": "個人開発の規模では上限に達することは稀だが、複数アプリを並行運用しAPI経由で機能を作る際に制限を気にする場面が減る。",
-      "tags": ["API", "レート制限"]
+      "tags": [
+        "API",
+        "レート制限"
+      ]
     },
     {
       "id": "2026-06-09-fable-5-and-scheduled-deployments",
@@ -585,7 +917,11 @@
       "title_ja": "最上位モデル「Claude Fable 5」登場、Managed Agentsにスケジュール実行機能も",
       "summary_ja": "最も高性能で広く一般提供されるモデル「Claude Fable 5」(claude-fable-5)と、Project Glasswing参加者向け「Claude Mythos 5」が公開。ともに1Mトークンのコンテキストウィンドウ・常時オンの適応的思考に対応。同日、Claude Managed Agentsに「スケジュール実行(cron)」機能が追加され、自前のスケジューラを持たずにcron式でセッションを定期実行できるようになった。",
       "usage_example_ja": "本サイトの「日次更新」はこのスケジュール実行の仕組み(Claude Code RemoteのRoutine機能)を使って実現している。まさに今回のアップデートの実例。",
-      "tags": ["新モデル", "Fable", "スケジュール実行"]
+      "tags": [
+        "新モデル",
+        "Fable",
+        "スケジュール実行"
+      ]
     },
     {
       "id": "2026-08-anthropic-news-ai-for-science",
@@ -595,7 +931,10 @@
       "title_ja": "Anthropicが希少遺伝性疾患研究向けにAIクレジット助成プログラムを開始",
       "summary_ja": "希少遺伝性疾患を研究する研究者向けに、6ヶ月間で最大5万ドル相当のClaudeクレジットを提供する「AI for Science」助成プログラムの応募受付が始まった。",
       "usage_example_ja": "オーナーの副業には直接関係しないが、Anthropicが研究支援にも力を入れている動きとして記録。",
-      "tags": ["Anthropic", "研究助成"]
+      "tags": [
+        "Anthropic",
+        "研究助成"
+      ]
     }
   ]
 }
