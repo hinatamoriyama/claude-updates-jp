@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-18T09:09:04+09:00",
+  "last_checked": "2026-09-19T09:08:09+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,90 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-18-claude-code-v2-1-277-vscode-improvements",
+      "date": "2026-09-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.277、VSCode拡張にコピー・停止操作などを追加",
+      "summary_ja": "Claude Code v2.1.277のVSCode拡張機能で、応答をコピーするボタンと`/copy`コマンド、バックグラウンドで動くシェルやタスクをエージェントマップ上で個別に停止できるStop操作が追加された。プラン上限が適用されないAPIキー・Bedrock・Vertex・Foundry利用時には、Account & usageダイアログとセッションマネージャーにコストとトークン使用量が表示されるようになった。非アクティブセッションが自動アーカイブされた際の通知と「Unarchive all」操作も追加された。",
+      "usage_example_ja": "VSCode上でClaude Codeを使いながらバックグラウンドタスクを多用している場合、暴走したタスクをエージェントマップからワンクリックで止められるようになり、APIキー課金で運用しているとコストもダイアログ上で都度確認できるようになる。",
+      "tags": [
+        "Claude Code",
+        "VSCode",
+        "UI改善"
+      ]
+    },
+    {
+      "id": "2026-09-18-claude-code-v2-1-277-stability-cache-fixes",
+      "date": "2026-09-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.277、ハング・クラッシュ・キャッシュ不具合を多数修正",
+      "summary_ja": "Claude Code v2.1.277で、内部エラー後に`claude -p`やAgent SDKのセッションが結果を返さずハングする不具合が修正され、エラー内容を表示して終了コード1で終了するようになった。ほかにも、`--resume`後に空のテキストブロックが原因で全リクエストが失敗する不具合、SessionStartフックが出力するとcompaction時にプロンプトキャッシュが全損する不具合、サブエージェント再開時にMCPツール定義が再描画されキャッシュが壊れる不具合、添付ファイルが再開・再起動のたびに再描画され拡張思考の内容が失われる不具合など、多数の安定性・プロンプトキャッシュ関連の不具合が修正された。",
+      "usage_example_ja": "「一人AI会社」のように長時間・多数のサブエージェントを動かす運用では、こうしたハングやキャッシュ全損の修正が積み重なることで、自動化スクリプトが途中で止まるリスクや無駄なトークン消費が減っていく。",
+      "tags": [
+        "Claude Code",
+        "安定性",
+        "プロンプトキャッシュ"
+      ]
+    },
+    {
+      "id": "2026-09-18-claude-code-v2-1-277-subagent-output-injection-guard",
+      "date": "2026-09-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.277、サブエージェント結果からの指示混入を防止",
+      "summary_ja": "Claude Code v2.1.277で、サブエージェントやteammateの実行結果がメインエージェントに渡る際、サブエージェントの出力であることを示すヘッダー付きでインデントされるようになり、結果内のテキストがセッション自身の指示として解釈されにくくなった。Bedrock・Vertex・Foundry環境では、ワークフロースクリプトが動的に組み立てるエージェントへのプロンプトも「スクリプトが書いたテキスト」として渡されるようになり、安全性分類器がユーザー発言として誤読しないよう変更された。",
+      "usage_example_ja": "外部データを取得させるサブエージェントやワークフローを組んでいる場合、取得内容に紛れ込んだ指示めいた文言がメインエージェントの行動を乗っ取ってしまうリスク(プロンプトインジェクション)を軽減できる。",
+      "tags": [
+        "Claude Code",
+        "セキュリティ",
+        "サブエージェント"
+      ]
+    },
+    {
+      "id": "2026-09-18-claude-code-v2-1-277-gateway-proxy-enhancements",
+      "date": "2026-09-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.277、gatewayのプロキシ経由運用を強化",
+      "summary_ja": "Claude Code v2.1.277で、アウトバウンド経路が転送プロキシのみのClaude apps gateway向けに`CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1`が追加され、ローカルでホスト名を解決せずプロキシへそのまま渡せるようになった。また、gatewayのアップストリーム設定に任意の`headers:`マップを指定できるようになり、手前で動かす自作プロキシへ固定ヘッダーを送れるようになった。",
+      "usage_example_ja": "セキュリティ要件でDNS解決をプロキシ側に一元化したい環境や、独自の認証ヘッダーを挟むリバースプロキシを自前運用している場合に、Claude Codeのgateway経由アクセスをそのまま構成に組み込みやすくなる。",
+      "tags": [
+        "Claude Code",
+        "Gateway",
+        "プロキシ"
+      ]
+    },
+    {
+      "id": "2026-09-18-claude-code-v2-1-277-agents-md-support",
+      "date": "2026-09-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.277、AGENTS.mdへの対応を追加",
+      "summary_ja": "Claude Code v2.1.277で、CLAUDE.mdが無いプロジェクトではAGENTS.mdを読み込むようになった。`/config`の「Project instructions」からどちらを使うか切り替えられる。現時点ではBedrock・Vertex・Foundry環境には未対応。",
+      "usage_example_ja": "他のAIコーディングツールとAGENTS.md形式のプロジェクト指示ファイルを共有している場合、CLAUDE.mdを別途用意しなくてもClaude Codeがそのまま読み込んでくれるようになり、複数ツールを併用する際の設定管理が楽になる。",
+      "tags": [
+        "Claude Code",
+        "AGENTS.md",
+        "プロジェクト設定"
+      ]
+    },
+    {
+      "id": "2026-09-18-claude-code-v2-1-276-gateway-regression-fix",
+      "date": "2026-09-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.276、v2.1.275のゲートウェイ回帰を修正",
+      "summary_ja": "Claude Code v2.1.276で、`ANTHROPIC_BASE_URL`がプロキシやgatewayを指している場合に全リクエストが`400 ... Input tag 'advisor_20260301'`エラーで失敗する不具合が修正された。これはv2.1.275で発生したリグレッションで、カスタムのAPIエンドポイントやgateway経由でClaude Codeを利用しているユーザーに影響していた。",
+      "usage_example_ja": "社内プロキシやセルフホストのgateway経由でClaude Codeを使っている場合、v2.1.275のこの不具合で作業が止まっていた可能性がある。該当する場合はv2.1.276以降へのアップデートを確認するとよい。",
+      "tags": [
+        "Claude Code",
+        "バグ修正",
+        "Gateway"
+      ]
+    },
     {
       "id": "2026-09-18-platform-compliance-api-chrome-sessions",
       "date": "2026-09-18",
