@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-19T09:08:09+09:00",
+  "last_checked": "2026-09-20T09:11:10+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-19-claude-code-v2-1-278-auto-mode-server-classifier",
+      "date": "2026-09-19",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.278、auto modeの分類器をサーバー側実行に変更し課金対象外に",
+      "summary_ja": "Claude Code v2.1.278で、Claude API・Enterprise利用時、およびBedrock・Vertex・Foundry・gateway経由の環境において、auto modeの判定処理がデフォルトでサーバー側の分類器を使うよう変更され、分類器のオーバーヘッド分は課金されなくなった。Bedrock・Vertex・Foundry・gateway環境では`CLAUDE_CODE_AUTO_MODE_SERVER=0`でこの挙動をオプトアウトでき、課金対象のフォールバックが発生した場合は警告が表示される。`/status`にも、このセッションのauto mode分類器がサーバー側で実行されているかを示す「Auto mode server」の行が追加された。",
+      "usage_example_ja": "「一人AI会社」のようにauto modeでRoutineやサブエージェントを日常的に回している場合、判定処理のオーバーヘッド分が課金されなくなることで実費が下がる可能性がある。`/status`の「Auto mode server」表示で、実際にサーバー側分類器が使われているか確認しておくとよい。",
+      "tags": [
+        "Claude Code",
+        "autoモード",
+        "課金"
+      ]
+    },
     {
       "id": "2026-09-18-claude-code-v2-1-277-vscode-improvements",
       "date": "2026-09-18",
