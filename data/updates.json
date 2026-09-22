@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-21T09:11:43+09:00",
+  "last_checked": "2026-09-22T09:11:47+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-17-claude-code-projects-beta",
+      "date": "2026-09-17",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/claude-projects",
+      "title_ja": "Claude Code Projects、並列クラウドスレッドを一元調整するベータ機能として登場",
+      "summary_ja": "Claude Code に「Projects」機能がベータ追加され、ひとつの会話の中でClaudeが関連作業をまとめて調整できるようになった。バグ報告やタスク一覧を投げ込むと、Claudeがそれぞれにクラウドセッション(スレッド)を立ち上げるか既存スレッドへ振り分けて並列に処理し、ノートPCを閉じても実行を続け、スマートフォンから進捗確認・指示ができる。スレッド間で共有メモリを持つため背景説明を都度繰り返す必要がなく、リポジトリ・指示・メモリを共有した状態で調整される。現時点ではPro/Maxプランでのみ、既にクラウドセッションを使っておりclaude.aiチャット/Coworkに既存プロジェクトが無いアカウントから段階的に展開中で、Team/Enterpriseプランは未対応。",
+      "usage_example_ja": "「一人AI会社」のように複数リポジトリ・複数タスクを並行して抱えている場合、この`claude-updates-jp`のような日次Routineと他の開発タスクを別々のセッションで手動管理する代わりに、ひとつのProjectにまとめてClaudeに調整させ、スマートフォンから進捗確認・指示出しをする運用に移行できる可能性がある。",
+      "tags": [
+        "Claude Code",
+        "Projects",
+        "ベータ機能"
+      ]
+    },
+    {
+      "id": "2026-09-15-claude-apps-small-business-expansion",
+      "date": "2026-09-15",
+      "source": "claude-apps",
+      "source_url": "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs",
+      "title_ja": "Claude for Small Business、43ワークフロー・27新連携へ拡大",
+      "summary_ja": "Anthropicは2026年9月15日、「Claude for Small Business」プラグインを43ワークフロー・27件の新規連携(Shopify・Salesforce・TikTok・Atlassian・Zoom・Xero・Gusto・Square・Stripe・Zapierなど)へ拡大したと発表した。`/smb-onboard`(または「set me up」と話しかける)でClaudeが事業内容を学習しツール連携を設定し、対応コネクタが無いツールは`build-connector`でZapier経由につなげる。毎週手作業で行っているタスクは`build-agent`でスケジュール実行可能なワークフローに変換できる。すべてのワークフローは「承認モード」で開始し、ユーザーが承認するまで送信・投稿・支払いは実行されない。あわせて秋の無料トレーニングプログラム(9月25日のNotionを皮切りにパートナー各社とのウェビナー)も告知された。",
+      "usage_example_ja": "「一人AI会社」のように小規模・個人でツールを使い分けている場合、`/smb-onboard`で自社が使っているStripeやZapierなどとの連携を一括で設定し、毎週手作業でやっている定型業務を`build-agent`でスケジュール実行に切り出せる可能性がある。承認モードがあるため、まずは提案だけ確認する形で安全に試せる。",
+      "tags": [
+        "Claude Apps",
+        "Small Business",
+        "自動化"
+      ]
+    },
+    {
+      "id": "2026-09-10-claude-apps-enterprise-smart-reports-beta",
+      "date": "2026-09-10",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/16893491-get-started-with-smart-reports",
+      "title_ja": "Claude Enterprise向け「Smart Reports」がベータ提供開始",
+      "summary_ja": "Claude Enterpriseプランにベータ機能「Smart Reports」が追加された。対象チーム・部署、直近最大28日間の期間、対象プロダクト(チャット・Claude Code・Cowork)、注目したい観点や独自の質問を指定すると、Claudeが会話サンプルを読み込みワークストリーム・成果物の種類ごとに分類し、コストと合わせて文章・グラフでレポートする。摩擦点は「未設定のコネクタ」「意図と異なる出力」「承認・サインイン待ち」「ツール失敗」「手戻りループ」などのカテゴリ別に件数集計される。ベータ期間中は組織ごと月10件まで無料で、CMEK・HIPAA構成・Access Transparencyを使う組織では利用できない。",
+      "usage_example_ja": "個人開発の規模では直接使う機会は少ないが、「一人AI会社」がチーム規模に拡大した際、どの作業にコストがかかりどこで手戻りが起きているかをこの種のレポートで可視化し、繰り返しパターンをスキル化する判断材料にできる。",
+      "tags": [
+        "Claude Apps",
+        "Enterprise",
+        "分析"
+      ]
+    },
     {
       "id": "2026-09-19-claude-code-v2-1-278-auto-mode-server-classifier",
       "date": "2026-09-19",
