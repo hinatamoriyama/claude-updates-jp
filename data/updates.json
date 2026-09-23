@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-22T09:11:47+09:00",
+  "last_checked": "2026-09-23T09:05:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,62 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-22-anthropic-news-opus-5-5",
+      "date": "2026-09-22",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/claude-opus-5-5",
+      "title_ja": "最新モデル「Claude Opus 5.5」登場、Opus 5比コスト約40%減",
+      "summary_ja": "Anthropicは2026年9月22日、Claude 5.5ファミリー最初のモデル「Claude Opus 5.5」(`claude-opus-5-5`)を発表した。長時間の自律的なコーディングやナレッジワーク向けで、性能はClaude Fable 5.1相当としつつ、Opus 5比で実行コストは約40%減、出力速度は30%以上向上するという。価格は入力$4/出力$20 per MTok(Opus 5比20%安)、キャッシュ読み取りは$0.20 per MTok(60%減)で、コンテキストウィンドウは既定1Mトークン・最大出力128kトークン・常時オンの適応的思考に対応する。Frontier Design・METRなど外部評価者による事前テストを経ており、Anthropicが実施する自動化行動監査ではこれまでで最も安全性の高い結果だったとしている。あわせてPro/Max/Teamプランの5時間利用上限が引き上げられ、好きなタイミングで使えるレート制限リセットも提供される。",
+      "usage_example_ja": "「一人AI会社」のように日々の開発・Routine運用でOpusクラスモデルをメインに使っている場合、`.claude/agents/*.md`や各種設定のモデル指定を`claude-opus-5-5`に切り替えることで、同等以上の性能を保ちながら実費を下げられる可能性がある。Pro/Maxプランでの5時間利用上限引き上げやレート制限リセットも、日中に作業が集中しがちな個人開発のワークフローで地味に効いてくる。",
+      "tags": [
+        "新モデル",
+        "Opus",
+        "料金"
+      ]
+    },
+    {
+      "id": "2026-09-22-claude-code-v2-1-280-default-model-opus",
+      "date": "2026-09-22",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.280、Pro/Team Standardの既定モデルがSonnetからOpusへ",
+      "summary_ja": "Claude Code v2.1.280で、Claude Opus 5.5(`claude-opus-5-5`)への対応が追加され、Pro/Team Standardプランの既定モデルがSonnetからOpusへ変更された。これまで効果レベル(effort)設定が適用されなかった新モデルにも反映されるようになり、Opus 4.7・4.8・Fable 5についても、起動時の既定effortに固定され続けていた挙動が解消された。",
+      "usage_example_ja": "Pro/Team Standardプランで運用している場合、更新後は特に設定を変えなくても既定でOpusクラスモデルが使われるようになるため、応答の傾向やコストが変わっていないか`/cost`や`/model`で確認しておくとよい。",
+      "tags": [
+        "Claude Code",
+        "既定モデル",
+        "Opus"
+      ]
+    },
+    {
+      "id": "2026-09-22-claude-code-v2-1-280-auto-mode-safety-fixes",
+      "date": "2026-09-22",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.280、auto modeの安全確認まわりの不具合を修正",
+      "summary_ja": "Claude Code v2.1.280で、auto modeが一度拒否された安全確認を何度もリトライしてしまう不具合と、一時停止を挟まず同じ操作を繰り返し拒否し続けてしまう不具合が修正された。また、ホストアプリ側からのモデル切り替えでプロンプトキャッシュがミスしていた不具合、再開したforkサブエージェントがキャッシュ済みツール一覧を再利用せず作り直していた不具合も修正された。",
+      "usage_example_ja": "「一人AI会社」のようにauto modeで無人のRoutineを回している場合、拒否された安全確認への無駄なリトライや、一時停止なしに同じ操作を拒否し続ける挙動が解消されることで、無人実行が不要に足踏みするケースが減る。",
+      "tags": [
+        "Claude Code",
+        "autoモード",
+        "安定性"
+      ]
+    },
+    {
+      "id": "2026-09-22-platform-mid-conversation-tool-definitions-beta",
+      "date": "2026-09-22",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude API、会話途中でツール定義を追加できるベータ機能を追加",
+      "summary_ja": "Claude APIにベータ機能(`inline-tools-2026-09-15`ヘッダー)として、会話途中の`role: \"system\"`メッセージ内でツールを定義できる機能が追加された。`tool_addition`ブロックに完全なツール定義を含む`tool: {\"type\": \"tool_definition\", ...}`を渡すことで、トップレベルの`tools`パラメータを編集せずにツールの追加・変更・バージョニングができる。あわせてMCPコネクタ向けヘッダー(`mcp-client-2026-09-15`)もMCPツールセットに対応し、レスポンスにはサーバーが取得したツール一覧を固定する`mcp_tool_listing`ブロックが含まれるようになった。",
+      "usage_example_ja": "Claude APIを直接呼び出す自作のエージェントで、会話の状況に応じて使えるツールを動的に増やしたり差し替えたりしたい場合、`tools`パラメータ全体を毎回組み直さなくても会話途中のsystemメッセージだけでツール定義を追加できるようになる。",
+      "tags": [
+        "Claude API",
+        "ツール定義",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-09-17-claude-code-projects-beta",
       "date": "2026-09-17",
