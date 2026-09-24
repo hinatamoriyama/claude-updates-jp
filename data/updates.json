@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-23T09:05:00+09:00",
+  "last_checked": "2026-09-24T09:17:22+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,76 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-23-claude-code-v2-1-281-attribution-hide",
+      "date": "2026-09-23",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.281、コミット/PRの帰属表記を一括非表示にする設定を追加",
+      "summary_ja": "Claude Code v2.1.281で、`settings.json`に`\"attribution\": false`を設定することで、Claudeが作成するコミットメッセージやプルリクエスト説明文への帰属表記(Co-Authored-Byなど)を一括で非表示にできるようになった。",
+      "usage_example_ja": "「一人AI会社」のように社外向けリポジトリでコミット履歴の見た目を統一したい場合、プロジェクトの`.claude/settings.json`に`\"attribution\": false`を追加しておけば、日次Routineなど自動実行のコミットも含めて帰属表記なしの履歴にできる(ポリシーとして帰属を残したい場合は設定しなくてよい)。",
+      "tags": [
+        "Claude Code",
+        "設定",
+        "コミット"
+      ]
+    },
+    {
+      "id": "2026-09-23-claude-code-v2-1-281-send-now-background",
+      "date": "2026-09-23",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.281、「send now」実行中のツールをキャンセルせずバックグラウンド化するよう変更",
+      "summary_ja": "Claude Code v2.1.281で、`send now`(ctrl+enterまたはctrl+x ctrl+s)を使った際の挙動が変更され、実行中のツール呼び出しを中断・キャンセルするのではなく、バックグラウンドに退避させたうえで次の指示を送れるようになった。",
+      "usage_example_ja": "長時間かかるビルドやテスト実行中に追加の指示を出したい場面で、これまでは実行中の処理がキャンセルされていたが、この変更後はバックグラウンドで走らせたまま次の指示を重ねられるため、個人開発の作業のテンポを崩しにくくなる。",
+      "tags": [
+        "Claude Code",
+        "UI",
+        "挙動変更"
+      ]
+    },
+    {
+      "id": "2026-09-23-claude-code-v2-1-281-rm-sandbox-fixes",
+      "date": "2026-09-23",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.281、危険なrmコマンドの取り扱いとサンドボックス除外チェックを修正",
+      "summary_ja": "Claude Code v2.1.281で、危険な`rm`コマンドの検知・確認まわりの不具合と、サンドボックスの除外(exclusion)チェックに関する不具合が修正された。",
+      "usage_example_ja": "auto modeなど確認を挟まず自動実行させるRoutine運用では、ファイル削除系コマンドの安全確認が正しく機能しているかが特に重要になるため、このような修正は無人実行時の事故防止に直結する。",
+      "tags": [
+        "Claude Code",
+        "安全性",
+        "バグ修正"
+      ]
+    },
+    {
+      "id": "2026-09-23-claude-code-v2-1-281-insights-auto-mode",
+      "date": "2026-09-23",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.281、`/insights`にauto mode推奨の表示を追加",
+      "summary_ja": "Claude Code v2.1.281で、`/insights`コマンドの出力に、状況に応じてauto modeの利用を勧める案内が追加された。",
+      "usage_example_ja": "auto modeを使うべきか迷う場面で`/insights`を実行すれば、自分の作業パターンに対してauto modeが向いているかどうかの目安が得られるようになる。",
+      "tags": [
+        "Claude Code",
+        "auto モード",
+        "/insights"
+      ]
+    },
+    {
+      "id": "2026-09-22-claude-apps-salesforce-beta",
+      "date": "2026-09-22",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Claude向けSalesforce連携プラグインがベータ公開、37の営業関連機能に対応",
+      "summary_ja": "「Salesforce in Claude」というプラグインがベータ公開され、Claudeから商談先アカウント・案件(opportunities)・パイプライン情報などにアクセスできるようになった。あらかじめ用意された37種類の営業関連機能に対応しており、現時点ではSalesforceのベータプログラムに承認された組織の有料プランで利用できる。",
+      "usage_example_ja": "個人でも営業活動を行っている場合、Salesforceのベータプログラムに参加できればパイプラインの状況確認や商談整理をClaudeとの会話の中で行えるようになる可能性がある(現状は組織単位の承認制のため、利用可否は要確認)。",
+      "tags": [
+        "Claude Apps",
+        "Salesforce",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-09-22-anthropic-news-opus-5-5",
       "date": "2026-09-22",
