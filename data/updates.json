@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-24T09:17:22+09:00",
+  "last_checked": "2026-09-25T09:13:29+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,76 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-24-platform-refusal-billing-expansion",
+      "date": "2026-09-24",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#how-refusals-are-billed",
+      "title_ja": "Claude API、拒否応答(refusal)の課金対象を出力前の一部カテゴリにも拡大",
+      "summary_ja": "Claude APIで、出力開始前に発生した拒否応答(refusal)のうち`stop_details.category`が`bio`・`frontier_llm`・`reasoning_extraction`(誤検知が少ないカテゴリ)のものが新たに課金対象になった。ストリーミング中に発生する拒否応答は以前から課金対象で変更はない。新たに課金される拒否応答は実行したモデルの通常レートで課金され、他カテゴリの出力前拒否応答は引き続き非課金、フォールバッククレジットの扱いも変更なし。この変更は全プラットフォームに適用される。",
+      "usage_example_ja": "Claude APIを直接呼び出している場合、`bio`・`frontier_llm`・`reasoning_extraction`関連のプロンプトを扱う自作エージェントで出力前に拒否されるケースが今後課金対象になる可能性があるため、該当カテゴリのプロンプトを扱っている場合はコスト面で把握しておくとよい。",
+      "tags": [
+        "Claude API",
+        "課金",
+        "Refusal"
+      ]
+    },
+    {
+      "id": "2026-09-24-claude-code-v2-1-282-thinking-cache-continuity-fixes",
+      "date": "2026-09-24",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.282、拡張思考とプロンプトキャッシュの継続性に関する不具合を多数修正",
+      "summary_ja": "Claude Code v2.1.282で、`/model`・`/rename`・`/artifacts`など即時実行系スラッシュコマンドの使用時に直前のextended thinkingが失われる不具合、以前より狭い`--tools`一覧で会話を再開した際に組み込みツールが漏れているとthinkingが失われる不具合が修正された。また、`redacted_thinking`ブロックが原因で全ターンが失敗し続ける不具合が修正され、該当セッションはthinkingブロックを破棄して1回だけリトライするようになった。要約リクエストが拒否されてcompactionが失敗する不具合も、フォールバックモデルでリトライするよう修正された。",
+      "usage_example_ja": "「一人AI会社」のように長時間セッションで拡張思考・プロンプトキャッシュに頼って作業を進めている場合、モデル切り替えや`/rename`などの操作、あるいは`--tools`を絞った再開のたびにthinkingが失われていた分が解消され、思考の連続性やキャッシュヒット率が改善する可能性がある。",
+      "tags": [
+        "Claude Code",
+        "拡張思考",
+        "プロンプトキャッシュ"
+      ]
+    },
+    {
+      "id": "2026-09-24-claude-code-v2-1-282-auto-mode-server-classifier-direct-api",
+      "date": "2026-09-24",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.282、直接API接続でもテレメトリ無効時はauto modeの分類器をサーバー側実行に",
+      "summary_ja": "Claude Code v2.1.282で、Claude APIへの直接接続かつテレメトリが無効な場合にも、auto modeの判定処理がデフォルトでサーバー側の分類器を使うよう変更された。従来はAPI・Enterprise利用時やBedrock・Vertex・Foundry・gateway経由の環境が対象だったが(v2.1.278)、直接API接続の環境にも適用範囲が広がった。`CLAUDE_CODE_AUTO_MODE_SERVER=0`でオプトアウトできる点は変わらない。",
+      "usage_example_ja": "「一人AI会社」のようにAPIキーで直接Claude Codeを使い、テレメトリを無効にして運用している場合、auto modeの分類処理にかかっていたオーバーヘッド分の課金が今回の変更で新たに対象外になる可能性がある。",
+      "tags": [
+        "Claude Code",
+        "autoモード",
+        "課金"
+      ]
+    },
+    {
+      "id": "2026-09-24-claude-code-v2-1-282-cloud-session-repo-management",
+      "date": "2026-09-24",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.282、クラウドセッションのリポジトリ管理機能を強化",
+      "summary_ja": "Claude Code v2.1.282で、クラウドセッションに複数の改善が加わった。設定の「Connectors › GitHub」にClaude GitHub Appの導入・接続状況(未接続時の接続・導入・再接続手順を含む)が表示されるようになり、実行中のクラウドセッションに、既にリポジトリを1つ紐付けた状態でも別のGitHubオーナー(forkの元リポジトリなど)のリポジトリを追加で接続できるようになった(Slackから開始したセッションも対象)。GitHub以外のGitサーバーでホストされているリポジトリのクラウドセッションでは、リポジトリメニューに「Open repository」「Open compare page」リンクが追加された。",
+      "usage_example_ja": "このRoutine自体もクラウドセッションで動いているため、fork元リポジトリなど別オーナーのリポジトリを同じセッションに追加接続できるようになった点は、複数リポジトリを横断する作業を1セッションにまとめたい場合に活用できる。GitHub App連携状況も設定画面から直接確認できるようになり、接続トラブル時の切り分けがしやすくなる。",
+      "tags": [
+        "Claude Code",
+        "クラウドセッション",
+        "GitHub"
+      ]
+    },
+    {
+      "id": "2026-09-24-claude-code-v2-1-282-permission-rules-fixes",
+      "date": "2026-09-24",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.282、Bash許可ルールのパターン一致と管理設定の一部無効値の扱いを修正",
+      "summary_ja": "Claude Code v2.1.282で、設定ファイルに書かれたBash許可ルールのうち、パターンの途中に`:*`を含むものが正しく機能せず`--allowedTools`でのみ有効だった不具合が修正され、起動時にはマッチ方法に関する警告も表示されるようになった。また、管理設定(managed settings)で`disableClaudeAiConnectors`や`allowManagedPermissionRulesOnly`のような真偽値のロック用キーに誤った型の値が入っていると、そのロック自体が無視されていた不具合、および`permissions`・`autoMode`・`worktree`・`attribution`の管理設定ブロック内の値が1つでも無効だとブロック全体が無視されていた不具合(他の値は反映されるよう修正)も直された。",
+      "usage_example_ja": "Bashコマンドの許可ルールに`:*`を含むパターンを設定ファイル側で使っている場合、この修正で意図通り機能するようになる。組織の管理設定を使っている場合も、設定ミスがあった際にブロック全体が無効化されるのではなく有効な部分だけは反映されるようになるため、意図しない許可漏れに気付きやすくなる。",
+      "tags": [
+        "Claude Code",
+        "権限管理",
+        "設定"
+      ]
+    },
     {
       "id": "2026-09-23-claude-code-v2-1-281-attribution-hide",
       "date": "2026-09-23",
