@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-25T09:13:29+09:00",
+  "last_checked": "2026-09-26T09:15:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,118 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-25-claude-code-v2-1-283-prompt-audit",
+      "date": "2026-09-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.283、`/doctor prompt-audit`でCLAUDE.md等の陳腐化したプロンプトを検出",
+      "summary_ja": "Claude Code v2.1.283で、`/doctor prompt-audit`(`/checkup prompt-audit`でも可)が追加され、CLAUDE.mdファイル・スキル・サブエージェント・カスタムコマンドの記述を、旧モデル向けに書かれたプロンプトパターンがないか監査できるようになった。Claude Codeが公式にドキュメント化している思考(thinking)関連キーワードは指摘対象から除外され、パス指定ミス・実行できないコマンド・矛盾する指示ファイルなど実害の大きい問題がレポートの上位に表示されるよう改善された。",
+      "usage_example_ja": "「一人AI会社」のように長期間運用してきた`CLAUDE.md`やカスタムエージェント定義には、過去のモデル向けに書いた古いプロンプトの言い回しが残っていることが多いため、`/doctor prompt-audit`を定期的に実行すれば、そうした陳腐化した記述を洗い出してメンテナンスの優先順位付けに使える。",
+      "tags": [
+        "Claude Code",
+        "/doctor",
+        "プロンプト監査"
+      ]
+    },
+    {
+      "id": "2026-09-25-claude-code-v2-1-283-routine-schedule-offset",
+      "date": "2026-09-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.283、クラウドセッションのRoutineが正時ちょうどの開始を避けるよう変更",
+      "summary_ja": "Claude Code v2.1.283で、クラウドセッションの新規Routineスケジュールが、既定でちょうど正時ではなく数分後に開始されるよう変更された。あわせて、ちょうど正時に設定されたRoutineは数分程度遅れて開始される場合がある旨の注記が表示されるようになった。",
+      "usage_example_ja": "この`claude-updates-jp`の日次更新Routine自体もクラウドセッションのスケジュール実行で動いているため、正時ちょうどに設定していると今後は数分遅れて開始される可能性がある。実行時刻がずれていても異常ではない点を把握しておくとよい。",
+      "tags": [
+        "Claude Code",
+        "クラウドセッション",
+        "Routine"
+      ]
+    },
+    {
+      "id": "2026-09-25-claude-code-v2-1-283-cloud-session-duplicate-step-fix",
+      "date": "2026-09-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.283、サーバー復旧後にクラウドセッションが処理を重複実行する不具合を修正",
+      "summary_ja": "Claude Code v2.1.283で、クラウドセッションがサーバー側の再起動から復旧した際に、コメント投稿やpushなど既に完了しているステップを再度実行してしまい、重複投稿・重複pushが発生することがあった不具合が修正された。",
+      "usage_example_ja": "「一人AI会社」のようにクラウドセッションのRoutineでGitHubへのコメント投稿やpushを自動化している場合、サーバー再起動をまたいでも同じ操作が二重に実行されなくなり、PRやissueへの重複コメントといった事故が減る。",
+      "tags": [
+        "Claude Code",
+        "クラウドセッション",
+        "安定性"
+      ]
+    },
+    {
+      "id": "2026-09-25-claude-code-v2-1-283-auto-mode-default-third-party",
+      "date": "2026-09-25",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.283、サードパーティ接続・テレメトリ無効時の対話セッションが既定でauto modeに",
+      "summary_ja": "Claude Code v2.1.283で、権限モードが未設定の場合、サードパーティプロバイダー経由の接続やテレメトリを無効にしている対話セッションが、既定でauto modeで開始されるようになった。`permissions.defaultMode`を設定している場合はそちらが優先され、この変更の影響を受けない。",
+      "usage_example_ja": "「一人AI会社」のようにテレメトリを無効化して運用している場合、これまで`permissions.defaultMode`を明示していないと通常モードで起動していたセッションが、今後は既定でauto modeになる点に注意が必要。従来通りの挙動を維持したい場合は`permissions.defaultMode`を明示しておくとよい。",
+      "tags": [
+        "Claude Code",
+        "autoモード",
+        "権限管理"
+      ]
+    },
+    {
+      "id": "2026-09-25-claude-apps-plugin-developer-portal",
+      "date": "2026-09-25",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Claudeディレクトリ向けプラグインの新開発者ポータルが登場",
+      "summary_ja": "Claudeディレクトリへプラグインを申請できる新しい開発者ポータルが公開された。申請したプラグインの審査状況を追跡でき、公開後は利用状況の分析(usage analytics)も確認できるようになった。",
+      "usage_example_ja": "「一人AI会社」で自作したプラグインを一般公開したい場合、この開発者ポータルから申請・審査状況の確認・公開後の利用状況分析までを一元的に行えるようになるため、個人開発したプラグインを配布する際のハードルが下がる。",
+      "tags": [
+        "Claude Apps",
+        "プラグイン",
+        "開発者ポータル"
+      ]
+    },
+    {
+      "id": "2026-09-24-platform-compliance-activity-feed-no-filenames",
+      "date": "2026-09-24",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/manage-claude/compliance-activity-feed#understand-the-activity-object",
+      "title_ja": "Compliance APIのActivity Feed、ファイル名やタイトルを返さない仕様に変更",
+      "summary_ja": "Claude PlatformのCompliance APIにあるActivity Feedが、ファイル・プロジェクトドキュメント・Artifactの`filename`・`title`フィールドを常に空またはomit(省略)するよう変更された。これは変更前に記録されたアクティビティにも遡って適用される。名前やタイトルをIDから調べたい場合は、`read:compliance_user_data`スコープを持つCompliance Access Keyが必要になる。",
+      "usage_example_ja": "個人開発の規模では直接使う機会は少ないが、将来チームやEnterprise契約でCompliance APIの監査ログを利用する場合、ファイル名やタイトルがそのままでは取得できなくなった点を踏まえ、必要なら`read:compliance_user_data`スコープ付きのキーを別途用意しておく必要がある。",
+      "tags": [
+        "Compliance API",
+        "プライバシー",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "2026-09-23-platform-cache-diagnostics-ga",
+      "date": "2026-09-23",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics",
+      "title_ja": "Claude API、キャッシュ診断機能「Cache diagnostics」が正式版に",
+      "summary_ja": "Claude APIの「Cache diagnostics」がベータを終え、`cache-diagnosis-2026-04-07`ベータヘッダーが不要になった。Messagesリクエストに`diagnostics`オブジェクトを含めるとオプトインでき、`POST /v1/messages`のレスポンスには常に`diagnostics`フィールドが含まれるようになった(`diagnostics`オブジェクトを送らなかった場合は`null`)。",
+      "usage_example_ja": "Claude APIを直接呼び出してプロンプトキャッシュのヒット率を最適化したい場合、ベータヘッダー無しで`diagnostics`オブジェクトを送るだけでキャッシュの効き具合を継続的に確認できるようになり、日次Routineのようなコスト管理に組み込みやすくなる。",
+      "tags": [
+        "Claude API",
+        "プロンプトキャッシュ",
+        "正式版"
+      ]
+    },
+    {
+      "id": "2026-09-22-platform-opus-5-5-thinking-always-on",
+      "date": "2026-09-22",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-5",
+      "title_ja": "Claude Opus 5.5、thinkingは無効化不可・tool_choiceはauto限定に",
+      "summary_ja": "Claude Opus 5.5では`thinking: {\"type\": \"disabled\"}`・`thinking: {\"type\": \"enabled\", ...}`のどちらの指定も400エラーになり、thinkingを無効化できない。深さの調整は`thinking`フィールドを省略し、代わりにeffortパラメータで行う必要がある。`tool_choice`の`any`・`tool`指定もClaude Fable 5.1と同様に400エラーとなり、strict tool useを併用した`auto`を使う必要がある。Claude APIとGoogle Cloudではcomputer useに新ツールセット`computer_toolset_20260801`が必要で、従来の`computer_20251124`は400エラーになる(Amazon Bedrockでは引き続き利用可)。",
+      "usage_example_ja": "Claude Opus 5.5への切り替えを検討している場合、`thinking`や`tool_choice: {\"type\": \"tool\"}`をハードコードした既存コードはそのままでは400エラーになるため、移行前に`effort`パラメータとstrict tool use併用の`auto`指定への書き換えが必要になる。computer useを使っている場合もツールセットの指定を忘れずに更新したい。",
+      "tags": [
+        "Claude API",
+        "Opus 5.5",
+        "移行"
+      ]
+    },
     {
       "id": "2026-09-24-platform-refusal-billing-expansion",
       "date": "2026-09-24",
