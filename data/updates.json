@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-26T09:15:00+09:00",
+  "last_checked": "2026-09-30T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-28-platform-sonnet-5-5-launch",
+      "date": "2026-09-28",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Sonnet 5.5がAPI・主要クラウドで提供開始",
+      "summary_ja": "Claude Sonnet 5.5(`claude-sonnet-5-5`)がClaude API、Amazon Bedrock、Claude Platform on AWS、Google Cloud、Microsoft Foundryで利用可能になった。Sonnet 5からの破壊的変更として、思考を無効化するには`thinking: {\"type\": \"between_tools\"}`を使う(highエフォート以下)、`tool_choice`の`any`/`tool`は400エラー、旧`computer_20251124`ツールは非対応(Claude API・Google Cloud)、Advisorツールは一部旧モデルをadvisorとして拒否する、などがある。Sonnet 5.5が生成する思考ブロックは生成元アカウント(または連携アカウント)でのみ有効。",
+      "usage_example_ja": "Sonnet 5からの移行時は、`thinking: disabled`や`tool_choice`の強制指定を使っているコードが動かなくなるため、移行ガイドで該当箇所を先に洗い出しておくと安全。個人開発の自動化スクリプトでも同様の確認が有効。",
+      "tags": [
+        "Sonnet 5.5",
+        "API",
+        "移行"
+      ]
+    },
+    {
+      "id": "2026-09-28-claude-code-v2-1-284-sonnet-5-5-default",
+      "date": "2026-09-28",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.284、Sonnet 5.5をデフォルトSonnetに",
+      "summary_ja": "Claude Code v2.1.284で、Claude Sonnet 5.5(1Mコンテキスト、$2/$10 per Mtok)がデフォルトのSonnetモデルになった。autoモードの読み取り権限に「Yes, but ask again next time」が追加され、`/usage`のゲートウェイ支出上限に金額表示が加わった。「Prompt is too long」エラー(compact後)などの修正も含まれる。VS Codeにはメッセージのタイムスタンプ表示とUltracodeのオン/オフ切替が追加された。",
+      "usage_example_ja": "Sonnetを使う日次ルーチンなどは、更新後は自動的にSonnet 5.5で動く。挙動やコストが変わるため、`/usage`で消費量を見比べておくとよい。",
+      "tags": [
+        "Claude Code",
+        "Sonnet 5.5",
+        "autoモード"
+      ]
+    },
+    {
+      "id": "2026-09-29-claude-code-v2-1-285-desktop-plugin-configure",
+      "date": "2026-09-29",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.285、`claude --desktop`とプラグイン設定コマンドを追加",
+      "summary_ja": "Claude Code v2.1.285で、WebFetchツールを無効化する環境変数`CLAUDE_CODE_DISABLE_WEB_FETCH`、現在のディレクトリやセッションをデスクトップアプリで開く`claude --desktop`、プラグイン設定用の`claude plugin configure <plugin>`、利用可能なAPIプロバイダーを制限する管理設定`allowedProviders`が追加された。プラグインのインストール、MCPサーバー、セッション管理、Artifactツールの公開競合などの修正も含まれる。",
+      "usage_example_ja": "外部取得を避けたい自動実行環境では`CLAUDE_CODE_DISABLE_WEB_FETCH`でWebFetchを止められる。CLIで作業中にGUIへ切り替えたいときは`claude --desktop`が便利。",
+      "tags": [
+        "Claude Code",
+        "プラグイン",
+        "設定"
+      ]
+    },
     {
       "id": "2026-09-25-claude-code-v2-1-283-prompt-audit",
       "date": "2026-09-25",
