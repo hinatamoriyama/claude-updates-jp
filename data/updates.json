@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-09-30T09:00:00+09:00",
+  "last_checked": "2026-10-01T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-30-platform-sonnet-4-5-deprecation",
+      "date": "2026-09-30",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Sonnet 4.5の廃止予定を発表(2026年11月30日退役)",
+      "summary_ja": "`claude-sonnet-4-5-20250929`の非推奨化が発表され、2026年11月30日に退役する予定。移行先としてClaude Sonnet 5.5が推奨されている。",
+      "usage_example_ja": "APIでSonnet 4.5のモデルIDを固定している個人開発のアプリがあれば、退役前にSonnet 5.5へ切り替えて動作確認しておくとよい。なお5.5ではforced tool useが400エラーになるなど破壊的変更があるため、移行時は確認が必要。",
+      "tags": [
+        "API",
+        "非推奨",
+        "Sonnet"
+      ]
+    },
+    {
+      "id": "2026-09-30-claude-code-v2-1-286-fixes-vscode",
+      "date": "2026-09-30",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.286、権限プロンプト件数表示とVS Code拡張の強化",
+      "summary_ja": "Claude Code v2.1.286で、複数の権限リクエストが溜まった際の「2 of 5」形式のカウンター表示、`/hooks`のイベント別統合リスト表示が追加された。VS Code拡張にはブックマーク機能や質問履歴が加わった。`claude --resume`/`--continue`が並列ツール呼び出し後にターンを失う問題や、Routine実行がセッション未開始でも「成功」と表示される問題(現在は「失敗」表示)などが修正された。",
+      "usage_example_ja": "Routineによる定期実行を使っている場合、セッションが起動しなかった実行が正しく「失敗」と表示されるようになるため、日次の自動更新などの運用状況を把握しやすくなる。",
+      "tags": [
+        "Claude Code",
+        "VS Code",
+        "Routine"
+      ]
+    },
     {
       "id": "2026-09-28-platform-sonnet-5-5-launch",
       "date": "2026-09-28",
