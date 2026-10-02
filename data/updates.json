@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-01T09:00:00+09:00",
+  "last_checked": "2026-10-02T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-01-claude-code-v2-1-287-mods",
+      "date": "2026-10-01",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.287、プラグインで深い挙動を変更できる「Mods」を導入",
+      "summary_ja": "Claude Code v2.1.287で、より深い挙動を変更できるプラグイン機能「Claude Mods」が追加され、組み込みModとして問題点を監視して知らせるサイドエージェント「You should know」が提供された。セッション名・タスクを絞り込む`n:<text>`フィルタ、MCPサーバー(2025-11-25プロトコル)からのURLプロンプト対応、Remote Controlのメッセージ配信・再接続の修正、スクリーンリーダーモードの修正なども含まれる。",
+      "usage_example_ja": "週5〜10時間の個人運用では、作業中に見落としを指摘してくれる「You should know」を有効にしておくと、自動更新の設定ミスなどに早く気づける可能性がある。",
+      "tags": [
+        "Claude Code",
+        "Mods",
+        "プラグイン"
+      ]
+    },
     {
       "id": "2026-09-30-platform-sonnet-4-5-deprecation",
       "date": "2026-09-30",
