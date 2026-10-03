@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-02T09:00:00+09:00",
+  "last_checked": "2026-10-03T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-02-anthropic-news-claude-frontier-academy",
+      "date": "2026-10-02",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/claude-frontier-academy",
+      "title_ja": "Anthropic、1億ドルで1万人のエンジニアを育成する投資を発表",
+      "summary_ja": "Anthropicは、企業におけるAI人材不足に対応するため、1億ドルを投じて1万人のエンジニアを育成すると発表した。ニュース一覧では「Claude Frontier Academy」のURLで公開されている。プログラムの詳細な内容は、今回は一覧ページの見出しのみ確認できた。",
+      "usage_example_ja": "個人開発者にとっても、公式の学習・育成プログラムが整備されていけば、AI活用スキルの体系的な習得の機会になる可能性がある。詳細は一次情報(上記URL)で確認するとよい。",
+      "tags": [
+        "Anthropic",
+        "人材育成",
+        "企業向け"
+      ]
+    },
+    {
+      "id": "2026-10-02-claude-code-v2-1-288-gh-api-cloud",
+      "date": "2026-10-02",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.288、クラウドセッションにgh api追加と長時間会話の安定化",
+      "summary_ja": "Claude Code v2.1.288で、クラウドセッションに組み込みの`gh api`が追加され、Ctrl+Cで消したプロンプトの復元、`/code-review`の`--max-findings <n>|all`オプション、Ctrl+Fでのセッション名検索なども加わった。修正面では、応答途中のAPIタイムアウトでターンが失敗する問題(非対話セッションは部分応答から継続)、長い会話が自動compactされず「Prompt is too long」で失敗する問題、`--resume`でファイルやコンテキストが欠落する問題などが直された。",
+      "usage_example_ja": "スケジュール実行(Routine)のような非対話セッションでは、API途中タイムアウトからの継続や自動compactの改善により、日次の自動更新が途中で止まりにくくなる可能性がある。",
+      "tags": [
+        "Claude Code",
+        "クラウドセッション",
+        "安定性"
+      ]
+    },
     {
       "id": "2026-10-01-claude-code-v2-1-287-mods",
       "date": "2026-10-01",
