@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-05T09:00:00+09:00",
+  "last_checked": "2026-10-06T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,33 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-05-claude-code-v2-1-290-webfetch-offset-fixes",
+      "date": "2026-10-05",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.290、WebFetchのoffset対応と各種修正",
+      "summary_ja": "Claude Code v2.1.290では、WebFetchが10万文字超のページ本文を黙って切り捨てていた問題を修正し、文字数の表示と`offset`指定に対応しました。`claude attach <name>`/`claude logs <name>`がセッション名の一部指定で動作するようになり、`/loop`やリマインダーなどの定期タスクが会話のコンパクション後に実行されなくなる問題、プロキシ配下でのベータヘッダー拒否による失敗なども修正されています。",
+      "usage_example_ja": "長大なドキュメントやチェンジログをWebFetchで読む日次ルーチン(このサイトの更新作業など)で、offsetを使って後半まで取りこぼしなく確認できます。`/loop`の定期タスクが安定する点も、週5〜10時間運用の自動化に有効です。",
+      "tags": [
+        "Claude Code",
+        "WebFetch",
+        "修正"
+      ]
+    },
+    {
+      "id": "2026-10-01-platform-models-api-line-field",
+      "date": "2026-10-01",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Models APIにモデル系列を示すlineフィールドを追加",
+      "summary_ja": "Models APIの`GET /v1/models`および`GET /v1/models/{model_id}`が、各モデルの所属系列を示す`line`フィールドを返すようになりました。例えばClaude Opus 4.5とOpus 4.6はどちらも`opus`を返します。どの系列にも属さないモデルでは`null`になります。",
+      "usage_example_ja": "モデルIDの文字列を解析せずに系列ごとにモデルを分類できるため、モデル一覧から最新のSonnet系列を自動選択するといった処理を簡潔に書けます。",
+      "tags": [
+        "API",
+        "Models API"
+      ]
+    },
     {
       "id": "2026-10-03-claude-code-v2-1-289-permission-symlink-fixes",
       "date": "2026-10-03",
