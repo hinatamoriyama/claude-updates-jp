@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-06T09:00:00+09:00",
+  "last_checked": "2026-10-07T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-06-claude-code-v2-1-292-marketplace-effort",
+      "date": "2026-10-06",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.292、プラグインのmarketplace指定とサブエージェントのeffort指定",
+      "summary_ja": "`claude plugin install`に`--marketplace <source>`フラグが追加され、サブエージェントを指定のeffortレベルで実行できるようになった。Modsにも`prompt.autocomplete`イベントや`$.model.complete`のプロンプトキャッシュ対応などが入った。あわせてsymlink経由のファイル読み取りや、サンドボックス化されたコマンドが`/ultrareview`のアップロードを読めてしまう問題などのセキュリティ関連修正、MCPツール名が128文字を超える場合の失敗の修正、`claude -p`/SDKセッションの起動高速化が含まれる。",
+      "usage_example_ja": "サブエージェントごとにeffortを変えれば、調査系は軽く、設計レビューは重くといった使い分けでトークン消費を抑えられる。週5〜10時間運用の個人開発では、定型の日次処理は低effort、重要な判断だけ高effortにする運用が考えられる。",
+      "tags": [
+        "Claude Code",
+        "プラグイン",
+        "サブエージェント"
+      ]
+    },
+    {
+      "id": "2026-10-05-platform-models-api-thinking-disabled",
+      "date": "2026-10-05",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Models APIでthinking無効化の対応可否を取得可能に",
+      "summary_ja": "`GET /v1/models`および`GET /v1/models/{model_id}`が、各モデルが`thinking: {type: \"disabled\"}`(thinkingをオフにする指定)を受け付けるかを`capabilities.thinking.types.disabled`フィールドで返すようになった。",
+      "usage_example_ja": "複数モデルを切り替えて使うアプリで、このフィールドを見てthinkingをオフにできるモデルだけ低コスト設定を適用する、といった分岐をコードに固定せず実装できる。",
+      "tags": [
+        "API",
+        "Models API",
+        "thinking"
+      ]
+    },
     {
       "id": "2026-10-05-claude-code-v2-1-290-webfetch-offset-fixes",
       "date": "2026-10-05",
