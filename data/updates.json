@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-07T09:00:00+09:00",
+  "last_checked": "2026-10-08T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,126 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-07-anthropic-news-haiku-5-5",
+      "date": "2026-10-07",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Claude Haiku 5.5の発表",
+      "summary_ja": "Anthropicが小型モデル「Claude Haiku 5.5」を発表した。同社は「これまでで最速・最安・最高性能の小型モデル」と位置づけている。",
+      "usage_example_ja": "個人運用の自動化(日次の情報整理など)で、分類・要約などの軽い工程だけHaiku 5.5に切り替えて費用と待ち時間を抑える使い方が考えられる。",
+      "tags": [
+        "モデル",
+        "Haiku"
+      ]
+    },
+    {
+      "id": "2026-10-07-platform-haiku-5-5-launch",
+      "date": "2026-10-07",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Haiku 5.5がAPIで提供開始",
+      "summary_ja": "`claude-haiku-5-5`が提供開始。コンテキストは100万トークン、最大出力は12.8万トークンで、adaptive thinkingとeffortパラメータに対応する。Claude API、Amazon Bedrock、Claude Platform on AWS、Google Cloud、Microsoft Foundryで利用可能。Haiku 4.5向けコードでは、手動の拡張思考(`budget_tokens`)が400エラーになり、adaptive thinkingが既定で有効なため応答が`thinking`ブロックで始まることがある。",
+      "usage_example_ja": "既存の自動化スクリプトでHaiku 4.5を使っている箇所があれば、移行ガイドを見ながら`budget_tokens`指定を外し、1か所ずつ切り替えて動作確認する。",
+      "tags": [
+        "モデル",
+        "移行",
+        "API"
+      ]
+    },
+    {
+      "id": "2026-10-07-platform-sonnet-5-5-cache-price",
+      "date": "2026-10-07",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Sonnet 5.5のプロンプトキャッシュ読み取りが値下げ",
+      "summary_ja": "Sonnet 5.5のプロンプトキャッシュ読み取り料金が100万トークンあたり$0.20から$0.10に下がった(基本入力価格の0.05倍)。キャッシュ書き込みなど他の料金は変更なし。",
+      "usage_example_ja": "長い指示書を毎回読ませる定期実行では、キャッシュを有効にしてランニングコストを抑える。",
+      "tags": [
+        "料金",
+        "キャッシュ"
+      ]
+    },
+    {
+      "id": "2026-10-07-platform-sdk-browser-computer-use",
+      "date": "2026-10-07",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "SDKにブラウザ操作・コンピュータ操作クラス(ベータ)",
+      "summary_ja": "PythonとTypeScriptのSDKに、ブラウザ操作・コンピュータ操作ツール用のクラスが追加された(ベータ)。クラスを継承してツールごとに1メソッドを実装すると、SDKがツールループ、URL・ファイルのポリシー、承認コールバックを扱う。",
+      "usage_example_ja": "Webでの定型確認作業を自動化する小さなエージェントを、許可URLを絞った形で試作できる。",
+      "tags": [
+        "SDK",
+        "ブラウザ操作",
+        "ベータ"
+      ]
+    },
+    {
+      "id": "2026-10-07-platform-managed-agents-allowed-hosts",
+      "date": "2026-10-07",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Managed Agentsの`allowed_hosts`がWebツールにも適用",
+      "summary_ja": "`limited`ネットワーク時、`web_fetch`は`allowed_hosts`外のホストで`url_not_allowed`を返し、`web_search`は該当ホストの結果を除外する。`allowed_hosts`が空だと両ツールとも何も返さない。Webツールの`allowed_domains`に`allowed_hosts`で許可されていないエントリがあると、セッション作成が400で失敗する。",
+      "usage_example_ja": "Managed Agentsでアクセス先を制限しているなら、参照させたいサイトを`allowed_hosts`と`allowed_domains`の両方に登録する。",
+      "tags": [
+        "Managed Agents",
+        "セキュリティ"
+      ]
+    },
+    {
+      "id": "2026-10-07-platform-api-credits-max-team",
+      "date": "2026-10-07",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "MaxプランとTeamプランに月次APIクレジット",
+      "summary_ja": "MaxプランとTeamプラン向けの月次APIクレジットが案内された。詳細は公式の「API credits for Max and Team plans」ページに記載されている。",
+      "usage_example_ja": "対象プランなら、付与条件を公式ページで確認して自作ツールのAPI費用に充てられるか確かめる。",
+      "tags": [
+        "料金",
+        "プラン"
+      ]
+    },
+    {
+      "id": "2026-10-07-claude-code-v2-1-293-haiku-5-5",
+      "date": "2026-10-07",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.293、Haiku 5.5追加とcompaction後の挙動修正",
+      "summary_ja": "Claude Haiku 5.5(`claude-haiku-5-5`)が追加され、Anthropic APIでの既定のHaikuモデルになった。コンテキスト圧縮(compaction)前に行った作業を未完了と誤認して取り消し・やり直す問題や、HTTP MCP接続のメモリリークが修正された。TeamとEnterpriseでは起動が速くなった。",
+      "usage_example_ja": "長めの作業を任せる場面で、compaction後のやり直しが減ることを期待できる。",
+      "tags": [
+        "Claude Code",
+        "修正",
+        "モデル"
+      ]
+    },
+    {
+      "id": "2026-10-06-platform-models-api-server-tools",
+      "date": "2026-10-06",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Models APIがサーバーツール対応状況を返すように",
+      "summary_ja": "`GET /v1/models`と`GET /v1/models/{model_id}`のレスポンスに`capabilities.server_tools`が追加され、各モデルがweb searchやcode executionツールに対応するか確認できる。code executionは`capabilities.server_tools.code_execution`で判定する。",
+      "usage_example_ja": "モデルを自動選択する仕組みを作る際、ツール対応の有無を事前に判定する条件に使える。",
+      "tags": [
+        "API",
+        "モデル"
+      ]
+    },
+    {
+      "id": "2026-10-06-anthropic-news-cyber-verification",
+      "date": "2026-10-06",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Cyber Verification Programの拡大",
+      "summary_ja": "Anthropicが「Cyber Verification Program」の拡大を発表した。条件を満たすセキュリティ専門家に対し、高度なサイバー関連機能と、ブロックを抑えた分類器を提供する。",
+      "usage_example_ja": "個人開発で脆弱性調査を行う場合、対象になるか公式発表の条件を確認する。",
+      "tags": [
+        "セキュリティ",
+        "プログラム"
+      ]
+    },
     {
       "id": "2026-10-06-claude-code-v2-1-292-marketplace-effort",
       "date": "2026-10-06",
@@ -67,19 +187,6 @@
         "Claude Code",
         "WebFetch",
         "修正"
-      ]
-    },
-    {
-      "id": "2026-10-01-platform-models-api-line-field",
-      "date": "2026-10-01",
-      "source": "platform",
-      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
-      "title_ja": "Models APIにモデル系列を示すlineフィールドを追加",
-      "summary_ja": "Models APIの`GET /v1/models`および`GET /v1/models/{model_id}`が、各モデルの所属系列を示す`line`フィールドを返すようになりました。例えばClaude Opus 4.5とOpus 4.6はどちらも`opus`を返します。どの系列にも属さないモデルでは`null`になります。",
-      "usage_example_ja": "モデルIDの文字列を解析せずに系列ごとにモデルを分類できるため、モデル一覧から最新のSonnet系列を自動選択するといった処理を簡潔に書けます。",
-      "tags": [
-        "API",
-        "Models API"
       ]
     },
     {
@@ -125,6 +232,19 @@
       ]
     },
     {
+      "id": "2026-10-01-platform-models-api-line-field",
+      "date": "2026-10-01",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Models APIにモデル系列を示すlineフィールドを追加",
+      "summary_ja": "Models APIの`GET /v1/models`および`GET /v1/models/{model_id}`が、各モデルの所属系列を示す`line`フィールドを返すようになりました。例えばClaude Opus 4.5とOpus 4.6はどちらも`opus`を返します。どの系列にも属さないモデルでは`null`になります。",
+      "usage_example_ja": "モデルIDの文字列を解析せずに系列ごとにモデルを分類できるため、モデル一覧から最新のSonnet系列を自動選択するといった処理を簡潔に書けます。",
+      "tags": [
+        "API",
+        "Models API"
+      ]
+    },
+    {
       "id": "2026-10-01-claude-code-v2-1-287-mods",
       "date": "2026-10-01",
       "source": "claude-code",
@@ -167,6 +287,20 @@
       ]
     },
     {
+      "id": "2026-09-29-claude-code-v2-1-285-desktop-plugin-configure",
+      "date": "2026-09-29",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.285、`claude --desktop`とプラグイン設定コマンドを追加",
+      "summary_ja": "Claude Code v2.1.285で、WebFetchツールを無効化する環境変数`CLAUDE_CODE_DISABLE_WEB_FETCH`、現在のディレクトリやセッションをデスクトップアプリで開く`claude --desktop`、プラグイン設定用の`claude plugin configure <plugin>`、利用可能なAPIプロバイダーを制限する管理設定`allowedProviders`が追加された。プラグインのインストール、MCPサーバー、セッション管理、Artifactツールの公開競合などの修正も含まれる。",
+      "usage_example_ja": "外部取得を避けたい自動実行環境では`CLAUDE_CODE_DISABLE_WEB_FETCH`でWebFetchを止められる。CLIで作業中にGUIへ切り替えたいときは`claude --desktop`が便利。",
+      "tags": [
+        "Claude Code",
+        "プラグイン",
+        "設定"
+      ]
+    },
+    {
       "id": "2026-09-28-platform-sonnet-5-5-launch",
       "date": "2026-09-28",
       "source": "platform",
@@ -192,20 +326,6 @@
         "Claude Code",
         "Sonnet 5.5",
         "autoモード"
-      ]
-    },
-    {
-      "id": "2026-09-29-claude-code-v2-1-285-desktop-plugin-configure",
-      "date": "2026-09-29",
-      "source": "claude-code",
-      "source_url": "https://code.claude.com/docs/en/changelog",
-      "title_ja": "Claude Code v2.1.285、`claude --desktop`とプラグイン設定コマンドを追加",
-      "summary_ja": "Claude Code v2.1.285で、WebFetchツールを無効化する環境変数`CLAUDE_CODE_DISABLE_WEB_FETCH`、現在のディレクトリやセッションをデスクトップアプリで開く`claude --desktop`、プラグイン設定用の`claude plugin configure <plugin>`、利用可能なAPIプロバイダーを制限する管理設定`allowedProviders`が追加された。プラグインのインストール、MCPサーバー、セッション管理、Artifactツールの公開競合などの修正も含まれる。",
-      "usage_example_ja": "外部取得を避けたい自動実行環境では`CLAUDE_CODE_DISABLE_WEB_FETCH`でWebFetchを止められる。CLIで作業中にGUIへ切り替えたいときは`claude --desktop`が便利。",
-      "tags": [
-        "Claude Code",
-        "プラグイン",
-        "設定"
       ]
     },
     {
@@ -293,34 +413,6 @@
       ]
     },
     {
-      "id": "2026-09-23-platform-cache-diagnostics-ga",
-      "date": "2026-09-23",
-      "source": "platform",
-      "source_url": "https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics",
-      "title_ja": "Claude API、キャッシュ診断機能「Cache diagnostics」が正式版に",
-      "summary_ja": "Claude APIの「Cache diagnostics」がベータを終え、`cache-diagnosis-2026-04-07`ベータヘッダーが不要になった。Messagesリクエストに`diagnostics`オブジェクトを含めるとオプトインでき、`POST /v1/messages`のレスポンスには常に`diagnostics`フィールドが含まれるようになった(`diagnostics`オブジェクトを送らなかった場合は`null`)。",
-      "usage_example_ja": "Claude APIを直接呼び出してプロンプトキャッシュのヒット率を最適化したい場合、ベータヘッダー無しで`diagnostics`オブジェクトを送るだけでキャッシュの効き具合を継続的に確認できるようになり、日次Routineのようなコスト管理に組み込みやすくなる。",
-      "tags": [
-        "Claude API",
-        "プロンプトキャッシュ",
-        "正式版"
-      ]
-    },
-    {
-      "id": "2026-09-22-platform-opus-5-5-thinking-always-on",
-      "date": "2026-09-22",
-      "source": "platform",
-      "source_url": "https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-5",
-      "title_ja": "Claude Opus 5.5、thinkingは無効化不可・tool_choiceはauto限定に",
-      "summary_ja": "Claude Opus 5.5では`thinking: {\"type\": \"disabled\"}`・`thinking: {\"type\": \"enabled\", ...}`のどちらの指定も400エラーになり、thinkingを無効化できない。深さの調整は`thinking`フィールドを省略し、代わりにeffortパラメータで行う必要がある。`tool_choice`の`any`・`tool`指定もClaude Fable 5.1と同様に400エラーとなり、strict tool useを併用した`auto`を使う必要がある。Claude APIとGoogle Cloudではcomputer useに新ツールセット`computer_toolset_20260801`が必要で、従来の`computer_20251124`は400エラーになる(Amazon Bedrockでは引き続き利用可)。",
-      "usage_example_ja": "Claude Opus 5.5への切り替えを検討している場合、`thinking`や`tool_choice: {\"type\": \"tool\"}`をハードコードした既存コードはそのままでは400エラーになるため、移行前に`effort`パラメータとstrict tool use併用の`auto`指定への書き換えが必要になる。computer useを使っている場合もツールセットの指定を忘れずに更新したい。",
-      "tags": [
-        "Claude API",
-        "Opus 5.5",
-        "移行"
-      ]
-    },
-    {
       "id": "2026-09-24-platform-refusal-billing-expansion",
       "date": "2026-09-24",
       "source": "platform",
@@ -391,6 +483,20 @@
       ]
     },
     {
+      "id": "2026-09-23-platform-cache-diagnostics-ga",
+      "date": "2026-09-23",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics",
+      "title_ja": "Claude API、キャッシュ診断機能「Cache diagnostics」が正式版に",
+      "summary_ja": "Claude APIの「Cache diagnostics」がベータを終え、`cache-diagnosis-2026-04-07`ベータヘッダーが不要になった。Messagesリクエストに`diagnostics`オブジェクトを含めるとオプトインでき、`POST /v1/messages`のレスポンスには常に`diagnostics`フィールドが含まれるようになった(`diagnostics`オブジェクトを送らなかった場合は`null`)。",
+      "usage_example_ja": "Claude APIを直接呼び出してプロンプトキャッシュのヒット率を最適化したい場合、ベータヘッダー無しで`diagnostics`オブジェクトを送るだけでキャッシュの効き具合を継続的に確認できるようになり、日次Routineのようなコスト管理に組み込みやすくなる。",
+      "tags": [
+        "Claude API",
+        "プロンプトキャッシュ",
+        "正式版"
+      ]
+    },
+    {
       "id": "2026-09-23-claude-code-v2-1-281-attribution-hide",
       "date": "2026-09-23",
       "source": "claude-code",
@@ -444,6 +550,20 @@
         "Claude Code",
         "auto モード",
         "/insights"
+      ]
+    },
+    {
+      "id": "2026-09-22-platform-opus-5-5-thinking-always-on",
+      "date": "2026-09-22",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-5",
+      "title_ja": "Claude Opus 5.5、thinkingは無効化不可・tool_choiceはauto限定に",
+      "summary_ja": "Claude Opus 5.5では`thinking: {\"type\": \"disabled\"}`・`thinking: {\"type\": \"enabled\", ...}`のどちらの指定も400エラーになり、thinkingを無効化できない。深さの調整は`thinking`フィールドを省略し、代わりにeffortパラメータで行う必要がある。`tool_choice`の`any`・`tool`指定もClaude Fable 5.1と同様に400エラーとなり、strict tool useを併用した`auto`を使う必要がある。Claude APIとGoogle Cloudではcomputer useに新ツールセット`computer_toolset_20260801`が必要で、従来の`computer_20251124`は400エラーになる(Amazon Bedrockでは引き続き利用可)。",
+      "usage_example_ja": "Claude Opus 5.5への切り替えを検討している場合、`thinking`や`tool_choice: {\"type\": \"tool\"}`をハードコードした既存コードはそのままでは400エラーになるため、移行前に`effort`パラメータとstrict tool use併用の`auto`指定への書き換えが必要になる。computer useを使っている場合もツールセットの指定を忘れずに更新したい。",
+      "tags": [
+        "Claude API",
+        "Opus 5.5",
+        "移行"
       ]
     },
     {
@@ -514,48 +634,6 @@
         "Claude API",
         "ツール定義",
         "ベータ"
-      ]
-    },
-    {
-      "id": "2026-09-17-claude-code-projects-beta",
-      "date": "2026-09-17",
-      "source": "claude-code",
-      "source_url": "https://code.claude.com/docs/en/claude-projects",
-      "title_ja": "Claude Code Projects、並列クラウドスレッドを一元調整するベータ機能として登場",
-      "summary_ja": "Claude Code に「Projects」機能がベータ追加され、ひとつの会話の中でClaudeが関連作業をまとめて調整できるようになった。バグ報告やタスク一覧を投げ込むと、Claudeがそれぞれにクラウドセッション(スレッド)を立ち上げるか既存スレッドへ振り分けて並列に処理し、ノートPCを閉じても実行を続け、スマートフォンから進捗確認・指示ができる。スレッド間で共有メモリを持つため背景説明を都度繰り返す必要がなく、リポジトリ・指示・メモリを共有した状態で調整される。現時点ではPro/Maxプランでのみ、既にクラウドセッションを使っておりclaude.aiチャット/Coworkに既存プロジェクトが無いアカウントから段階的に展開中で、Team/Enterpriseプランは未対応。",
-      "usage_example_ja": "「一人AI会社」のように複数リポジトリ・複数タスクを並行して抱えている場合、この`claude-updates-jp`のような日次Routineと他の開発タスクを別々のセッションで手動管理する代わりに、ひとつのProjectにまとめてClaudeに調整させ、スマートフォンから進捗確認・指示出しをする運用に移行できる可能性がある。",
-      "tags": [
-        "Claude Code",
-        "Projects",
-        "ベータ機能"
-      ]
-    },
-    {
-      "id": "2026-09-15-claude-apps-small-business-expansion",
-      "date": "2026-09-15",
-      "source": "claude-apps",
-      "source_url": "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs",
-      "title_ja": "Claude for Small Business、43ワークフロー・27新連携へ拡大",
-      "summary_ja": "Anthropicは2026年9月15日、「Claude for Small Business」プラグインを43ワークフロー・27件の新規連携(Shopify・Salesforce・TikTok・Atlassian・Zoom・Xero・Gusto・Square・Stripe・Zapierなど)へ拡大したと発表した。`/smb-onboard`(または「set me up」と話しかける)でClaudeが事業内容を学習しツール連携を設定し、対応コネクタが無いツールは`build-connector`でZapier経由につなげる。毎週手作業で行っているタスクは`build-agent`でスケジュール実行可能なワークフローに変換できる。すべてのワークフローは「承認モード」で開始し、ユーザーが承認するまで送信・投稿・支払いは実行されない。あわせて秋の無料トレーニングプログラム(9月25日のNotionを皮切りにパートナー各社とのウェビナー)も告知された。",
-      "usage_example_ja": "「一人AI会社」のように小規模・個人でツールを使い分けている場合、`/smb-onboard`で自社が使っているStripeやZapierなどとの連携を一括で設定し、毎週手作業でやっている定型業務を`build-agent`でスケジュール実行に切り出せる可能性がある。承認モードがあるため、まずは提案だけ確認する形で安全に試せる。",
-      "tags": [
-        "Claude Apps",
-        "Small Business",
-        "自動化"
-      ]
-    },
-    {
-      "id": "2026-09-10-claude-apps-enterprise-smart-reports-beta",
-      "date": "2026-09-10",
-      "source": "claude-apps",
-      "source_url": "https://support.claude.com/en/articles/16893491-get-started-with-smart-reports",
-      "title_ja": "Claude Enterprise向け「Smart Reports」がベータ提供開始",
-      "summary_ja": "Claude Enterpriseプランにベータ機能「Smart Reports」が追加された。対象チーム・部署、直近最大28日間の期間、対象プロダクト(チャット・Claude Code・Cowork)、注目したい観点や独自の質問を指定すると、Claudeが会話サンプルを読み込みワークストリーム・成果物の種類ごとに分類し、コストと合わせて文章・グラフでレポートする。摩擦点は「未設定のコネクタ」「意図と異なる出力」「承認・サインイン待ち」「ツール失敗」「手戻りループ」などのカテゴリ別に件数集計される。ベータ期間中は組織ごと月10件まで無料で、CMEK・HIPAA構成・Access Transparencyを使う組織では利用できない。",
-      "usage_example_ja": "個人開発の規模では直接使う機会は少ないが、「一人AI会社」がチーム規模に拡大した際、どの作業にコストがかかりどこで手戻りが起きているかをこの種のレポートで可視化し、繰り返しパターンをスキル化する判断材料にできる。",
-      "tags": [
-        "Claude Apps",
-        "Enterprise",
-        "分析"
       ]
     },
     {
@@ -671,6 +749,20 @@
       ]
     },
     {
+      "id": "2026-09-17-claude-code-projects-beta",
+      "date": "2026-09-17",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/claude-projects",
+      "title_ja": "Claude Code Projects、並列クラウドスレッドを一元調整するベータ機能として登場",
+      "summary_ja": "Claude Code に「Projects」機能がベータ追加され、ひとつの会話の中でClaudeが関連作業をまとめて調整できるようになった。バグ報告やタスク一覧を投げ込むと、Claudeがそれぞれにクラウドセッション(スレッド)を立ち上げるか既存スレッドへ振り分けて並列に処理し、ノートPCを閉じても実行を続け、スマートフォンから進捗確認・指示ができる。スレッド間で共有メモリを持つため背景説明を都度繰り返す必要がなく、リポジトリ・指示・メモリを共有した状態で調整される。現時点ではPro/Maxプランでのみ、既にクラウドセッションを使っておりclaude.aiチャット/Coworkに既存プロジェクトが無いアカウントから段階的に展開中で、Team/Enterpriseプランは未対応。",
+      "usage_example_ja": "「一人AI会社」のように複数リポジトリ・複数タスクを並行して抱えている場合、この`claude-updates-jp`のような日次Routineと他の開発タスクを別々のセッションで手動管理する代わりに、ひとつのProjectにまとめてClaudeに調整させ、スマートフォンから進捗確認・指示出しをする運用に移行できる可能性がある。",
+      "tags": [
+        "Claude Code",
+        "Projects",
+        "ベータ機能"
+      ]
+    },
+    {
       "id": "2026-09-17-claude-code-v2-1-275-account-sync",
       "date": "2026-09-17",
       "source": "claude-code",
@@ -724,6 +816,20 @@
         "Claude Apps",
         "Cowork",
         "Claude Docs"
+      ]
+    },
+    {
+      "id": "2026-09-15-claude-apps-small-business-expansion",
+      "date": "2026-09-15",
+      "source": "claude-apps",
+      "source_url": "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs",
+      "title_ja": "Claude for Small Business、43ワークフロー・27新連携へ拡大",
+      "summary_ja": "Anthropicは2026年9月15日、「Claude for Small Business」プラグインを43ワークフロー・27件の新規連携(Shopify・Salesforce・TikTok・Atlassian・Zoom・Xero・Gusto・Square・Stripe・Zapierなど)へ拡大したと発表した。`/smb-onboard`(または「set me up」と話しかける)でClaudeが事業内容を学習しツール連携を設定し、対応コネクタが無いツールは`build-connector`でZapier経由につなげる。毎週手作業で行っているタスクは`build-agent`でスケジュール実行可能なワークフローに変換できる。すべてのワークフローは「承認モード」で開始し、ユーザーが承認するまで送信・投稿・支払いは実行されない。あわせて秋の無料トレーニングプログラム(9月25日のNotionを皮切りにパートナー各社とのウェビナー)も告知された。",
+      "usage_example_ja": "「一人AI会社」のように小規模・個人でツールを使い分けている場合、`/smb-onboard`で自社が使っているStripeやZapierなどとの連携を一括で設定し、毎週手作業でやっている定型業務を`build-agent`でスケジュール実行に切り出せる可能性がある。承認モードがあるため、まずは提案だけ確認する形で安全に試せる。",
+      "tags": [
+        "Claude Apps",
+        "Small Business",
+        "自動化"
       ]
     },
     {
@@ -836,6 +942,20 @@
         "Claude Code",
         "プラグイン",
         "output-style"
+      ]
+    },
+    {
+      "id": "2026-09-10-claude-apps-enterprise-smart-reports-beta",
+      "date": "2026-09-10",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/16893491-get-started-with-smart-reports",
+      "title_ja": "Claude Enterprise向け「Smart Reports」がベータ提供開始",
+      "summary_ja": "Claude Enterpriseプランにベータ機能「Smart Reports」が追加された。対象チーム・部署、直近最大28日間の期間、対象プロダクト(チャット・Claude Code・Cowork)、注目したい観点や独自の質問を指定すると、Claudeが会話サンプルを読み込みワークストリーム・成果物の種類ごとに分類し、コストと合わせて文章・グラフでレポートする。摩擦点は「未設定のコネクタ」「意図と異なる出力」「承認・サインイン待ち」「ツール失敗」「手戻りループ」などのカテゴリ別に件数集計される。ベータ期間中は組織ごと月10件まで無料で、CMEK・HIPAA構成・Access Transparencyを使う組織では利用できない。",
+      "usage_example_ja": "個人開発の規模では直接使う機会は少ないが、「一人AI会社」がチーム規模に拡大した際、どの作業にコストがかかりどこで手戻りが起きているかをこの種のレポートで可視化し、繰り返しパターンをスキル化する判断材料にできる。",
+      "tags": [
+        "Claude Apps",
+        "Enterprise",
+        "分析"
       ]
     },
     {
@@ -1175,20 +1295,6 @@
       ]
     },
     {
-      "id": "2026-08-27-anthropic-news-team-plan-for-scientists",
-      "date": "2026-08-27",
-      "source": "anthropic-news",
-      "source_url": "https://www.anthropic.com/news/expanding-support-for-scientists",
-      "title_ja": "研究者向け「Claude Team plan for scientists」を発表、1万席を無償・割引提供",
-      "summary_ja": "Anthropicは学術・非営利の研究機関に所属する研究者向けに、Claude Teamプランの席を1万席分、無償または割引価格で1年間提供する「Claude Team plan for scientists」を発表した。標準席は無償、利用上限が5倍のプレミアム席は月15ドル。対象は大学・非営利研究機関のPI(研究責任者)相当の立場にある人物で、認証後に自分のラボの研究者を招待できる。営利企業の研究チームは対象外。あわせて、これだけでは利用量が足りないプロジェクト向けに、最大5万ドル相当のクレジットを提供する「AI for Science」プログラムの拡大も発表された。",
-      "usage_example_ja": "「一人AI会社」のような個人開発の文脈では直接対象にはならないが、研究者向け特別プランのように、対象を絞った無償・割引プランを用意する施策の一例として参考になる。周囲に対象となる研究者がいれば案内できる。",
-      "tags": [
-        "Anthropic News",
-        "料金",
-        "研究"
-      ]
-    },
-    {
       "id": "2026-08-28-anthropic-news-model-hardware-standard",
       "date": "2026-08-28",
       "source": "anthropic-news",
@@ -1214,6 +1320,20 @@
         "Claude Code",
         "セキュリティ",
         "コスト管理"
+      ]
+    },
+    {
+      "id": "2026-08-27-anthropic-news-team-plan-for-scientists",
+      "date": "2026-08-27",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/expanding-support-for-scientists",
+      "title_ja": "研究者向け「Claude Team plan for scientists」を発表、1万席を無償・割引提供",
+      "summary_ja": "Anthropicは学術・非営利の研究機関に所属する研究者向けに、Claude Teamプランの席を1万席分、無償または割引価格で1年間提供する「Claude Team plan for scientists」を発表した。標準席は無償、利用上限が5倍のプレミアム席は月15ドル。対象は大学・非営利研究機関のPI(研究責任者)相当の立場にある人物で、認証後に自分のラボの研究者を招待できる。営利企業の研究チームは対象外。あわせて、これだけでは利用量が足りないプロジェクト向けに、最大5万ドル相当のクレジットを提供する「AI for Science」プログラムの拡大も発表された。",
+      "usage_example_ja": "「一人AI会社」のような個人開発の文脈では直接対象にはならないが、研究者向け特別プランのように、対象を絞った無償・割引プランを用意する施策の一例として参考になる。周囲に対象となる研究者がいれば案内できる。",
+      "tags": [
+        "Anthropic News",
+        "料金",
+        "研究"
       ]
     },
     {
@@ -1556,6 +1676,19 @@
       ]
     },
     {
+      "id": "2026-08-anthropic-news-ai-for-science",
+      "date": "2026-08-01",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Anthropicが希少遺伝性疾患研究向けにAIクレジット助成プログラムを開始",
+      "summary_ja": "希少遺伝性疾患を研究する研究者向けに、6ヶ月間で最大5万ドル相当のClaudeクレジットを提供する「AI for Science」助成プログラムの応募受付が始まった。",
+      "usage_example_ja": "オーナーの副業には直接関係しないが、Anthropicが研究支援にも力を入れている動きとして記録。",
+      "tags": [
+        "Anthropic",
+        "研究助成"
+      ]
+    },
+    {
       "id": "2026-07-24-opus-5",
       "date": "2026-07-24",
       "source": "platform",
@@ -1620,19 +1753,6 @@
         "新モデル",
         "Fable",
         "スケジュール実行"
-      ]
-    },
-    {
-      "id": "2026-08-anthropic-news-ai-for-science",
-      "date": "2026-08-01",
-      "source": "anthropic-news",
-      "source_url": "https://www.anthropic.com/news",
-      "title_ja": "Anthropicが希少遺伝性疾患研究向けにAIクレジット助成プログラムを開始",
-      "summary_ja": "希少遺伝性疾患を研究する研究者向けに、6ヶ月間で最大5万ドル相当のClaudeクレジットを提供する「AI for Science」助成プログラムの応募受付が始まった。",
-      "usage_example_ja": "オーナーの副業には直接関係しないが、Anthropicが研究支援にも力を入れている動きとして記録。",
-      "tags": [
-        "Anthropic",
-        "研究助成"
       ]
     }
   ]
