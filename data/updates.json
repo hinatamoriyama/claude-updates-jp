@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-08T09:00:00+09:00",
+  "last_checked": "2026-10-09T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,46 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-08-claude-code-v2-1-295-hooks-onfailure",
+      "date": "2026-10-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.295、フックのonFailure: \"block\"を追加",
+      "summary_ja": "commandおよびHTTPフックに`onFailure: \"block\"`が追加され、フックが起動できない・タイムアウトする・想定外の終了をした場合に、処理を通過させずブロックするようになった。ターミナル向けにProgram Status Protocol(OSC 7501)にも対応し、Claude Codeの作業中・入力待ち・完了を表示できる。ほかに`CLAUDE_CODE_RETRY_WATCHDOG_MAX_WAIT_MS`の追加、MCPツール説明の切り詰め上限が2,048文字から16,384文字へ拡大、claude.aiコネクタのMCPプロトコル2026-07-28のデフォルト採用、97件のバグ修正が含まれる。",
+      "usage_example_ja": "危険コマンドをブロックする安全用フックに`onFailure: \"block\"`を付けておけば、フック自体が壊れても無人実行中に素通りしない。自動運用の多い個人開発で安全側に倒す設定として使える。",
+      "tags": [
+        "Claude Code",
+        "フック",
+        "セキュリティ"
+      ]
+    },
+    {
+      "id": "2026-10-08-claude-code-v2-1-294-hooks-fix",
+      "date": "2026-10-08",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.294、promptフックの判定精度を改善",
+      "summary_ja": "「〜のコマンドをブロックする」のように指示文で書かれた`prompt`/`agent`フックが、本来ブロックすべき操作を許可してしまうことがある問題を修正した。`Stop`・`SubagentStop`の`prompt`フックも指示文形式の判定精度が上がり、Claudeが早期に停止しにくくなった。",
+      "usage_example_ja": "「ビルドが壊れていれば作業を続行する」といったStopフックを自然文で書いている場合、意図どおりに動きやすくなる。既存フックの挙動を一度見直すとよい。",
+      "tags": [
+        "Claude Code",
+        "フック"
+      ]
+    },
+    {
+      "id": "2026-10-08-platform-compliance-api-unified-chats",
+      "date": "2026-10-08",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Compliance APIのチャット取得が統合版Claudeに対応",
+      "summary_ja": "Compliance APIのチャット系エンドポイントが、統合されたClaude体験(unified Claude experience)のチャットも返すようになった。Claude Enterprise組織向けのベータで、既存のCompliance Access Keyをそのまま使える。",
+      "usage_example_ja": "個人開発では直接使う機会は少ないが、将来Enterprise契約で監査・保管対応が必要になった際に、既存キーのまま対象範囲が広がる点を押さえておくとよい。",
+      "tags": [
+        "Compliance API",
+        "Enterprise"
+      ]
+    },
     {
       "id": "2026-10-07-anthropic-news-haiku-5-5",
       "date": "2026-10-07",
