@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-09T09:00:00+09:00",
+  "last_checked": "2026-10-10T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-09-claude-code-v2-1-296",
+      "date": "2026-10-09",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.296、サブエージェントの自動圧縮設定を追加",
+      "summary_ja": "サブエージェントのfrontmatterと`--agents`定義に`autoCompactWindow`が追加され、メイン会話より早く自動圧縮できるようになった。ワークフローの全エージェントを単一モデルで動かす`CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL`、529(過負荷)リトライの最大待機を延ばす`CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS`、Readツールの`allow_large`オプションも加わった。Sonnet 5.5のキャッシュ読み取り価格($0.10/100万トークン)が`/cost`等に反映され、MCPツール説明の上限は4,096文字に変更された。56件のバグ修正を含む。",
+      "usage_example_ja": "長時間動くサブエージェントに`autoCompactWindow`を設定すれば、コンテキスト肥大による中断を減らせる。ワークフローのモデルを環境変数で固定すれば、週5〜10時間運用でもコストを予測しやすくなる。",
+      "tags": [
+        "Claude Code",
+        "サブエージェント",
+        "コスト"
+      ]
+    },
+    {
+      "id": "2026-10-09-platform-managed-agents-dynamic-workflows",
+      "date": "2026-10-09",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Managed Agentsにダイナミックワークフロー(ベータ)",
+      "summary_ja": "Claude Managed Agentsでダイナミックワークフローが利用可能になった(ベータ、`managed-agents-2026-04-01`ヘッダー)。エージェントが多数のエージェントをフェーズ分けして実行し、結果を統合するプログラムを自分で書ける。",
+      "usage_example_ja": "リサーチや多数ファイルのレビューなど、並列に分割できる作業をエージェント自身に組ませる使い方が考えられる。まずは小さな調査タスクで試すのが無難。",
+      "tags": [
+        "Managed Agents",
+        "ワークフロー",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-10-08-claude-code-v2-1-295-hooks-onfailure",
       "date": "2026-10-08",
