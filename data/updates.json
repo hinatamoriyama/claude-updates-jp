@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-10T09:00:00+09:00",
+  "last_checked": "2026-10-11T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,32 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-08-anthropic-news-usage-policy-2026",
+      "date": "2026-10-08",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/2026-usage-policy-update",
+      "title_ja": "2026年版 利用ポリシーの更新(11月12日施行)",
+      "summary_ja": "偽アカウントや欺瞞的キャンペーンに関する項目が追加され、選挙関連の規定は有権者を欺く行為や選挙妨害に絞られました。兵器関連の禁止事項は誘導・制御ソフトや自律走行体への武装まで明確化され、監視関連の規定も同意のない追跡やAIによる捜査・逮捕対象の判断を禁じる内容に書き換えられています。高リスク用途やハードウェア連携用途には人による監督と物理的安全性の要件が加わり、変更は11月12日に施行されます。",
+      "usage_example_ja": "Claudeを組み込んだ個人開発のサービスを運用している場合は、施行日前にポリシー全文を読み、自分の用途(特に高リスク用途や自動判断を含む機能)が新しい要件に抵触しないか確認しておくと安心です。",
+      "tags": [
+        "利用ポリシー",
+        "規約"
+      ]
+    },
+    {
+      "id": "2026-10-08-anthropic-news-cyber-mission",
+      "date": "2026-10-08",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/anthropic-cyber-mission",
+      "title_ja": "Anthropic Cyber Missionの開始",
+      "summary_ja": "防御側がソフトウェアやシステムを守るための長期的な取り組みとして、重要インフラとオープンソースを起点に開始されました。重要インフラ防御プログラムでは、セキュリティ事業者にClaudeモデル・現地エンジニア・脅威調査が提供されます。OSS Scannerは登録したメンテナーに脆弱性レポートを定期送付する無料のオプトイン制サービスで、レポートは人によるレビューを経ていません。Project Glasswingは拡張されたCyber Verification Programに統合されました。",
+      "usage_example_ja": "OSSを公開している個人開発者は、OSS Scannerへの登録を検討すると、自分のリポジトリの脆弱性候補を無料で定期的に知る手がかりになります。ただし未レビューのレポートなので内容の精査は必要です。",
+      "tags": [
+        "セキュリティ",
+        "OSS"
+      ]
+    },
     {
       "id": "2026-10-09-claude-code-v2-1-296",
       "date": "2026-10-09",
