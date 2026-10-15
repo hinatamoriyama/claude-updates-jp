@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-14T09:00:00+09:00",
+  "last_checked": "2026-10-15T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,88 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-14-platform-otel-export",
+      "date": "2026-10-14",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Messages APIとManaged AgentsのOpenTelemetry出力(ベータ)",
+      "summary_ja": "Messages APIのリクエストとClaude Managed Agentsのセッションを、自社の可観測性バックエンドでトレースできるようになりました。Claude SDKはPython、TypeScript、C#、Go、Java、PHP、Rubyでスパンを出力します。API側のスパンはClaude ConsoleでOpenTelemetryの送信先を追加すると取得できます。",
+      "usage_example_ja": "自作アプリのClaude呼び出しのレイテンシやエラーを可視化し、少ない運用時間でも問題箇所を素早く特定する用途に使えます。",
+      "tags": [
+        "Platform",
+        "可観測性",
+        "ベータ"
+      ]
+    },
+    {
+      "id": "2026-10-14-platform-aws-scheduled-deployments",
+      "date": "2026-10-14",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Platform on AWSでManaged Agentsのスケジュール実行に対応",
+      "summary_ja": "Claude Managed Agentsのスケジュール実行(scheduled deployments)が、Claude Platform on AWSでも利用可能になりました。",
+      "usage_example_ja": "AWS環境を使う場合、日次・定期のエージェント処理をマネージドに任せる構成が取れます。",
+      "tags": [
+        "Platform",
+        "AWS",
+        "Managed Agents"
+      ]
+    },
+    {
+      "id": "2026-10-14-claude-code-v2-1-299",
+      "date": "2026-10-14",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.299:アイドル時の自動compactなど",
+      "summary_ja": "会話が20万トークンを超えて約54分アイドルすると、1時間のプロンプトキャッシュ失効前に自動compactされる機能が追加されました(`\"idleCompaction\": false`で無効化可)。`CLAUDE_CODE_DISABLE_FILE_MENTIONS`も追加。MCP許可ルールは指定したサーバーのみに適用されるよう変更され、`UserPromptSubmit`フックはスキルやカスタムスラッシュコマンド展開の前に実行されます。131件のバグ修正も含まれます。",
+      "usage_example_ja": "長時間の作業を中断して再開する運用でも、キャッシュ失効によるコスト増を抑えやすくなります。MCP許可ルールを書いている場合は`mcp__<server>__*`形式への見直しが必要です。",
+      "tags": [
+        "Claude Code",
+        "compact",
+        "MCP"
+      ]
+    },
+    {
+      "id": "2026-10-14-claude-code-v2-1-300",
+      "date": "2026-10-14",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.300:sandbox引数の削除ほか",
+      "summary_ja": "`claude remote-control`から`--sandbox`/`--no-sandbox`が削除され、指定するとエラー終了します(設定の`sandbox.enabled`を使用)。OpenTelemetryのapi_requestイベントにキャッシュ作成トークン数が追加され、トレーススパンにGenAIセマンティック規約の属性が付与されます。大きなリクエストはgzip圧縮されるようになり、Claude TagはSlack Connectチャンネルに対応しました。",
+      "usage_example_ja": "remote-controlをスクリプトから起動している場合は、`--sandbox`系フラグを外して設定ファイル側で指定してください。",
+      "tags": [
+        "Claude Code",
+        "OpenTelemetry",
+        "破壊的変更"
+      ]
+    },
+    {
+      "id": "2026-10-14-anthropic-news-singapore",
+      "date": "2026-10-14",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Anthropic、シンガポールにオフィス開設しMOUを締結",
+      "summary_ja": "Anthropicはシンガポールにオフィスを開設し、シンガポール政府との覚書(MOU)に署名したと発表しました。",
+      "usage_example_ja": "アジア太平洋地域でのサポートや提供体制の拡充の動向として押さえておくとよい発表です。",
+      "tags": [
+        "Anthropic",
+        "アジア太平洋"
+      ]
+    },
+    {
+      "id": "2026-10-14-anthropic-news-us-midterms",
+      "date": "2026-10-14",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "2026年米中間選挙への対応について",
+      "summary_ja": "Anthropicは「Preparing for the 2026 US midterms」と題するポリシー関連記事を公開しました(本サイトでは見出しのみ確認)。",
+      "usage_example_ja": "詳細は一次情報の記事を参照してください。",
+      "tags": [
+        "Anthropic",
+        "ポリシー"
+      ]
+    },
     {
       "id": "2026-10-08-anthropic-news-usage-policy-2026",
       "date": "2026-10-08",
