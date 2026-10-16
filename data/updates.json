@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-15T09:00:00+09:00",
+  "last_checked": "2026-10-16T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-15-claude-code-v2-1-301",
+      "date": "2026-10-15",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.301:OTel拡張・vimの%モーション等",
+      "summary_ja": "Claude Code v2.1.301が公開されました。OpenTelemetryのtool_decisionイベントにclassifier_verdict・permission_mode・classifier_categoryが追加され、auto modeの分類器判断とパーミッションルールを区別できます。vimモードの%モーション、VS CodeのLaTeX数式表示も追加されました。fable/bestエイリアスは最新Fableが使えない組織で前のFableに1回リトライするようになり、Grep/Globは検索プログラム失敗時にエラーを返します(他37件の修正)。",
+      "usage_example_ja": "無人実行のRoutineを運用する場合、CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MSで利用上限の解除待ちが長すぎるときに打ち切る設定ができ、週5〜10時間運用の個人開発でも実行が宙に浮くのを防げます。",
+      "tags": [
+        "Claude Code",
+        "OpenTelemetry",
+        "vim"
+      ]
+    },
+    {
+      "id": "2026-10-15-platform-opus-5-5-fast-mode-ga",
+      "date": "2026-10-15",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Opus 5.5のfast modeがリサーチプレビュー終了",
+      "summary_ja": "Claude Opus 5.5のfast modeがリサーチプレビューを終了し、アクセス申請が不要になりました。fast-mode-2026-02-01ベータヘッダーも不要ですが、送信しても動作します。全利用ティアでデフォルトのfast modeレート制限が設定されました。Opus 5とOpus 4.8のfast modeは引き続きリサーチプレビューで、ヘッダーが必要です。Microsoft Foundry(Azure)上のClaudeでもOpus 5.5のfast modeが利用可能になりました。",
+      "usage_example_ja": "応答速度が重要な対話型の自作ツールで、申請なしにOpus 5.5のfast modeを試せます。コストとの兼ね合いを見て、速さが効く場面だけに限定して使う運用が現実的です。",
+      "tags": [
+        "Opus 5.5",
+        "fast mode",
+        "API"
+      ]
+    },
+    {
+      "id": "2026-10-15-platform-compliance-api-user-preferences",
+      "date": "2026-10-15",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Compliance APIでユーザー設定の取得が可能に(ベータ)",
+      "summary_ja": "Claude Enterprise向けCompliance APIが、各メンバーが保存した「Instructions for Claude」(claude.ai)と「Global instructions」(Cowork)のテキストを返すようになりました(ベータ)。GET /v1/compliance/organizations/{org_uuid}/user_preferencesを、既存のCompliance Access Keyと read:compliance_user_data スコープで呼び出します。",
+      "usage_example_ja": "Enterprise契約の組織で、メンバーが設定しているカスタム指示を監査・棚卸しする用途に使えます。個人利用が中心の場合は直接の影響はありません。",
+      "tags": [
+        "Compliance API",
+        "Enterprise",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-10-14-platform-otel-export",
       "date": "2026-10-14",
