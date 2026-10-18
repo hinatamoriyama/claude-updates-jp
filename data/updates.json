@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-17T09:00:00+09:00",
+  "last_checked": "2026-10-18T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-15-anthropic-news-independent-evaluators",
+      "date": "2026-10-15",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+      "title_ja": "独立評価者の受け入れ体制を更新、METRに社員並みのアクセス",
+      "summary_ja": "Anthropicは、第三者評価機関METRの6名に社内ハードウェア・オフィス・内部ツールへの「社員並みのアクセス」を提供し始めたと発表した。METRはAnthropicのリスクレベルや運用についての分析を公開でき、Anthropicは公開を拒否できないが、顧客データ・法的に秘匿された情報・モデル構造などの定義済みカテゴリの伏字化は求められる。あわせてSecureBioが8月のRisk Reportの化学・生物兵器の章をレビュー中で、AccentureおよびFacultyとも評価・レッドチーミング等で連携し、Hugging Faceなどとも初期協議を行っている。アクセスは3段階(Tier 1〜3)で整理され、METRはTier 3に当たる。",
+      "usage_example_ja": "Claudeを業務基盤にする場合、提供元の安全性評価が第三者に検証される仕組みは、導入判断やリスク説明の材料になる。『一人AI会社』のように個人でClaudeに依存する運用でも、利用先を選ぶ際の参考情報として押さえておくとよい。",
+      "tags": [
+        "安全性",
+        "第三者評価",
+        "METR"
+      ]
+    },
     {
       "id": "2026-10-16-claude-code-v2-1-302",
       "date": "2026-10-16",
