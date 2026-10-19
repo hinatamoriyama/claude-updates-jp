@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-18T09:00:00+09:00",
+  "last_checked": "2026-10-19T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,32 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-18-anthropic-news-public-benefit-fund",
+      "date": "2026-10-18",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/public-benefit-fund",
+      "title_ja": "Anthropic Public Benefit Fund設立、株式の5%を拠出へ",
+      "summary_ja": "Anthropicは新設の「Anthropic Public Benefit Fund」に、株主承認を条件に自社株式の5%を拠出すると発表した。企業価値が基準から50%上昇するごとに、取締役会は追加で2%を拠出できる。同ファンドは501(c)(3)ではなく完全子会社のLLCで、保有株式をロビー活動や政治献金に使うことはできない。共同創業者の80%拠出の誓約や従業員の寄付マッチングと合わせ、株式の約20%が公益に充てられる見込み。",
+      "usage_example_ja": "直接の機能変更ではなく会社方針の発表です。Claudeを事業基盤として使う『一人AI会社』の立場では、提供元の企業姿勢を把握する参考情報として、ガバナンスや公益報告の続報を追っておくとよいでしょう。",
+      "tags": [
+        "企業発表",
+        "公益"
+      ]
+    },
+    {
+      "id": "2026-10-18-claude-code-v2-1-303",
+      "date": "2026-10-18",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.303:バグ修正と安定性の改善",
+      "summary_ja": "Claude Code v2.1.303がリリースされた。変更履歴には「バグ修正と信頼性の改善」とのみ記載されており、個別の詳細は公開されていない。",
+      "usage_example_ja": "個人開発の運用では、安定性改善を含むため定期的なアップデートで最新版に保つのがおすすめです。",
+      "tags": [
+        "Claude Code",
+        "バグ修正"
+      ]
+    },
     {
       "id": "2026-10-15-anthropic-news-independent-evaluators",
       "date": "2026-10-15",
