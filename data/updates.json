@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-20T09:00:00+09:00",
+  "last_checked": "2026-10-21T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-20-platform-inference-hooks-ga",
+      "date": "2026-10-20",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "推論フック(Inference hooks)がEnterprise向けにベータ終了",
+      "summary_ja": "Claude Enterprise組織向けに、推論フック(Inference hooks)がベータを終了し正式提供となった。詳細は公式ドキュメントの推論フックのページに記載されている。",
+      "usage_example_ja": "Enterprise契約の組織では、推論時の処理にフックを挟む運用をベータ扱いせず本番に組み込める。個人開発の『一人AI会社』規模では直接の対象外だが、企業向けにClaudeを導入する案件の提案材料になる。",
+      "tags": [
+        "Enterprise",
+        "推論フック",
+        "API"
+      ]
+    },
     {
       "id": "2026-10-19-claude-code-v2-1-304",
       "date": "2026-10-19",
