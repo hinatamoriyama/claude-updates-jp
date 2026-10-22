@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-21T09:00:00+09:00",
+  "last_checked": "2026-10-22T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,47 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-22-claude-code-v2-1-305-307",
+      "date": "2026-10-22",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.305〜v2.1.307",
+      "summary_ja": "v2.1.307で `/claude-api api-version` によりClaude APIコードを新API版2026-10-21へ移行でき、ツール呼び出しの安全イベントを示す `claude_code.safety_event` OpenTelemetryイベントと `@claude review stop` コマンドが追加された。v2.1.305では `sandbox.allowNestedUserNamespaces` が追加され(サンドボックスのファイル保護を回避しうるため必要時のみ有効化)、v2.1.306では `claude -p` のクラウドセッションでの「Not logged in」表示が修正された。HTTP MCPツール呼び出しの二重送信や Autocompact thrashing エラーなども修正されている。",
+      "usage_example_ja": "新API版への移行が必要なプロジェクトでは `/claude-api api-version` を実行すれば、コードの書き換えをClaude Codeに任せられる。少ない運用時間で複数のリポジトリを回す個人開発でも、移行作業の工数を抑えやすい。",
+      "tags": [
+        "Claude Code",
+        "API移行",
+        "MCP"
+      ]
+    },
+    {
+      "id": "2026-10-21-platform-api-version-2026-10-21",
+      "date": "2026-10-21",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "API版2026-10-21と各種SDK新版の公開",
+      "summary_ja": "新しいAPIバージョン2026-10-21が公開された。Python SDK 2.0.0、TypeScript SDK 1.0.0、C# 13.0.0、Go 2.0.0、Java 3.0.0、PHP 1.0.0、Ruby 2.0.0、`ant` CLI 2.0.0がこの版をデフォルトで送信する。これらにはAPI版と無関係な破壊的変更が含まれ、ライセンスもMITからApache 2.0に変わった。ユーザープロファイルには、顧客の制限・停止状況を示す `enforcement_status` と `enforcement_actions` が追加された。",
+      "usage_example_ja": "SDKを更新する前に移行ガイドで破壊的変更を確認し、テスト環境で動作を確かめてから本番に反映する。ライセンス表記の変更も、自作アプリの依存関係チェックで確認しておくとよい。",
+      "tags": [
+        "API",
+        "SDK",
+        "移行"
+      ]
+    },
+    {
+      "id": "2026-10-21-anthropic-news-stubbs-ltbt",
+      "date": "2026-10-21",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "物理学者C・スタッブス氏が長期利益信託に参加",
+      "summary_ja": "元ハーバード大学理学部長で物理学者のChristopher Stubbs博士が、AnthropicのLong-Term Benefit Trustに加わった。専門は観測宇宙論と精密測定とされている。",
+      "usage_example_ja": "開発者が直接使う機能ではなく、Anthropicのガバナンス体制に関する発表。利用先を選ぶときの参考情報として把握しておく程度でよい。",
+      "tags": [
+        "ガバナンス",
+        "会社発表"
+      ]
+    },
     {
       "id": "2026-10-20-platform-inference-hooks-ga",
       "date": "2026-10-20",
