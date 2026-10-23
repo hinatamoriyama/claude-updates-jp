@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-22T09:00:00+09:00",
+  "last_checked": "2026-10-23T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,47 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-22-claude-code-v2-1-308-309",
+      "date": "2026-10-22",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.308・v2.1.309:権限とサンドボックスの強化",
+      "summary_ja": "v2.1.309では`claude ultrareview`がワークスペースの信頼を必須とし、スクリプトからは`--trust-workspace`を渡すか`CLAUDE_CODE_DISABLE_ULTRAREVIEW_TRUST_CHECK=1`を設定する形になった。`sed -i`は通常のBash権限プロンプトの対象となり、`/rewind`では復元されない。バイパス権限モード(Desktop/VS Code)では危険な`rm`/`rmdir`が即時拒否される。macOS/Linuxのサンドボックス内Bashがシェル起動ファイルをサンドボックス外で実行しない修正など、セキュリティ関連の修正も含まれる。v2.1.308は不具合修正と信頼性改善のみ。",
+      "usage_example_ja": "ultrareviewをCIや自動化スクリプトから呼んでいる場合は、`--trust-workspace`の追加が必要になるか確認しておくと、週5〜10時間運用の個人開発でも自動実行が止まる事態を避けられる。",
+      "tags": [
+        "権限",
+        "セキュリティ",
+        "ultrareview"
+      ]
+    },
+    {
+      "id": "2026-10-22-platform-claude-models-on-google-cloud",
+      "date": "2026-10-22",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Models on Google Cloud(Anthropic管理)提供開始",
+      "summary_ja": "Anthropicが運用するClaude APIを、Google Cloudプロジェクト経由で利用できるようになった。アクセス制御はGoogle Cloud IAM、課金はGoogle Cloud Marketplaceで行う。あわせてClaude Opus 5.5のファストモードもこの提供形態で利用可能になった。",
+      "usage_example_ja": "すでにGoogle Cloudで請求や権限を一元管理している場合、Claude利用もその枠内にまとめられる。個人開発では必須ではないが、クライアント案件でGoogle Cloud指定がある場合の選択肢になる。",
+      "tags": [
+        "Google Cloud",
+        "API",
+        "Opus 5.5"
+      ]
+    },
+    {
+      "id": "2026-10-22-anthropic-news-agent-skills-foundation",
+      "date": "2026-10-22",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Agent SkillsをAgentic AI Foundationへ寄贈",
+      "summary_ja": "AnthropicはAgent Skills標準をAgentic AI Foundationに寄贈すると発表した。2025年12月以降、70を超えるエージェントプラットフォームがこの標準を採用しているとされる。",
+      "usage_example_ja": "Agent Skills形式で作った手順書(スキル)は、対応する他のエージェント環境でも流用しやすくなる。日次更新などの定型作業をスキル化しておく価値が高まる。",
+      "tags": [
+        "Agent Skills",
+        "標準化"
+      ]
+    },
     {
       "id": "2026-10-22-claude-code-v2-1-305-307",
       "date": "2026-10-22",
