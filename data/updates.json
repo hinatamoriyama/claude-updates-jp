@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-24T09:00:00+09:00",
+  "last_checked": "2026-10-25T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,19 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-22-anthropic-news-life-sciences-guest-investigators",
+      "date": "2026-10-22",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "ライフサイエンス分野のゲスト研究者を公募",
+      "summary_ja": "Anthropicが、ライフサイエンス分野の研究者を対象に、同社と特別プロジェクトに取り組むゲスト研究者(guest investigators)の公募を開始した。",
+      "usage_example_ja": "ライフサイエンス領域の研究者であれば応募の選択肢になる。一人AI会社のような個人開発者には直接の対象外だが、Claudeが科学研究分野へ注力していることを示す動きとして把握しておくとよい。",
+      "tags": [
+        "募集",
+        "ライフサイエンス"
+      ]
+    },
     {
       "id": "2026-10-23-claude-code-v2-1-310",
       "date": "2026-10-23",
