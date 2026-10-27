@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-26T09:00:00+09:00",
+  "last_checked": "2026-10-27T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-26-anthropic-news-s1-filing",
+      "date": "2026-10-26",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/s1-sec",
+      "title_ja": "AnthropicがIPOに向けSEC提出書類S-1を提出",
+      "summary_ja": "Anthropicは、新規株式公開(IPO)案に関するS-1をSEC(米証券取引委員会)に提出したと発表した。ニュースルームの見出しで確認できた内容であり、詳細は発表本文を参照のこと。",
+      "usage_example_ja": "サービス利用者への直接の機能変更ではないが、Claudeを事業の基盤にする個人開発者は、提供元の動向として発表本文を一度確認しておくとよい。",
+      "tags": [
+        "Anthropic",
+        "IPO",
+        "会社発表"
+      ]
+    },
+    {
+      "id": "2026-10-26-claude-code-v2-1-311",
+      "date": "2026-10-26",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.311:ultrathinkのxhigh対応と多数の修正",
+      "summary_ja": "対話ターミナルの`ultrathink`が、Opus 5.5・Sonnet 5.5・Haiku 5.5・Fable 5.1でxhigh effortで実行されるようになった。シェルコマンドがタイムアウトした際に途中出力とバックグラウンド継続の旨が表示され、Pro/Maxの起動も高速化。SubagentStopフックが約2回/分で走る問題やWrite/Editが大量行で停滞する問題など56件の修正を含む。VS Codeのコードブロック構文カラーリングも追加。",
+      "usage_example_ja": "難しい設計判断や不具合調査の場面だけ`ultrathink`で深く考えさせ、通常作業は軽く回すと、限られた作業時間でもコストと品質のバランスを取りやすい。",
+      "tags": [
+        "Claude Code",
+        "ultrathink",
+        "VS Code"
+      ]
+    },
+    {
+      "id": "2026-10-23-platform-claude-tag-api-beta",
+      "date": "2026-10-23",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Tag APIがEnterprise向けにベータ公開",
+      "summary_ja": "Claude Enterprise組織向けにClaude Tag APIがベータ提供された。Slackのチャンネル・ワークスペースのClaude Tag設定の読み取り・変更、チャンネルで適用される設定とその由来の確認、Accessバンドルの付与ができる。リクエストには`experimental-claude-tag-2026-10-21`ベータヘッダーと、claude.aiでプライマリオーナーが作成する`read:claude_tag`/`write:claude_tag`スコープ付きAdmin APIキーが必要。Claude Platform(Console)組織では利用できない。",
+      "usage_example_ja": "Enterprise管理者が、多数のSlackチャンネルへのClaude Tag設定をスクリプトで一括管理・監査する用途に使える。個人開発では対象外のことが多い。",
+      "tags": [
+        "Claude Tag",
+        "Admin API",
+        "Enterprise"
+      ]
+    },
     {
       "id": "2026-10-22-anthropic-news-life-sciences-guest-investigators",
       "date": "2026-10-22",
