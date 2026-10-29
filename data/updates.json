@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-28T09:00:00+09:00",
+  "last_checked": "2026-10-29T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,19 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-28-anthropic-news-ai-for-science-expansion",
+      "date": "2026-10-28",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+      "title_ja": "AI for Scienceが財団・研究機関へ拡大",
+      "summary_ja": "Anthropicは、拡大したAI for Scienceプログラムのもとで提携する、世界の財団・研究機関・研究グループ20組織を紹介した。プログラムの広がりを示すパートナー紹介の発表。",
+      "usage_example_ja": "研究者向けの活用事例として、論文調査やデータ解析の進め方の参考になります。個人開発でも、研究系の題材を扱う際の発想源として一読する価値があります。",
+      "tags": [
+        "AI for Science",
+        "研究"
+      ]
+    },
     {
       "id": "2026-10-27-anthropic-news-gsa-partnership",
       "date": "2026-10-27",
