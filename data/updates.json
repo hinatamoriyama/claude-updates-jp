@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-29T09:00:00+09:00",
+  "last_checked": "2026-10-30T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-29-platform-usage-cost-analytics-api",
+      "date": "2026-10-29",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "使用量・コスト分析API(ベータ)の提供開始",
+      "summary_ja": "Claude ConsoleおよびClaude Enterprise組織向けに、トークン使用量とコストを取得できる `/v1/organizations/analytics/usage` と `/v1/organizations/analytics/cost` エンドポイントがベータ提供されました(betaヘッダー `analytics-usage-cost-2026-08-24`)。モデル、ワークスペース、APIキー、リクエスト元のユーザー/サービスアカウント単位で絞り込み・集計できます。従来のUsage and Cost APIおよびEnterprise Analytics APIの `usage_report` 等のエンドポイントはレガシー扱い(引き続きサポート)となり、移行ガイドが案内されています。",
+      "usage_example_ja": "APIキーやモデルごとのコストを日次で取得して、個人開発のサービスごとの費用を一覧化し、週5〜10時間の運用でも予算超過に早めに気づく簡易ダッシュボードを作る、といった使い方が考えられます。",
+      "tags": [
+        "API",
+        "コスト管理",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-10-28-anthropic-news-ai-for-science-expansion",
       "date": "2026-10-28",
