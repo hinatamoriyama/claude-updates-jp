@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-30T09:00:00+09:00",
+  "last_checked": "2026-10-31T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-30-claude-code-v2-1-314",
+      "date": "2026-10-30",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.314:書き込み範囲制限と長時間アイドル時の自動圧縮",
+      "summary_ja": "新設定`permissions.blockWritesOutsideWorkingDirectories`により、Write/Edit/NotebookEditが全権限モードで作業ディレクトリ外への書き込みを拒否するようになった。VS CodeとClaude Desktopの Codeタブでは、200Kトークン超の会話がアイドルになると要約され、プロンプトキャッシュ失効後の次のメッセージで要約が使われる。`FORCE_HYPERLINK=false`でハイパーリンクが無効になる挙動への変更や、`claude -p`が起動失敗時にエラー終了コード1を返す修正など、計81件の修正も含まれる。",
+      "usage_example_ja": "自動実行のRoutineで、意図しない場所へのファイル書き込みを防ぐガードとして`blockWritesOutsideWorkingDirectories`を有効にすると、無人運用の安全性を高められる。週5〜10時間運用の個人開発でも、長い会話を放置した後の再開コストが下がる。",
+      "tags": [
+        "Claude Code",
+        "権限",
+        "セキュリティ"
+      ]
+    },
+    {
+      "id": "2026-10-30-platform-opus-4-8-fast-mode-deprecation",
+      "date": "2026-10-30",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Opus 4.8のファストモード廃止予告(11月30日削除)",
+      "summary_ja": "Claude Opus 4.8のファストモードが非推奨となり、2026年11月30日に削除される。削除後、`claude-opus-4-8`に`speed: \"fast\"`を指定したリクエストはエラーを返す。ファストモードを使い続けるにはClaude Opus 5.5への移行が必要。",
+      "usage_example_ja": "自作ツールでOpus 4.8のファストモードを指定している場合は、11月30日までにモデルIDをOpus 5.5へ切り替えておくと、突然のエラーを避けられる。",
+      "tags": [
+        "API",
+        "非推奨",
+        "Opus"
+      ]
+    },
     {
       "id": "2026-10-29-platform-usage-cost-analytics-api",
       "date": "2026-10-29",
