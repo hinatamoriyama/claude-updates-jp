@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-31T09:00:00+09:00",
+  "last_checked": "2026-11-01T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-31-claude-code-v2-1-316",
+      "date": "2026-10-31",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.316:サブエージェントの努力レベル指定など",
+      "summary_ja": "環境変数 CLAUDE_CODE_SUBAGENT_EFFORT でサブエージェントの既定の努力レベルを指定でき、CLAUDE_CODE_DISABLE_ULTRATHINK で ultrathink キーワードを無効化できるようになりました。クラウドセッションではMCPフォーム要求用のフォームカードが追加され、Code Reviewの分析にも重大度別の指摘数カードが加わりました。ほかに、Team/Enterprise向けのサーバー管理設定が承認プロンプトなしで適用される変更や、34件のバグ修正が含まれます。",
+      "usage_example_ja": "サブエージェントを多用する運用では、CLAUDE_CODE_SUBAGENT_EFFORT を低めにしておくと、定型作業のコストと待ち時間を抑えられます。週5〜10時間運用の個人開発でも、日次Routineの調査系サブエージェントだけ軽く設定する、といった使い方ができます。",
+      "tags": [
+        "Claude Code",
+        "サブエージェント",
+        "環境変数"
+      ]
+    },
     {
       "id": "2026-10-30-claude-code-v2-1-314",
       "date": "2026-10-30",
