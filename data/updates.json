@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-01T09:00:00+09:00",
+  "last_checked": "2026-11-02T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -81,6 +81,19 @@
         "API",
         "コスト管理",
         "ベータ"
+      ]
+    },
+    {
+      "id": "2026-10-28-platform-max-request-size-128mb",
+      "date": "2026-10-28",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Messages APIの最大リクエストサイズが128MBへ拡大",
+      "summary_ja": "Claude API(ファーストパーティ)のMessages APIおよびToken Counting APIで、最大リクエストサイズが32MBから128MBに引き上げられました。",
+      "usage_example_ja": "PDFや画像を多数まとめて1回のリクエストで渡す資料分析など、これまでサイズ上限で分割していた処理を簡素化できます。個人開発の自動化スクリプトでも分割ロジックを減らせます。",
+      "tags": [
+        "API",
+        "上限緩和"
       ]
     },
     {
