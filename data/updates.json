@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-02T09:00:00+09:00",
+  "last_checked": "2026-11-03T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-02-platform-message-threads-beta",
+      "date": "2026-11-02",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Messages APIのメッセージスレッド(ベータ)",
+      "summary_ja": "長い会話やエージェントループで、より小さなリクエストと短い初回トークン時間(TTFT)を実現するメッセージスレッドがベータで登場。会話をサーバー側で保持するため、以降のリクエストでは新しいメッセージだけを送ればよい。`message-threads-2026-08-12` ベータヘッダーで有効化する。スレッドは最後のリクエストから5分で失効し、最終利用から遅くとも1時間以内に削除される。Claude API、Claude Platform on AWS、Google Cloud上のClaudeモデル、Microsoft Foundryで利用可能。",
+      "usage_example_ja": "個人開発のエージェントループのように履歴が長くなる処理で、毎回全履歴を送る必要がなくなり、通信量とレイテンシの削減が期待できる。5分で失効する点に注意し、間隔が空く処理では履歴を持つ従来方式との併用を検討するとよい。",
+      "tags": [
+        "API",
+        "ベータ",
+        "レイテンシ"
+      ]
+    },
     {
       "id": "2026-10-31-claude-code-v2-1-316",
       "date": "2026-10-31",
