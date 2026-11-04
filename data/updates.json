@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-03T09:00:00+09:00",
+  "last_checked": "2026-11-04T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,33 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-03-claude-code-v2-1-317",
+      "date": "2026-11-03",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.317:メール送信前の確認など",
+      "summary_ja": "アカウントのメールアドレスをWeb/シェルツールがネットワークへ送信する前に確認を求めるようになりました。Agent SDKのフックは`onFailure: \"block\"`で失敗時に操作をブロックでき、`/schedule`は意図しないコネクタが付与された場合に警告します。別モデルのサブエージェントはそのモデルの保存済み/既定の努力レベルを使い、`claude -p`はディスクフル等で書き込みに失敗すると終了コード1で終了します。",
+      "usage_example_ja": "日次Routineのような無人実行では、`/schedule`のコネクタ警告で不要な権限が付いていないか確認でき、`claude -p`の終了コードでの失敗検知も監視に使えます。",
+      "tags": [
+        "Claude Code",
+        "セキュリティ",
+        "SDK"
+      ]
+    },
+    {
+      "id": "2026-11-03-platform-text-watermark",
+      "date": "2026-11-03",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude生成テキストへのウォーターマーク付与",
+      "summary_ja": "Claude Mythos 5、Claude Opus 4.7、Claude Sonnet 4.6が生成するテキストに、Anthropicのテキストウォーターマークが付くようになりました。対象プラットフォームは公式ヘルプ記事に記載されています。Sonnet 4.6では`temperature`・`top_p`・`top_k`を既定値以外にした場合、付与されないことがあります。",
+      "usage_example_ja": "自動生成した記事や要約を公開する際、AI生成物としてのマーキングが入り得る点を前提に運用ルールを決めておくと安心です。",
+      "tags": [
+        "API",
+        "ウォーターマーク"
+      ]
+    },
     {
       "id": "2026-11-02-platform-message-threads-beta",
       "date": "2026-11-02",
