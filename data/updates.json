@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-04T09:00:00+09:00",
+  "last_checked": "2026-11-05T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-04-claude-code-v2-1-318",
+      "date": "2026-11-04",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.318:ログイン期限の表示など",
+      "summary_ja": "claude auth statusにloginExpiresAt、claude -pのJSON出力にcredential_expires_atが追加され、claude.aiサインインの期限を確認できるようになりました。期限の10日前からclaude -pのテキスト出力にstderr警告も出ます。IDE内ターミナルからの起動時はIDE拡張の自動インストール/更新を行わなくなり、バックグラウンドのサブエージェントは3分を超える長いシェルコマンドをバックグラウンドへ移します。クラウドセッションに「リポジトリなし」の選択肢も追加され、47件のバグ修正(--continueで会話が失われる問題など)が含まれます。",
+      "usage_example_ja": "日次のclaude -p自動実行でサインイン期限切れによる停止を、JSON出力のcredential_expires_atを監視して事前に検知し、再ログインを忘れずに済ませる、といった運用に使えます。",
+      "tags": [
+        "Claude Code",
+        "認証",
+        "自動化"
+      ]
+    },
     {
       "id": "2026-11-03-claude-code-v2-1-317",
       "date": "2026-11-03",
