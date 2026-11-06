@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-05T09:00:00+09:00",
+  "last_checked": "2026-11-06T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-05-platform-console-ip-allowlist",
+      "date": "2026-11-05",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude ConsoleのIPアドレス許可リスト(ベータ)",
+      "summary_ja": "組織の管理者が、APIアクセスを許可する特定のアドレスに制限できるようになりました。許可リストに無いアドレスからの対象サービスへのリクエストは拒否され、漏えいしたAPIキーの利用場所を限定できます。IPv4・IPv6のアドレスまたはCIDR範囲を組織あたり最大1,000件まで登録できます。",
+      "usage_example_ja": "自宅や自社サーバーなど固定IPから運用している場合、そのIPだけを許可しておくことでAPIキー流出時のリスクを下げられます。個人開発の自動化ジョブの実行元IPが決まっているなら試す価値があります。",
+      "tags": [
+        "Console",
+        "セキュリティ",
+        "ベータ"
+      ]
+    },
+    {
+      "id": "2026-11-05-platform-admin-user-sign-out",
+      "date": "2026-11-05",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Enterpriseメンバーを全端末でサインアウトするAdmin API(ベータ)",
+      "summary_ja": "管理者がAdmin APIを使い、メンバーのサインインセッション、信頼済みデバイス、OAuthトークンを全ブラウザ・全端末で終了できるようになりました。メンバーは組織に残り、すぐ再サインインできます。リクエストには`admin-user-sign-out-2026-10-08`のベータヘッダーが必要です。",
+      "usage_example_ja": "退職や端末紛失の際に、アカウントを削除せずセッションだけを即座に無効化する運用に使えます。少人数のチーム運用でも、セキュリティ対応手順に組み込めます。",
+      "tags": [
+        "Admin API",
+        "セキュリティ",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-11-04-claude-code-v2-1-318",
       "date": "2026-11-04",
