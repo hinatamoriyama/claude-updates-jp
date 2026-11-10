@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-09T09:00:00+09:00",
+  "last_checked": "2026-11-10T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-09-anthropic-fable-5-2-mythos-5-2",
+      "date": "2026-11-09",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "Claude Fable 5.2とMythos 5.2の発表",
+      "summary_ja": "Anthropicが最上位モデルとしてClaude Fable 5.2とClaude Mythos 5.2を発表した。コーディング、金融、科学などの高度な技術的タスクでの向上が示されている。",
+      "usage_example_ja": "難度の高い実装やリサーチをAIに任せたいとき、最新モデルを試す価値がある。週5〜10時間運用の個人開発でも、設計レビューや長いタスクの委任先として比較検証できる。",
+      "tags": [
+        "モデル",
+        "Fable 5.2",
+        "Mythos 5.2"
+      ]
+    },
+    {
+      "id": "2026-11-09-platform-fable-5-2-mythos-5-2",
+      "date": "2026-11-09",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "APIにFable 5.2/Mythos 5.2が登場、価格引き下げ",
+      "summary_ja": "claude-fable-5-2とclaude-mythos-5-2が利用可能に。どちらも1Mコンテキスト、最大出力128k、常時有効のadaptive thinking。料金は入力$8/出力$40(MTokあたり)で、5.1の$10/$50から下がった。Mythos 5.2はCyber Verification Programなどで認証された組織のみ。Fable 5.2はfast mode(speed:\"fast\"、最大2.5倍速、$16/$80)にも対応する。prefix checkが全アカウントで強制され、computer useは`computer_toolset_20260801`が必要、30日のデータ保持が必須など移行時の注意点がある。",
+      "usage_example_ja": "既存コードのモデルIDを切り替える前に、thinkingブロックの扱い(prefix check)とcomputer useのツール名を確認する。コスト面では5.1からの置き換えで単価が下がるため、日次バッチ処理の費用見直しに使える。",
+      "tags": [
+        "API",
+        "モデル",
+        "料金"
+      ]
+    },
+    {
+      "id": "2026-11-09-claude-code-v2-1-321",
+      "date": "2026-11-09",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.321:Fable 5.2が既定に",
+      "summary_ja": "Claude Fable 5.2がFableの既定モデルになった。`claude remote-control`に`--settings <file>`が追加され、保存済みのFable 5.1選択は`fable`に移行する(`/model claude-fable-5-1`で戻せる)。MCP OAuthがリダイレクト時に別ホストへリフレッシュトークン等を送らない修正や、読み取り専用Bashコマンドがサンドボックス外で確認なしに実行される問題の修正など、74件のバグ修正が含まれる。",
+      "usage_example_ja": "リモート運用しているClaude Codeセッションに共通の設定ファイルを一括適用でき、無人の定期実行の設定管理が楽になる。",
+      "tags": [
+        "Claude Code",
+        "モデル",
+        "セキュリティ"
+      ]
+    },
     {
       "id": "2026-11-06-claude-code-v2-1-319",
       "date": "2026-11-06",
