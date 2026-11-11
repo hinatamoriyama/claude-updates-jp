@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-10T09:00:00+09:00",
+  "last_checked": "2026-11-11T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,33 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-10-anthropic-news-ipo-roadshow",
+      "date": "2026-11-10",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/roadshow-launch",
+      "title_ja": "AnthropicがIPOのロードショーを開始",
+      "summary_ja": "Anthropicが新規株式公開(IPO)に向けたロードショーを開始した。クラスA普通株式8億2,500万株を売り出し(うちAnthropic分8億135万1,354株、既存株主分2,364万8,646株)、想定価格帯は1株70〜78ドル。ナスダック・グローバル・セレクト市場にティッカー「ANT」での上場を申請している。SECへの登録届出書はまだ効力発生前である。",
+      "usage_example_ja": "直接の機能追加ではないが、Claudeを事業基盤に据える個人開発者にとっては提供元の経営状況を把握する材料になる。開示資料(目論見書)で今後の事業方針を確認しておくとよい。",
+      "tags": [
+        "Anthropic",
+        "IPO"
+      ]
+    },
+    {
+      "id": "2026-11-10-claude-code-v2-1-322",
+      "date": "2026-11-10",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.322:Vertexでファストモード対応",
+      "summary_ja": "Google Cloud Vertex AIのglobal・us・euリージョンでファストモードが使えるようになった。Vertex側がファストモードを受け付けない場合は標準速度にフォールバックする。",
+      "usage_example_ja": "Vertex経由でClaude Codeを使っている場合でも、急ぎの修正作業だけファストモードに切り替えて待ち時間を減らせる。",
+      "tags": [
+        "Claude Code",
+        "Vertex AI",
+        "ファストモード"
+      ]
+    },
     {
       "id": "2026-11-09-anthropic-fable-5-2-mythos-5-2",
       "date": "2026-11-09",
@@ -70,6 +97,20 @@
       ]
     },
     {
+      "id": "2026-11-06-claude-apps-project-tags-cost-code",
+      "date": "2026-11-06",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "プロジェクトタグでコストコード別に支出を追跡(ベータ)",
+      "summary_ja": "対象のEnterprise組織は、チャージコードや案件番号など既存のコードでプロジェクトにタグを付け、プロジェクトの支出の大半をタグ別に確認できるようになった。ベータ機能として提供される。",
+      "usage_example_ja": "一人運用では対象外だが、将来クライアントワークを受ける規模になれば、案件ごとのAI利用コストを請求根拠として整理する仕組みとして参考になる。",
+      "tags": [
+        "Enterprise",
+        "コスト管理",
+        "ベータ"
+      ]
+    },
+    {
       "id": "2026-11-06-claude-code-v2-1-319",
       "date": "2026-11-06",
       "source": "claude-code",
@@ -81,6 +122,48 @@
         "Claude Code",
         "MCP",
         "権限"
+      ]
+    },
+    {
+      "id": "2026-11-05-claude-apps-enterprise-security-controls",
+      "date": "2026-11-05",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Enterprise向けセキュリティ・管理機能を拡充",
+      "summary_ja": "Claude Enterpriseにセキュリティセンター、推論フック、集中管理、追加のアクセス制御が加わった。いくつかの機能はベータとして提供される。",
+      "usage_example_ja": "組織導入を検討する際、セキュリティ部門への説明材料として、どの操作を可視化・制御できるかを確認するのに使える。",
+      "tags": [
+        "Enterprise",
+        "セキュリティ",
+        "管理"
+      ]
+    },
+    {
+      "id": "2026-11-05-claude-apps-personal-finance",
+      "date": "2026-11-05",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Claudeのパーソナルファイナンス機能(ベータ)",
+      "summary_ja": "銀行口座・クレジットカード・ローン・投資口座をClaudeに連携し、残高や支出を1ページで確認したり、家計についてClaudeに質問したりできるようになった。Pro・Max・Ultraプランで利用でき、提供は米国のみ。",
+      "usage_example_ja": "現時点では米国限定のため日本からは使えないが、個人の収支をAIに聞いて把握する使い方の方向性として参考になる。",
+      "tags": [
+        "claude.ai",
+        "ベータ",
+        "米国限定"
+      ]
+    },
+    {
+      "id": "2026-11-05-platform-compliance-security-posture",
+      "date": "2026-11-05",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Compliance APIでセキュリティポスチャ情報を取得(ベータ)",
+      "summary_ja": "Claude Enterprise向けCompliance APIのアクティビティフィードに、claude.aiの組織設定にある「Security posture」ページの証明(attestation)変更が記録されるようになった。新エンドポイント`GET /v1/compliance/organizations/{organization_id}/security_posture`で組織の現在のセキュリティポスチャ結果を取得できる。",
+      "usage_example_ja": "Enterprise組織では、セキュリティ設定の状態を定期的にAPIで取得し、監査ログや社内ダッシュボードに自動で取り込むといった運用に使える。",
+      "tags": [
+        "API",
+        "Enterprise",
+        "コンプライアンス"
       ]
     },
     {
@@ -332,19 +415,6 @@
       ]
     },
     {
-      "id": "2026-10-22-anthropic-news-life-sciences-guest-investigators",
-      "date": "2026-10-22",
-      "source": "anthropic-news",
-      "source_url": "https://www.anthropic.com/news",
-      "title_ja": "ライフサイエンス分野のゲスト研究者を公募",
-      "summary_ja": "Anthropicが、ライフサイエンス分野の研究者を対象に、同社と特別プロジェクトに取り組むゲスト研究者(guest investigators)の公募を開始した。",
-      "usage_example_ja": "ライフサイエンス領域の研究者であれば応募の選択肢になる。一人AI会社のような個人開発者には直接の対象外だが、Claudeが科学研究分野へ注力していることを示す動きとして把握しておくとよい。",
-      "tags": [
-        "募集",
-        "ライフサイエンス"
-      ]
-    },
-    {
       "id": "2026-10-23-claude-code-v2-1-310",
       "date": "2026-10-23",
       "source": "claude-code",
@@ -356,6 +426,19 @@
         "Claude Code",
         "Monitor",
         "クラウドセッション"
+      ]
+    },
+    {
+      "id": "2026-10-22-anthropic-news-life-sciences-guest-investigators",
+      "date": "2026-10-22",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news",
+      "title_ja": "ライフサイエンス分野のゲスト研究者を公募",
+      "summary_ja": "Anthropicが、ライフサイエンス分野の研究者を対象に、同社と特別プロジェクトに取り組むゲスト研究者(guest investigators)の公募を開始した。",
+      "usage_example_ja": "ライフサイエンス領域の研究者であれば応募の選択肢になる。一人AI会社のような個人開発者には直接の対象外だが、Claudeが科学研究分野へ注力していることを示す動きとして把握しておくとよい。",
+      "tags": [
+        "募集",
+        "ライフサイエンス"
       ]
     },
     {
@@ -495,20 +578,6 @@
       ]
     },
     {
-      "id": "2026-10-15-anthropic-news-independent-evaluators",
-      "date": "2026-10-15",
-      "source": "anthropic-news",
-      "source_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
-      "title_ja": "独立評価者の受け入れ体制を更新、METRに社員並みのアクセス",
-      "summary_ja": "Anthropicは、第三者評価機関METRの6名に社内ハードウェア・オフィス・内部ツールへの「社員並みのアクセス」を提供し始めたと発表した。METRはAnthropicのリスクレベルや運用についての分析を公開でき、Anthropicは公開を拒否できないが、顧客データ・法的に秘匿された情報・モデル構造などの定義済みカテゴリの伏字化は求められる。あわせてSecureBioが8月のRisk Reportの化学・生物兵器の章をレビュー中で、AccentureおよびFacultyとも評価・レッドチーミング等で連携し、Hugging Faceなどとも初期協議を行っている。アクセスは3段階(Tier 1〜3)で整理され、METRはTier 3に当たる。",
-      "usage_example_ja": "Claudeを業務基盤にする場合、提供元の安全性評価が第三者に検証される仕組みは、導入判断やリスク説明の材料になる。『一人AI会社』のように個人でClaudeに依存する運用でも、利用先を選ぶ際の参考情報として押さえておくとよい。",
-      "tags": [
-        "安全性",
-        "第三者評価",
-        "METR"
-      ]
-    },
-    {
       "id": "2026-10-16-claude-code-v2-1-302",
       "date": "2026-10-16",
       "source": "claude-code",
@@ -520,6 +589,20 @@
         "Claude Code",
         "オートモード",
         "サブエージェント"
+      ]
+    },
+    {
+      "id": "2026-10-15-anthropic-news-independent-evaluators",
+      "date": "2026-10-15",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+      "title_ja": "独立評価者の受け入れ体制を更新、METRに社員並みのアクセス",
+      "summary_ja": "Anthropicは、第三者評価機関METRの6名に社内ハードウェア・オフィス・内部ツールへの「社員並みのアクセス」を提供し始めたと発表した。METRはAnthropicのリスクレベルや運用についての分析を公開でき、Anthropicは公開を拒否できないが、顧客データ・法的に秘匿された情報・モデル構造などの定義済みカテゴリの伏字化は求められる。あわせてSecureBioが8月のRisk Reportの化学・生物兵器の章をレビュー中で、AccentureおよびFacultyとも評価・レッドチーミング等で連携し、Hugging Faceなどとも初期協議を行っている。アクセスは3段階(Tier 1〜3)で整理され、METRはTier 3に当たる。",
+      "usage_example_ja": "Claudeを業務基盤にする場合、提供元の安全性評価が第三者に検証される仕組みは、導入判断やリスク説明の材料になる。『一人AI会社』のように個人でClaudeに依存する運用でも、利用先を選ぶ際の参考情報として押さえておくとよい。",
+      "tags": [
+        "安全性",
+        "第三者評価",
+        "METR"
       ]
     },
     {
@@ -647,32 +730,6 @@
       ]
     },
     {
-      "id": "2026-10-08-anthropic-news-usage-policy-2026",
-      "date": "2026-10-08",
-      "source": "anthropic-news",
-      "source_url": "https://www.anthropic.com/news/2026-usage-policy-update",
-      "title_ja": "2026年版 利用ポリシーの更新(11月12日施行)",
-      "summary_ja": "偽アカウントや欺瞞的キャンペーンに関する項目が追加され、選挙関連の規定は有権者を欺く行為や選挙妨害に絞られました。兵器関連の禁止事項は誘導・制御ソフトや自律走行体への武装まで明確化され、監視関連の規定も同意のない追跡やAIによる捜査・逮捕対象の判断を禁じる内容に書き換えられています。高リスク用途やハードウェア連携用途には人による監督と物理的安全性の要件が加わり、変更は11月12日に施行されます。",
-      "usage_example_ja": "Claudeを組み込んだ個人開発のサービスを運用している場合は、施行日前にポリシー全文を読み、自分の用途(特に高リスク用途や自動判断を含む機能)が新しい要件に抵触しないか確認しておくと安心です。",
-      "tags": [
-        "利用ポリシー",
-        "規約"
-      ]
-    },
-    {
-      "id": "2026-10-08-anthropic-news-cyber-mission",
-      "date": "2026-10-08",
-      "source": "anthropic-news",
-      "source_url": "https://www.anthropic.com/news/anthropic-cyber-mission",
-      "title_ja": "Anthropic Cyber Missionの開始",
-      "summary_ja": "防御側がソフトウェアやシステムを守るための長期的な取り組みとして、重要インフラとオープンソースを起点に開始されました。重要インフラ防御プログラムでは、セキュリティ事業者にClaudeモデル・現地エンジニア・脅威調査が提供されます。OSS Scannerは登録したメンテナーに脆弱性レポートを定期送付する無料のオプトイン制サービスで、レポートは人によるレビューを経ていません。Project Glasswingは拡張されたCyber Verification Programに統合されました。",
-      "usage_example_ja": "OSSを公開している個人開発者は、OSS Scannerへの登録を検討すると、自分のリポジトリの脆弱性候補を無料で定期的に知る手がかりになります。ただし未レビューのレポートなので内容の精査は必要です。",
-      "tags": [
-        "セキュリティ",
-        "OSS"
-      ]
-    },
-    {
       "id": "2026-10-09-claude-code-v2-1-296",
       "date": "2026-10-09",
       "source": "claude-code",
@@ -698,6 +755,32 @@
         "Managed Agents",
         "ワークフロー",
         "ベータ"
+      ]
+    },
+    {
+      "id": "2026-10-08-anthropic-news-usage-policy-2026",
+      "date": "2026-10-08",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/2026-usage-policy-update",
+      "title_ja": "2026年版 利用ポリシーの更新(11月12日施行)",
+      "summary_ja": "偽アカウントや欺瞞的キャンペーンに関する項目が追加され、選挙関連の規定は有権者を欺く行為や選挙妨害に絞られました。兵器関連の禁止事項は誘導・制御ソフトや自律走行体への武装まで明確化され、監視関連の規定も同意のない追跡やAIによる捜査・逮捕対象の判断を禁じる内容に書き換えられています。高リスク用途やハードウェア連携用途には人による監督と物理的安全性の要件が加わり、変更は11月12日に施行されます。",
+      "usage_example_ja": "Claudeを組み込んだ個人開発のサービスを運用している場合は、施行日前にポリシー全文を読み、自分の用途(特に高リスク用途や自動判断を含む機能)が新しい要件に抵触しないか確認しておくと安心です。",
+      "tags": [
+        "利用ポリシー",
+        "規約"
+      ]
+    },
+    {
+      "id": "2026-10-08-anthropic-news-cyber-mission",
+      "date": "2026-10-08",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/anthropic-cyber-mission",
+      "title_ja": "Anthropic Cyber Missionの開始",
+      "summary_ja": "防御側がソフトウェアやシステムを守るための長期的な取り組みとして、重要インフラとオープンソースを起点に開始されました。重要インフラ防御プログラムでは、セキュリティ事業者にClaudeモデル・現地エンジニア・脅威調査が提供されます。OSS Scannerは登録したメンテナーに脆弱性レポートを定期送付する無料のオプトイン制サービスで、レポートは人によるレビューを経ていません。Project Glasswingは拡張されたCyber Verification Programに統合されました。",
+      "usage_example_ja": "OSSを公開している個人開発者は、OSS Scannerへの登録を検討すると、自分のリポジトリの脆弱性候補を無料で定期的に知る手がかりになります。ただし未レビューのレポートなので内容の精査は必要です。",
+      "tags": [
+        "セキュリティ",
+        "OSS"
       ]
     },
     {
