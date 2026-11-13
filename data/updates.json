@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-12T09:04:05+09:00",
+  "last_checked": "2026-11-13T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-12-claude-apps-claude-meetings-beta",
+      "date": "2026-11-12",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Claude Meetings(ベータ)をTeam・Enterpriseで提供開始",
+      "summary_ja": "Claude Meetingsがベータ版としてTeamおよびEnterpriseプランのClaude・Claude Desktopで順次提供開始された。ClaudeがGoogle Meetの通話に参加者として表示される形で参加し、メモを取り、質問に答え、ドキュメント・ホワイトボード・スライドなどのアーティファクトを作成できる。",
+      "usage_example_ja": "打ち合わせ中にClaudeへ議事メモと決定事項の整理を任せ、その場で要件ドキュメントやスライドの叩き台まで作らせることで、会議後のまとめ作業を減らせる。個人運用でも外部の協力者やクライアントとの定例をTeamプランで行う場合に、議事録作成の手間を省く用途が考えられる。",
+      "tags": [
+        "Claude Meetings",
+        "Google Meet",
+        "ベータ"
+      ]
+    },
+    {
+      "id": "2026-11-12-platform-self-hosted-managed-agents",
+      "date": "2026-11-12",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Managed Agentsのセルフホスト版を提供開始",
+      "summary_ja": "Claude Managed Agentsのセルフホスト版が提供開始された。サンドボックスだけでなくManaged Agentsサービス全体を自社インフラ上で運用でき、エージェント・セッション・セッション履歴も自社側に保存される。モデルへのリクエストは選択したプロバイダ(既定はAnthropic)に送られる。利用にはAnthropicのアカウントチームへの問い合わせが必要。",
+      "usage_example_ja": "データの保存場所に厳しい要件がある組織が、エージェント実行基盤とセッション履歴を自社環境に閉じたままManaged Agentsを使う用途に向く。個人開発の規模ではアカウントチーム経由の申請が前提のため、通常のManaged Agentsを使い続けつつ、将来の選択肢として把握しておく程度でよい。",
+      "tags": [
+        "Managed Agents",
+        "セルフホスト",
+        "エージェント"
+      ]
+    },
     {
       "id": "2026-11-10-anthropic-news-ipo-roadshow",
       "date": "2026-11-10",
