@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-13T09:00:00+09:00",
+  "last_checked": "2026-11-14T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-13-claude-code-v2-1-325",
+      "date": "2026-11-13",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.325:サンドボックス内Bashも許可確認が既定に",
+      "summary_ja": "サンドボックス内で実行するBashコマンドが、既定で通常の許可フローに従うよう変更された。従来どおりプロンプトなしで実行するには `sandbox.autoAllowBashIfSandboxed: true` を設定する。また、スケジュール実行や `/loop` は `allowed-tools` やフックを宣言したスキルを実行する前に確認を求めるようになり、無人で動かすには `permissions.allow` に `Skill(name)` を追加する必要がある。VS Code拡張では、Tabで次のプロンプト候補を受け入れられるプロンプトサジェストや、APIキーを作らないConsoleサインインが追加された。",
+      "usage_example_ja": "日次Routineでスキルを使っている場合、このバージョン以降は実行が確認待ちで止まる可能性がある。無人運用を続けるなら、使うスキルを `permissions.allow` に `Skill(スキル名)` として明示的に登録しておくとよい。",
+      "tags": [
+        "Claude Code",
+        "サンドボックス",
+        "権限"
+      ]
+    },
+    {
+      "id": "2026-11-12-claude-code-v2-1-323",
+      "date": "2026-11-12",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code v2.1.323:実験的な「Code Mode」を追加",
+      "summary_ja": "Claudeが JavaScript を書いてツールを呼び出す実験的なオプトイン機能「Code Mode」が追加された。`plugin.json` に `engines[\"claude-code\"]` を書くと、対応バージョン範囲外のプラグインはインストール・更新・読み込みされなくなる。また、認識できないモデルIDに想定するコンテキストウィンドウが200Kから1Mに変更され、200Kのままにするには `CLAUDE_CODE_DISABLE_1M_CONTEXT=1` を設定する。",
+      "usage_example_ja": "自作プラグインを配布しているなら、`engines[\"claude-code\"]` で動作確認済みのバージョン範囲を宣言しておくと、古い環境で壊れたまま読み込まれる事故を防げる。Code Modeは実験的機能なので、まずは小さな作業で試すのが無難。",
+      "tags": [
+        "Claude Code",
+        "Code Mode",
+        "プラグイン"
+      ]
+    },
     {
       "id": "2026-11-12-claude-apps-claude-meetings-beta",
       "date": "2026-11-12",
