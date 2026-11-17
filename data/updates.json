@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-16T09:03:00+09:00",
+  "last_checked": "2026-11-17T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-16-claude-code-v2-1-326",
+      "date": "2026-11-16",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code 2.1.326:エージェントチームでCode Mode対応、安全面を強化",
+      "summary_ja": "エージェントチームを有効にしたままCode Modeを使えるようになり、`/status`に機能が無効化されている理由を表示する行や、Ctrl+Oで隠れた起動時通知を表示する機能が追加されました。auto modeは一部のシェルコマンドや、プログラム名を含まないワイルドカード許可ルールを無視して安全チェックに委ねるよう変更されています。sandbox内のコマンドはmacOS/Linux/WSLで一部の機密ホームフォルダへ既定で書き込めなくなり、ファイルツールは`.credentials.json`などのサインインファイルへの書き込みを拒否します。hookの`\"decision\": \"block\"`がより多くのケースで効くようになったため、常にblockを出力するhookは呼び出しを止め始める可能性があります。",
+      "usage_example_ja": "一人AI会社のように日次Routineやhookで自動化している場合は、アップデート後にhookが意図せずblockを返していないか、auto modeで止められるコマンドがないかを一度確認しておくと安心です。止まった場合は`/status`の新しい行や`sandbox.filesystem.allowWrite`の設定で原因を切り分けられます。",
+      "tags": [
+        "Claude Code",
+        "auto mode",
+        "セキュリティ"
+      ]
+    },
+    {
+      "id": "2026-11-16-platform-text-watermark",
+      "date": "2026-11-16",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude生成テキストにAnthropicの電子透かし",
+      "summary_ja": "Claude Opus 4.6、Opus 4.5、Sonnet 4.5、Haiku 4.5が生成したテキストに、対応プラットフォーム上でAnthropicのテキスト透かし(watermark)が付与されるようになりました。対象プラットフォームはヘルプ記事「How Claude marks AI-generated content」に記載されています。`temperature`、`top_p`、`top_k`を既定値以外に設定したリクエストでは、透かしが付かない場合があります。",
+      "usage_example_ja": "APIで記事やSNS投稿の下書きを生成している場合、出力にAI生成の印が含まれうることを前提に運用ポリシーを整理しておくとよいでしょう。サンプリングパラメータを変更している処理は透かしの扱いが変わりうるため、ドキュメント「Text watermark」で挙動を確認しておくのがおすすめです。",
+      "tags": [
+        "API",
+        "透かし",
+        "モデル"
+      ]
+    },
     {
       "id": "2026-11-13-claude-code-v2-1-325",
       "date": "2026-11-13",
