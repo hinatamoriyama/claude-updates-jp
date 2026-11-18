@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-17T09:00:00+09:00",
+  "last_checked": "2026-11-18T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,47 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-17-claude-code-v2-1-327",
+      "date": "2026-11-17",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code 2.1.327:MCP設定をstdinから追加、`/status`で設定エラーを一覧",
+      "summary_ja": "`claude mcp add-json <name> -`で、MCPサーバーのJSONを標準入力から読み込めるようになり、トークンをコマンドラインに残さずに済みます。`/status`に、壊れたエージェント・スキル・コマンド・出力スタイルのファイル、キーバインドのエラー、無視された権限設定、一致しないhookマッチャーなどの一覧が表示されるようになりました。`ExitWorktree`は未保存の作業がありうるworktreeを削除する前に確認するようになり、auto modeは`Bash(pnpm dlx *)`のような任意パッケージを実行する許可ルールを無視して安全チェックに委ねるよう変更されています。VSCode拡張ではエクスプローラーの右クリックメニューに「Claude Code: Add to Chat」が追加されました。",
+      "usage_example_ja": "APIキーなどを含むMCPサーバー設定は、`claude mcp add-json`にstdin経由で渡すことでシェル履歴に残さず登録できます。日次Routineが思うように動かないときは、まず`/status`の新しい一覧で壊れたスキルや効いていないhookがないかを確認すると原因を切り分けやすくなります。",
+      "tags": [
+        "Claude Code",
+        "MCP",
+        "auto mode"
+      ]
+    },
+    {
+      "id": "2026-11-17-platform-linked-billing",
+      "date": "2026-11-17",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Linked billing(ベータ):利用者側のClaude組織で課金",
+      "summary_ja": "`user-profiles-billing-2026-10-01`ベータヘッダーで、Linked billingがベータ提供されました。アプリの利用者は自分のClaude組織を連携し、そのアプリでのClaude利用料を自組織で支払えるようになります。連携後は`/v1/messages`や`/v1/chat/completions`の各リクエストで`billing_policy`を指定し、誰が支払うかを選べます。利用者はClaude Consoleでアプリごとの支出上限の設定や連携解除ができ、対象はAPI利用料をAnthropicへ直接支払っている組織です。",
+      "usage_example_ja": "個人開発でClaudeを使ったSaaSやツールを公開する場合、API費用を開発者がすべて負担する代わりに、法人ユーザーには自社のClaude組織で支払ってもらう選択肢ができます。小規模運営ではAPIコストの読みにくさが課題になりやすいため、ベータ段階から仕組みを確認しておくとよいでしょう。",
+      "tags": [
+        "API",
+        "課金",
+        "ベータ"
+      ]
+    },
+    {
+      "id": "2026-11-17-claude-apps-desktop-release-channel",
+      "date": "2026-11-17",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Claude Desktopでリリースチャネルを選択可能に",
+      "summary_ja": "Claude Desktopで、アップデート時に受け取るバージョンのチャネルを選べるようになりました。既定の「Stable」は、より多くのテストを経た新バージョンを低い頻度で受け取ります。「Latest」はおよそ1日1回新バージョンを受け取り、修正や新機能をより早く利用できます。",
+      "usage_example_ja": "日々の業務で安定性を重視するならStableのまま、新機能をいち早く試してサイトや記事で紹介したい場合はLatestに切り替える、といった使い分けができます。",
+      "tags": [
+        "Claude Desktop",
+        "アップデート"
+      ]
+    },
     {
       "id": "2026-11-16-claude-code-v2-1-326",
       "date": "2026-11-16",
