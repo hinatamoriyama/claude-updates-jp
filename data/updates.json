@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-18T09:00:00+09:00",
+  "last_checked": "2026-11-19T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,19 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-18-anthropic-news-ipo-pricing",
+      "date": "2026-11-18",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+      "title_ja": "AnthropicがIPOの公開価格を1株83ドルに決定",
+      "summary_ja": "Anthropicが新規株式公開(IPO)の公開価格をクラスA普通株式1株83ドルに決定した。売り出しは9億8,000万株(うちAnthropic分9億5,635万1,354株、既存株主分2,364万8,646株)で、ロードショー時の想定価格帯(70〜78ドル)・株数を上回った。ナスダック・グローバル・セレクト市場でティッカー「ANT」として2026年11月19日に取引開始、11月20日に払込完了の予定。引受会社には追加で最大1億4,700万株を購入できる30日間のオプションが付与されている。",
+      "usage_example_ja": "直接の機能追加ではないが、Claudeを事業基盤に据える個人開発者にとっては提供元が上場企業となり、決算などの開示情報から事業方針や価格戦略の変化を追いやすくなる。定期的に開示資料を確認する習慣をつけておくとよい。",
+      "tags": [
+        "Anthropic",
+        "IPO"
+      ]
+    },
     {
       "id": "2026-11-17-claude-code-v2-1-327",
       "date": "2026-11-17",
