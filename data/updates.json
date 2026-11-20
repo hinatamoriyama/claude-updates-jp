@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-19T09:00:00+09:00",
+  "last_checked": "2026-11-20T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,34 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-19-claude-code-v2-1-329",
+      "date": "2026-11-19",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code 2.1.329:`/tasks`で予約タスクや`/loop`も一覧・停止",
+      "summary_ja": "`/tasks`に、セッション内の予約タスク、`/loop`のウェイクアップ、ゴール、会話のフォークが表示されるようになり、`x`キーで確認のうえ停止できます。フォルダの信頼ダイアログにhookの宣言場所が表示され、`/mcp`には接続を拒否したリモートHTTP MCPサーバーのJSON-RPCエラーを示す「Server message」行が追加されました。引数なしの`/code-review`はデフォルトブランチとの差分としてブランチ全体をレビューするようになり、2.1.326で入った`max_tokens`到達時の自動リトライは削除されています。",
+      "usage_example_ja": "`/loop`や予約タスクで定期作業を回している場合、`/tasks`で動いているものを一覧して不要なものをその場で止められます。作業ブランチの仕上げには、引数なしの`/code-review`でブランチ全体をまとめて確認するのが手軽です。",
+      "tags": [
+        "Claude Code",
+        "/tasks",
+        "コードレビュー"
+      ]
+    },
+    {
+      "id": "2026-11-19-claude-code-v2-1-328",
+      "date": "2026-11-19",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code 2.1.328:クラウド各社でauto mode対応、`/code-review`の指摘を重要度別に",
+      "summary_ja": "Bedrock、Google CloudのAgent Platform、Microsoft Foundry、Claude apps gateway上のOpus 4.6とSonnet 4.6でauto modeが使えるようになりました。`/code-review`はほとんどのモデルでバグとCLAUDE.md違反のみを報告するようになり(整理系の指摘は`/simplify`へ)、指摘はImportant・Pre-existing・Nitに分類されます。`mcp_tool` hookに`\"onFailure\": \"block\"`が追加され、`/bug`は送信前にYes/Noで確認するようになりました。",
+      "usage_example_ja": "`/code-review`の結果がImportant・Pre-existing・Nitに分かれるので、限られた作業時間ではまずImportantだけを直し、Nitは後回しにするといった優先順位付けがしやすくなります。コードの整理は`/simplify`に分けて実行します。",
+      "tags": [
+        "Claude Code",
+        "auto mode",
+        "コードレビュー"
+      ]
+    },
     {
       "id": "2026-11-18-anthropic-news-ipo-pricing",
       "date": "2026-11-18",
