@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-20T09:00:00+09:00",
+  "last_checked": "2026-11-21T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,47 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-20-claude-code-v2-1-330",
+      "date": "2026-11-20",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code 2.1.330:予約タスク・`/loop`が最大30日に、グラフ描画mod「easel」",
+      "summary_ja": "定期実行の予約タスクと`/loop`の上限が7日から30日に延び(セッションが動き続けている間)、終了時期が表示されるようになりました(このリリース以前に作ったタスクは7日のまま)。グラフを描く組み込みmod「easel」が追加され、Pro・Max(提供地域ではTeam・Enterpriseも)のmacOS・Linuxで依頼時やMCPのメトリクス結果の下にグラフを表示します(`/config`で自動表示をオフにできる)。Enterprise Admin Consoleで管理されている組織へのサインインに対応し、VS Code拡張には`/fork`と`/workflows`が追加されました。2.1.329で削除された`max_tokens`超過時の自動リトライは元に戻されています。",
+      "usage_example_ja": "`/loop`で日次の確認作業を回している場合、1週間ごとに作り直さなくても最大30日続けられるようになります。ただし既存のタスクは7日で終わるため、作り直しが必要です。数値の推移はeaselでその場でグラフにして確認できます。",
+      "tags": [
+        "Claude Code",
+        "/loop",
+        "easel"
+      ]
+    },
+    {
+      "id": "2026-11-20-anthropic-news-ipo-close",
+      "date": "2026-11-20",
+      "source": "anthropic-news",
+      "source_url": "https://www.anthropic.com/news/ipo-close",
+      "title_ja": "AnthropicがIPOを完了、調達総額は約1,195億ドルに",
+      "summary_ja": "Anthropicが新規株式公開(IPO)の払込を完了したと発表した。引受会社の追加購入オプション1億4,700万株を含めてクラスA普通株式11億2,700万株を1株83ドルで売り出し、総額約935億ドルのうち約916億ドルがAnthropicの手取りとなった。あわせて、AMD・Broadcom・Google・Micron・Microsoft・NVIDIA・TSMC Partnersに対しクラスN株式3億1,325万3,007株を同じ1株83ドルで割り当てる私募(約260億ドル)も完了し、IPOとの合計は約1,195億ドル。株式はナスダック・グローバル・セレクト市場でティッカー「ANT」として11月19日に取引が始まった。",
+      "usage_example_ja": "直接の機能追加ではないが、主要な半導体・クラウド企業が出資した点は、今後の計算資源の確保やクラウド各社での提供体制を考えるうえでの材料になる。今後の決算開示とあわせて追っておくとよい。",
+      "tags": [
+        "Anthropic",
+        "IPO"
+      ]
+    },
+    {
+      "id": "2026-11-20-claude-apps-computer-use-team-enterprise",
+      "date": "2026-11-20",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Team・Enterpriseプランでcomputer use(ベータ)を提供開始",
+      "summary_ja": "Claudeがユーザーの画面を見て、ユーザーが許可したデスクトップアプリを操作できるcomputer useが、Team・Enterpriseプラン向けにベータとして組織ごとに順次提供されています。Claude Desktopの新しいClaude体験で動作し、「Computer access」をオンにするとClaudeのWeb版とモバイル版からも使えます。",
+      "usage_example_ja": "Team・Enterpriseプランの組織では、APIが用意されていない社内のデスクトップアプリでの定型作業(画面上のデータの転記など)をClaudeに任せられる可能性があります。ベータのため、Claudeに操作させるアプリは必要なものだけに絞って許可するのが安全です。",
+      "tags": [
+        "Claude Apps",
+        "computer use",
+        "Team/Enterprise"
+      ]
+    },
     {
       "id": "2026-11-19-claude-code-v2-1-329",
       "date": "2026-11-19",
