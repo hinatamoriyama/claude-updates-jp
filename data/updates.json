@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-21T09:00:00+09:00",
+  "last_checked": "2026-11-22T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,20 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-20-claude-apps-mobile-refresh",
+      "date": "2026-11-20",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "Claudeモバイルアプリの新デザインを順次展開",
+      "summary_ja": "Claudeモバイルアプリの新しいデザインが、iOS版から段階的に展開されている。チャット・プロジェクト・プランの内容は変わらず、ユーザー側の設定作業は不要。iOS版の新デザインはiOS 26以降が必要。",
+      "usage_example_ja": "移動中にスマホで進捗を確認したり短い指示を出したりする運用なら、アップデート後に普段の操作の場所が変わっていないか一度確認しておくとよい。新デザインはiOS 26以降が対象なので、端末のOSバージョンも確認しておくと安心。",
+      "tags": [
+        "モバイル",
+        "iOS",
+        "UI"
+      ]
+    },
     {
       "id": "2026-11-20-claude-code-v2-1-330",
       "date": "2026-11-20",
