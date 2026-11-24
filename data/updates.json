@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-23T09:00:00+09:00",
+  "last_checked": "2026-11-24T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-23-claude-code-v2-1-331",
+      "date": "2026-11-23",
+      "source": "claude-code",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "title_ja": "Claude Code 2.1.331:`claude doctor`に接続診断、VS Code拡張の機能拡充",
+      "summary_ja": "`claude doctor`にAPIへの接続可否(HTTPステータスやエラー内容)を報告するセクションが追加され、Amazon Bedrock・Google CloudのAgent Platform・Microsoft Foundry・Claude Platform on AWSのターミナルセッションでCode Modeが使えるようになりました。プラグインのマニフェストに、個別に無効化・削除できる`optionalDependencies`が追加されています。VS Code拡張には、エラーや失敗したテストから使える「Fix with Claude Code」のクイックフィックスや、「Resolve Merge Conflicts」「Add Cell to Chat」などが加わりました。また、2026年11月30日以降のリリースで、管理設定`extraKnownMarketplaces`のプラグインマーケットプレイスが既定で自動更新される予定です(`\"autoUpdate\": false`で除外可能)。",
+      "usage_example_ja": "日次ルーティンなどで接続エラーが出たときは、まず`claude doctor`でAPIに届いているかを切り分けられます。VS Codeで作業している場合は、失敗したテストから「Fix with Claude Code」で直接チャットに渡すと、エラー内容を手でコピーする手間が省けます。",
+      "tags": [
+        "Claude Code",
+        "VS Code",
+        "claude doctor"
+      ]
+    },
+    {
+      "id": "2026-11-23-platform-efs-beta",
+      "date": "2026-11-23",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Enterprise Frontier Safeguards(EFS)がベータ提供開始",
+      "summary_ja": "Enterprise Frontier Safeguards(EFS)が、Claude Platform、Claude Platform on AWS、Claude Models on Google Cloud(Anthropic管理)でベータ提供開始された。EFSはClaudeの最上位モデルを使う対象組織向けのゼロデータ保持(ZDR)で、Anthropicはプロンプトと応答を保持せず、暗号化されたコピー(Sealed Safety Data)が顧客自身のクラウドアカウントのバケットに保存される。あわせて組織Webhook(ベータ)に、顧客所有ストレージのバケットが日次チェックに失敗した際の`external_storage.failed`と、回復時の`external_storage.recovered`の2種類のイベントが追加された。",
+      "usage_example_ja": "個人開発規模では直接関係する場面は少ないが、規制業種の取引先にClaudeを使った仕組みを提案する際に、データ保持の扱いを説明する材料になる。導入する組織では、ストレージ障害をWebhookで検知して通知する仕組みを合わせて用意しておくとよい。",
+      "tags": [
+        "API",
+        "セキュリティ",
+        "データ保持"
+      ]
+    },
+    {
+      "id": "2026-11-23-platform-opus-4-5-deprecation",
+      "date": "2026-11-23",
+      "source": "platform",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "title_ja": "Claude Opus 4.5の非推奨化を発表、2027年1月22日に提供終了",
+      "summary_ja": "Claude Opus 4.5(`claude-opus-4-5-20251101`および`claude-opus-4-5`)の非推奨化が発表された。Claude APIでの提供終了は2027年1月22日の予定で、Claude Opus 5.5への移行が推奨されている。他のプラットフォームでの日程はModel deprecationsのページで確認できる。",
+      "usage_example_ja": "コードや設定ファイルに`claude-opus-4-5`を指定している箇所がないか検索し、1月22日より前にOpus 5.5へ切り替えて動作確認しておくと、提供終了後に定期処理が止まる事態を防げる。",
+      "tags": [
+        "API",
+        "モデル",
+        "非推奨"
+      ]
+    },
     {
       "id": "2026-11-20-claude-apps-mobile-refresh",
       "date": "2026-11-20",
