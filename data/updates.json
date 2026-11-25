@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-24T09:00:00+09:00",
+  "last_checked": "2026-11-25T09:00:00+09:00",
   "sources": [
     {
       "key": "platform",
@@ -27,6 +27,48 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-24-claude-apps-monthly-recap-ga",
+      "date": "2026-11-24",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "月次振り返り(Monthly recap)が正式提供に",
+      "summary_ja": "設定内の「Reflect」から利用できる月次の振り返り機能がベータを終え、Web・Claude Desktop・iOS/AndroidでFree・Pro・Max・Ultraプラン向けに一般提供された。振り返りにはClaude Codeのセッションやクラウド上のCoworkタスクも含められるようになり、保存された振り返りは削除できる。",
+      "usage_example_ja": "週5〜10時間で回す個人開発なら、月末に振り返りを開いて、その月にClaude CodeやCoworkで何に時間を使ったかをざっと確認し、翌月の優先順位づけの材料にできる。",
+      "tags": [
+        "Claudeアプリ",
+        "振り返り",
+        "GA"
+      ]
+    },
+    {
+      "id": "2026-11-24-claude-apps-install-artifacts-as-apps",
+      "date": "2026-11-24",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "アーティファクトをデスクトップアプリとしてインストール可能に(ベータ)",
+      "summary_ja": "Claudeが作成したアーティファクトを、MacまたはWindowsのコンピューターにアプリとしてインストールできるようになった。インストールしたアーティファクトは独自のウィンドウとアイコンを持つ。機能はベータ提供。",
+      "usage_example_ja": "Claudeに作らせた簡易ダッシュボードや入力フォームなどをアプリとして入れておけば、ブラウザのタブを探さずにすぐ開ける。個人で日常的に使う小さな業務ツールの置き場として試せる。",
+      "tags": [
+        "アーティファクト",
+        "デスクトップ",
+        "ベータ"
+      ]
+    },
+    {
+      "id": "2026-11-24-claude-apps-connected-app-files",
+      "date": "2026-11-24",
+      "source": "claude-apps",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "title_ja": "接続アプリとのファイル送受信に対応(ベータ)",
+      "summary_ja": "Claudeが接続済みのアプリにファイルを送ったり、アプリが提供するファイルを保存したりできるようになった。Pro・Max・Ultraプランではベータとして段階的に展開され、Team・Enterpriseプランではオーナーが有効化した場合に利用できる。",
+      "usage_example_ja": "Claudeとの会話で作った資料やデータを、接続済みのストレージや業務アプリへ直接渡せるため、手動でダウンロードして再アップロードする手間を減らせる可能性がある。",
+      "tags": [
+        "コネクタ",
+        "ファイル",
+        "ベータ"
+      ]
+    },
     {
       "id": "2026-11-23-claude-code-v2-1-331",
       "date": "2026-11-23",
